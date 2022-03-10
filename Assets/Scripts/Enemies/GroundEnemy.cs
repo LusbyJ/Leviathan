@@ -4,11 +4,6 @@ using UnityEngine;
 
 public class GroundEnemy : Enemy
 {
-    public float speed;
-	
-	private float health;
-	private float level;
-	
 	// Start is called before the first frame update
     void Start()
     {
@@ -18,8 +13,10 @@ public class GroundEnemy : Enemy
     // Update is called once per frame
     void Update()
     {
-        
+        updateTimer(Time.deltaTime);
+		if(getTimer() <= 0){
+			move();
+			resetTimer();
+		}
     }
-	
-	public void setLevel(float newLevel){ level = newLevel; }
 }

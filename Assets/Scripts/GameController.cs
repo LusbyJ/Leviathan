@@ -20,7 +20,7 @@ public class GameController : MonoBehaviour
         round = 1;
 		credits = 5;
 		currEnemies = new List<Enemy>();
-		currEnemies.Add(spawnPoints[0].spawnEnemyType(0));
+		StartCoroutine(round1());
     }
 
     // Update is called once per frame
@@ -37,4 +37,20 @@ public class GameController : MonoBehaviour
     }
 	
 	private void updateRound(){ round++; }
+	
+	private void spawnEnemy(int spawn, int type){ 
+		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(type)); 
+	}
+	
+	private IEnumerator round1(){
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[34].spawnEnemyType(0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[35].spawnEnemyType(0));
+	}
 }
