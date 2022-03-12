@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6188480596903116024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1033, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3567885746526818239}
@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stackObject: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
-  rotation: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0.007, z: 0}
+  rotation: {x: 45, y: 0, z: 0}
+  offset: {x: 0, y: 0.01, z: 0}
   orderInLayer: 0
   partList: []
 --- !u!114 &1556377289457853491
