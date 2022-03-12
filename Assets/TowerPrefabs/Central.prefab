@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3317730252862008175}
   - component: {fileID: 1762555336865602954}
   - component: {fileID: 8625541193884269262}
+  - component: {fileID: 3253823645479699122}
   m_Layer: 0
   m_Name: Central
   m_TagString: Tower
@@ -112,3 +113,50 @@ MonoBehaviour:
   attackTime: 0
   cost: 0
   projectile: {fileID: 0}
+--- !u!60 &3253823645479699122
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7363290045169929862}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.76, y: 0.72}
+    newSize: {x: 0.76, y: 0.72}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.07803574, y: 0.25989053}
+      - {x: -0.08577601, y: 0.25777712}
+      - {x: -0.15651011, y: 0.17371748}
+      - {x: -0.30433142, y: 0.16779037}
+      - {x: -0.39711198, y: 0.056884594}
+      - {x: -0.37421906, y: -0.015949875}
+      - {x: -0.3211589, y: -0.05165834}
+      - {x: -0.3822355, y: -0.08343726}
+      - {x: -0.38692358, y: -0.07823442}
+      - {x: -0.3908768, y: -0.16865805}
+      - {x: -0.2797726, y: -0.27689028}
+      - {x: -0.15159407, y: -0.27582553}
+      - {x: -0.071768016, y: -0.36488914}
+      - {x: 0.07570441, y: -0.36459234}
+      - {x: 0.15732236, y: -0.27932915}
+      - {x: 0.29967847, y: -0.27916747}
+      - {x: 0.38977826, y: -0.193104}
+      - {x: 0.3872095, y: -0.107308924}
+      - {x: 0.32802072, y: -0.043685056}
+      - {x: 0.39711204, y: 0.063104}
+      - {x: 0.30034888, y: 0.1729208}
+      - {x: 0.15844227, y: 0.17466174}
