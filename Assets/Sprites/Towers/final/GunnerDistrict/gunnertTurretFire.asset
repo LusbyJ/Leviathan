@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: gunnertTurretFire
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 729768314158544124, guid: 85615cc201075304b87092b5335179f1, type: 3}
+  - {fileID: 2405171308266895853, guid: 85615cc201075304b87092b5335179f1, type: 3}
+  - {fileID: -4550447597030394793, guid: 85615cc201075304b87092b5335179f1, type: 3}
+  - {fileID: 510880946623032793, guid: 85615cc201075304b87092b5335179f1, type: 3}
+  - {fileID: 8641625802177251684, guid: 85615cc201075304b87092b5335179f1, type: 3}
+  - {fileID: -2217380756335089043, guid: 85615cc201075304b87092b5335179f1, type: 3}

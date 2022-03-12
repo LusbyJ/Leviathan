@@ -12,7 +12,7 @@ public class displayObject : MonoBehaviour
     public List<GameObject> partList;
     void GenerateStack()
     {
-        
+
         GameObject parts = new GameObject("Parts");
         parts.transform.parent = transform;
         parts.transform.localPosition = Vector3.zero;
@@ -23,11 +23,11 @@ public class displayObject : MonoBehaviour
             sp.sprite = stackObject.stack[i];
             stackPart.transform.parent = parts.transform;
             stackPart.transform.position = Vector3.zero;
-           
+
             partList.Add(stackPart);
         }
     }
-    
+
     void Start()
     {
         GenerateStack();
@@ -41,8 +41,9 @@ public class displayObject : MonoBehaviour
             part.transform.localPosition = v;
             v += offset;
             part.transform.localRotation = Quaternion.Euler(rotation);
-            
-            part.GetComponent<SpriteRenderer>().sortingOrder = s;
+            SpriteRenderer sp=part.GetComponent<SpriteRenderer>();
+            sp.sprite=stackObject.stack[s];
+            sp.sortingOrder = s;
             s += 1;
         }
     }

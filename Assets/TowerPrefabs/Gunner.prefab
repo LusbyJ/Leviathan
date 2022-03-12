@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stackObject: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
   rotation: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0.02, z: 0}
+  offset: {x: 0, y: 0.007, z: 0}
   orderInLayer: 0
   partList: []
 --- !u!114 &1556377289457853491
@@ -62,6 +62,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Display: {fileID: 0}
+  baseStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
+  fireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
 --- !u!1 &9213127437140424177
 GameObject:
   m_ObjectHideFlags: 0

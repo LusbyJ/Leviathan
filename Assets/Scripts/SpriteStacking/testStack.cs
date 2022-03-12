@@ -5,6 +5,8 @@ using UnityEngine;
 public class testStack : MonoBehaviour
 {
     public displayObject Display;
+    public stackobject baseStack;
+    public stackobject fireStack;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,5 +17,10 @@ public class testStack : MonoBehaviour
     void FixedUpdate()
     {
       Display.rotation.z++;
+      if(Input.GetKey("space")){
+        Display.stackObject=fireStack;
+      }else{
+        Display.stackObject=baseStack;
+      }
     }
 }
