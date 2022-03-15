@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: sniperTurret
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: -7627819191866995224, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: -3204378973150756632, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: -2496896242779019915, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: -8618887537795532009, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: -8413370820732960543, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: 5626237240675328758, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
+  - {fileID: 3661435221361237583, guid: 6a5b920a2aad6804a93723ba08bbd3ea, type: 3}
