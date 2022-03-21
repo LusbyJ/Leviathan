@@ -9,12 +9,12 @@ public class PopUp : MonoBehaviour
     
     public void popUp()
     {
-        if(a == false)
+        if (clicked == false)
         {
             clicked = true;
             canvas.enabled = true;
         }
-        else if(a == true)
+        else if (clicked == true)
         {
             clicked = false;
             canvas.enabled = false;
