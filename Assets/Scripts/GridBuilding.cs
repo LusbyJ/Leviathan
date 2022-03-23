@@ -11,6 +11,9 @@ public class GridBuilding : MonoBehaviour
     public Tilemap mainTilemap;
     public Tilemap tempTilemap;
 
+    RaycastHit hit;
+    Ray ray;
+
     private static Dictionary<TileType, TileBase> tileBases = new Dictionary<TileType, TileBase>();
 
     private BuildTower temp;
@@ -24,10 +27,11 @@ public class GridBuilding : MonoBehaviour
         current = this;
     }
 
+    //Add tiles types to the dictionary
     private void Start()
     {
-        string tilePath = @"TileMaps\Tiles\";
-        tileBases.Add(TileType.EMPTY, null);
+        string tilePath = @"Tiles\";
+        tileBases.Add(TileType.EMPTY, Resources.Load<TileBase>(tilePath + "EMPTY"));
         tileBases.Add(TileType.WHITE, Resources.Load<TileBase>(tilePath + "WHITE"));
         tileBases.Add(TileType.RED, Resources.Load<TileBase>(tilePath + "RED"));
         tileBases.Add(TileType.GREEN, Resources.Load<TileBase>(tilePath + "GREEN"));
@@ -61,14 +65,7 @@ public class GridBuilding : MonoBehaviour
                 }
             }
         }
-
-        else if(Input.GetKeyDown(KeyCode.Space))
-        {
-            if(temp.CanBePlaced())
-            {
-                temp.Place();
-            }
-        }
+        //Destroy tower if you change your mind when palcing
         else if(Input.GetKeyDown(KeyCode.Escape))
         {
             ClearArea();
@@ -138,9 +135,10 @@ public class GridBuilding : MonoBehaviour
         int size = baseArray.Length;
         TileBase[] tileArray = new TileBase[size];
 
+
         for(int i = 0; i < baseArray.Length; i++)
         {
-            if(baseArray[i] == tileBases[TileType.WHITE])
+            if(baseArray[i] == tileBases[TileType.EMPTY])
             {
                 tileArray[i] = tileBases[TileType.GREEN];
             }

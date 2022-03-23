@@ -17,6 +17,7 @@ public class BuildTower : MonoBehaviour
 
     #region Build Methods
 
+    //Checks if selected area can be built on
     public bool CanBePlaced()
     {
         Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
@@ -30,6 +31,7 @@ public class BuildTower : MonoBehaviour
         return false;
     }
 
+    //Build Tower on selected region
     public void Place()
     {
         Vector3Int positionInt = GridBuilding.current.gridLayout.LocalToCell(transform.position);
