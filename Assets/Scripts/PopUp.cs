@@ -5,18 +5,21 @@ using UnityEngine;
 public class PopUp : MonoBehaviour
 {
     public Canvas canvas;
-    public bool clicked = false;
-    
+    public bool clicked;
+
+    void Start() { }
+
     public void popUp()
     {
-        if (clicked == false)
+        Debug.Log(clicked);
+        if (clicked == true)
         {
-            clicked = true;
             canvas.enabled = true;
-        }
-        else if (clicked == true)
-        {
             clicked = false;
+        }
+        else if (clicked == false)
+        {
+            clicked = clicked = true; 
             canvas.enabled = false;
         }
     }
