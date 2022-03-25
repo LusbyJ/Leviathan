@@ -4181,13 +4181,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AssetsPPU: 100
-  m_RefResolutionX: 960
-  m_RefResolutionY: 480
+  m_AssetsPPU: 200
+  m_RefResolutionX: 1920
+  m_RefResolutionY: 1080
   m_UpscaleRT: 0
   m_PixelSnapping: 1
-  m_CropFrameX: 1
-  m_CropFrameY: 1
+  m_CropFrameX: 0
+  m_CropFrameY: 0
   m_StretchFill: 1
 --- !u!81 &1665067308
 AudioListener:
@@ -48565,7 +48565,7 @@ TilemapRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ae5b2166ad5d34d49858abe8132ae2b0, type: 2}
+  - {fileID: 2100000, guid: a5cb45427238cd149928e59618183a0e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -48754,9 +48754,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63ff5ad332cd93640836393f32a5487d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridLayout: {fileID: 1885287073}
-  mainTilemap: {fileID: 1773400931}
-  tempTilemap: {fileID: 77609798}
 --- !u!156049354 &1885287073
 Grid:
   m_ObjectHideFlags: 0
