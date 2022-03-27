@@ -31,6 +31,8 @@ public class Enemy : MonoBehaviour
 	
 	public void updateTimer(float delta){ timer -= delta; }
 	
+	public void resetTimer(){ timer = speed; }
+	
 	public void takeDamage(float damage){
 		health -= damage;
 		if(health <= 0){ dead = true; }

@@ -39,18 +39,19 @@ public class GameController : MonoBehaviour
 	private void updateRound(){ round++; }
 	
 	private void spawnEnemy(int spawn, int type){ 
-		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(type)); 
+		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type)); 
 	}
 	
+	//37, 34, 36, 37, 35
 	private IEnumerator round1(){
-		currEnemies.Add(spawnPoints[37].spawnEnemyType(0));
-		yield return new WaitForSeconds(1);
-		currEnemies.Add(spawnPoints[34].spawnEnemyType(0));
-		yield return new WaitForSeconds(1);
-		currEnemies.Add(spawnPoints[36].spawnEnemyType(0));
-		yield return new WaitForSeconds(1);
-		currEnemies.Add(spawnPoints[37].spawnEnemyType(0));
-		yield return new WaitForSeconds(1);
-		currEnemies.Add(spawnPoints[35].spawnEnemyType(0));
+		currEnemies.Add(spawnPoints[0].spawnEnemyType(0, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[1].spawnEnemyType(1, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[2].spawnEnemyType(2, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[3].spawnEnemyType(3, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[4].spawnEnemyType(4, 0));
 	}
 }

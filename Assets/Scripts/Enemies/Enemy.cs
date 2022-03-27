@@ -2,11 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public abstract class Enemy : MonoBehaviour
 {
     public float speed;
 	public float tileDist;
+	public Transform centralTower;
+	public bool moving;
 	
+	public Rigidbody2D rb;
+	private	Vector3 movement;
 	private float health;
 	private float level;
 	private bool dead;
@@ -15,15 +19,21 @@ public class Enemy : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
-        dead = false;
-		timer = speed;
+        rb = this.GetComponent<Rigidbody2D>();
+		moving = true;
+		dead = false;
+		timer = 1;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
     }
+	
+	void FixedUpdate(){
+        //Debug.Log(movement);
+		moveEnemy(movement);
+	}
 	
 	public void setLevel(float newLevel){ level = newLevel; }
 	
@@ -38,27 +48,19 @@ public class Enemy : MonoBehaviour
 		if(health <= 0){ dead = true; }
 	}
 	
+	private void moveEnemy(Vector3 direction){
+		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+	}
+	
 	public bool isDead(){ return dead; }
 	
 	public void move(){
 		Vector3 direction;
-		if(transform.position.y < 0){
-			if(transform.position.x == 0){
-				direction = new Vector3(0, 1, 0);
-			} else if(transform.position.x < 0){
-				direction = new Vector3(0.5f, 0.5f, 0);
-			} else {
-				direction = new Vector3(-0.5f, 0.5f, 0);
-			}
-		} else{
-			if(transform.position.x == 0){
-				direction = new Vector3(0, -1, 0);
-			} else if(transform.position.x < 0){
-				direction = new Vector3(0.5f, -0.5f, 0);
-			} else {
-				direction = new Vector3(-0.5f, -0.5f, 0);
-			}
-		}
-		transform.position += direction;
+		if(moving){ direction = centralTower.position - transform.position; }
+		else{ direction = new Vector3(0, 0, 0); }
+		direction.Normalize();
+		movement = direction;
 	}
+	
+	public abstract void attack();
 }

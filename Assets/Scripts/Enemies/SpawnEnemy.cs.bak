@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnEnemy : MonoBehaviour
 {
-    public GameObject[] enemies;
+    public Enemy[] enemies;
 	
 	// Start is called before the first frame update
     void Start()
@@ -19,7 +19,7 @@ public class SpawnEnemy : MonoBehaviour
     }
 	
 	public Enemy spawnEnemyType(int type){
-		GameObject enemy = Instantiate(enemies[type], transform.position, Quaternion.identity);
+		Enemy enemy = Instantiate(enemies[type], transform.position, Quaternion.identity);
         enemy.transform.parent = transform;
 		return (Enemy)enemy;
 	}

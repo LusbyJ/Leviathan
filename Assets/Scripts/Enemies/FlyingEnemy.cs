@@ -15,4 +15,6 @@ public class FlyingEnemy : Enemy
     {
         
     }
+	
+	public override void attack(){}
 }
