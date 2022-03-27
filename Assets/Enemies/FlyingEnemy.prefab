@@ -49,9 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  tileDist: 0
   centralTower: {fileID: 0}
-  moving: 0
+  moving: 1
   rb: {fileID: 3160777044372078651}
 --- !u!212 &879977253395473193
 SpriteRenderer:

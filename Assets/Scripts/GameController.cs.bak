@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class GameController : MonoBehaviour
+public class GameController : Singleton<GameController>
 {
     public SpawnEnemy[] spawnPoints;
 	public TMP_Text roundText;
@@ -42,16 +42,15 @@ public class GameController : MonoBehaviour
 		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type)); 
 	}
 	
-	//37, 34, 36, 37, 35
 	private IEnumerator round1(){
-		currEnemies.Add(spawnPoints[0].spawnEnemyType(0, 0));
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[1].spawnEnemyType(1, 0));
+		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 0));
 		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[2].spawnEnemyType(2, 0));
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
 		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[3].spawnEnemyType(3, 0));
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[4].spawnEnemyType(4, 0));
+		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 0));
 	}
 }

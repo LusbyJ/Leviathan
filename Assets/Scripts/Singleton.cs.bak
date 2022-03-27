@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlyingEnemy : Enemy
+public class Singleton : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        ground = false;
-		flying = true;
+        
     }
 
     // Update is called once per frame
@@ -16,6 +15,4 @@ public class FlyingEnemy : Enemy
     {
         
     }
-	
-	public override void attack(){}
 }

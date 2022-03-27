@@ -5,12 +5,13 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public float speed;
-	public float tileDist;
 	public Transform centralTower;
 	public bool moving;
 	
 	public Rigidbody2D rb;
 	private	Vector3 movement;
+	private bool ground;
+	private bool flying;
 	private float health;
 	private float level;
 	private bool dead;
@@ -19,21 +20,25 @@ public abstract class Enemy : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
-        rb = this.GetComponent<Rigidbody2D>();
 		moving = true;
 		dead = false;
-		timer = 1;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+		timer = 1; 
     }
 	
 	void FixedUpdate(){
-        //Debug.Log(movement);
-		moveEnemy(movement);
+		timer -= Time.deltaTime;
+		move();
 	}
+	
+	public void setHealth(float life){ health = life; }
+	
+	public void setGround(bool grounded){ ground = grounded; }
+	
+	public void setFlying(bool flies){ flying = flies; }
+	
+	public bool isGround(){ return ground; }
+	
+	public bool isFlying(){ return flying; }
 	
 	public void setLevel(float newLevel){ level = newLevel; }
 	
@@ -45,11 +50,10 @@ public abstract class Enemy : MonoBehaviour
 	
 	public void takeDamage(float damage){
 		health -= damage;
-		if(health <= 0){ dead = true; }
-	}
-	
-	private void moveEnemy(Vector3 direction){
-		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+		if(health <= 0){ 
+			dead = true;
+			GameController.instance.credits += 20;
+			}
 	}
 	
 	public bool isDead(){ return dead; }
@@ -59,8 +63,30 @@ public abstract class Enemy : MonoBehaviour
 		if(moving){ direction = centralTower.position - transform.position; }
 		else{ direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
-		movement = direction;
+		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
 	}
 	
 	public abstract void attack();
+	
+	private void OnCollisionEnter2D(Collision2D collision){
+		if(collision.gameObject.tag == "Enemy"){
+			Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
+		}
+		if(collision.gameObject.tag == "Tower" && moving){
+			moving = false;
+        }
+    }
+	
+	private void OnCollisionStay2D(Collision2D collision){
+		if(collision.gameObject.tag == "Tower" && timer <= 0){
+			collision.gameObject.GetComponent<Health>().takeDamage(1);
+			resetTimer();
+		}
+	}
+	
+	private void OnCollisionExit2D(Collision2D collision){
+		if(collision.gameObject.tag == "Tower"){
+			moving = true;
+		}
+	}
 }
