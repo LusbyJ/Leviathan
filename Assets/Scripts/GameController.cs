@@ -34,6 +34,10 @@ public class GameController : Singleton<GameController>
 				Destroy(e);
 			}
 		}
+		if(currEnemies.Count == 0){
+			updateRound();
+			if(round == 2){ StartCoroutine(round2()); }
+		}
     }
 	
 	private void updateRound(){ round++; }
@@ -52,5 +56,17 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(3);
 		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 0));
+	}
+	
+	private IEnumerator round2(){
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 1));
 	}
 }

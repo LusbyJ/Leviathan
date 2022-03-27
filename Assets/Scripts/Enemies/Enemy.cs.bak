@@ -26,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
     }
 	
 	void FixedUpdate(){
+		timer -= Time.deltaTime;
 		move();
 	}
 	
@@ -41,11 +42,9 @@ public abstract class Enemy : MonoBehaviour
 	
 	public void setLevel(float newLevel){ level = newLevel; }
 	
-	public float getTimer(){ return timer; }
-	
-	public void updateTimer(float delta){ timer -= delta; }
-	
 	public void resetTimer(){ timer = speed; }
+	
+	public bool isDead(){ return dead; }
 	
 	public void takeDamage(float damage){
 		health -= damage;
@@ -55,8 +54,6 @@ public abstract class Enemy : MonoBehaviour
 			}
 	}
 	
-	public bool isDead(){ return dead; }
-	
 	public void move(){
 		Vector3 direction;
 		if(moving){ direction = centralTower.position - transform.position; }
@@ -64,8 +61,6 @@ public abstract class Enemy : MonoBehaviour
 		direction.Normalize();
 		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
 	}
-	
-	public abstract void attack();
 	
 	private void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Enemy"){
@@ -77,8 +72,9 @@ public abstract class Enemy : MonoBehaviour
     }
 	
 	private void OnCollisionStay2D(Collision2D collision){
-		if(collision.gameObject.tag == "Tower"){
+		if(collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(1);
+			resetTimer();
 		}
 	}
 	

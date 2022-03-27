@@ -52,6 +52,7 @@ MonoBehaviour:
   centralTower: {fileID: 0}
   moving: 1
   rb: {fileID: 2045602032308940279}
+  timerInterval: 1
 --- !u!212 &275754447178986915
 SpriteRenderer:
   m_ObjectHideFlags: 0

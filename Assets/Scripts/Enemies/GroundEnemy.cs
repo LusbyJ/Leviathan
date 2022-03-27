@@ -17,6 +17,4 @@ public class GroundEnemy : Enemy
     void Update()
     {
     }
-	
-	public override void attack(){}
 }

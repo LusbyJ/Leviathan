@@ -9,6 +9,8 @@ public class FlyingEnemy : Enemy
     {
         setGround(false);
 		setFlying(true);
+		speed = 1.5f*speed;
+		setHealth(20);
     }
 
     // Update is called once per frame
@@ -16,6 +18,4 @@ public class FlyingEnemy : Enemy
     {
         
     }
-	
-	public override void attack(){}
 }
