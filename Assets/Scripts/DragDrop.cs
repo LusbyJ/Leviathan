@@ -36,10 +36,10 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Detects when click released after dragging
     public void OnEndDrag(PointerEventData eventData)
     {
-       
+
         //destroy object being dragged 
         Destroy(gameObject);
-
+       
         //Instantiate a new tower at end of drag location
         Vector2 hoverPos = Camera.main.ScreenToWorldPoint(eventData.position);
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);

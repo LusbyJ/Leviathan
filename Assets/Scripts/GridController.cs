@@ -9,8 +9,10 @@ public class GridController : MonoBehaviour
     public static GridController current;
     public GridLayout gridLayout;       //Hexagonal grid layout
     public Tilemap interactiveMap;      //TileMap to use for highlighting 
+    public Tilemap mainMap;
     public Tilemap terrain;             //TileMap used for base tiles
-    public Tile hoverTile;              //Tile to display open or occupied tiles   
+    public Tile hoverTile;              //Tile to display open or occupied tiles
+    public Tile blockedTile;
     public GameObject tower;
     
 
@@ -32,8 +34,9 @@ public class GridController : MonoBehaviour
 
             Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
-           
             
+
+
 
             /*//If grid clicked build tower
             if (Input.GetMouseButtonDown(0))
@@ -45,9 +48,17 @@ public class GridController : MonoBehaviour
 
             else
             {*/
+            if (mainMap.GetTile(cellPos) == blockedTile)
+            {
+                interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
+                interactiveMap.SetTile(cellPos, blockedTile);
+            }
+            else
+            {
+
                 interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
                 interactiveMap.SetTile(cellPos, hoverTile);     //Show new hoverTile
-             
+            }
                 previousMousePos = cellPos;
             //}
         }
