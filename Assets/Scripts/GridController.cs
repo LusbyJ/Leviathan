@@ -6,19 +6,18 @@ using UnityEngine.UIElements;
 
 public class GridController : MonoBehaviour
 {
+    private Vector3Int previousMousePos = new Vector3Int();
     public static GridController current;
     public GridLayout gridLayout;       //Hexagonal grid layout
     public Tilemap interactiveMap;      //TileMap to use for highlighting 
-    public Tilemap mainMap;
-    public Tilemap terrain;             //TileMap used for base tiles
-    public Tile hoverTile;              //Tile to display open or occupied tiles
-    public Tile blockedTile;
-    public GameObject tower;
+    public Tilemap mainMap;             //TileMap used for base tiles
+    public Tile hoverTile;              //Tile to display spaces
+    public Tile blockedTile;            //Tile to display blocked spaces
+    public GameObject tower;            //Tower being built
     
 
-    private Vector3Int previousMousePos = new Vector3Int();
     public static Vector2 buildTower;
-    public static Transform tile;
+    public static bool occupied = false;
 
     private void Awake()
     {
@@ -28,40 +27,26 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Handles setting tiles during drag and drop tower building
         if (DragDrop.building == true)
         {
-
-
             Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
+            cellPos.x += 9;
             
-
-
-
-            /*//If grid clicked build tower
-            if (Input.GetMouseButtonDown(0))
-            {
-                Instantiate(tower);
-                tower.transform.localPosition = gridLayout.CellToLocalInterpolated(cellPos
-                            + new Vector3(1f, 0f, 0f));
-            }
-
-            else
-            {*/
             if (mainMap.GetTile(cellPos) == blockedTile)
             {
                 interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
                 interactiveMap.SetTile(cellPos, blockedTile);
+                occupied = true;
             }
             else
             {
-
                 interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
                 interactiveMap.SetTile(cellPos, hoverTile);     //Show new hoverTile
+                occupied = false;
             }
                 previousMousePos = cellPos;
-            //}
-        }
-       
+        }      
     }
 }

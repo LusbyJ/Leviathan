@@ -4,16 +4,41 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-    public int health;
-    private bool hit;
+    public int health;      //Tower health  
+    private bool hit;       //indicates if hit
+    private bool dying;     //indicates if central hub is about to die
 
     //Take damage from enemies
     public void takeDamage(int damage)
     {
-        //StartCoroutine("Blink");
+        //If tower being attacked is not the central hub, blink for each hit
+        if (gameObject.name != "Central")
+        {
+            StartCoroutine("Blink");
+            StartCoroutine("BlinkTillDeath");
+        }
+
+        //If central tower being attacked and health is less than 10 blink forever
+        if (gameObject.name == "Central" && health < 10 && !dying)
+        {
+            Debug.Log("Central tower being attacked");
+            dying = true;
+            InvokeRepeating("BlinkTillDeath", 0, 0.1f);
+
+        }
+
+        //Take damage
         health -= damage;
+
+        //If health is depleted Die
         if (health <= 0)
-            Die();
+        {
+            if (gameObject.name == "Central")
+                Die(); //Put gameover here
+
+            else
+                Die();
+        }
     }
 
     //Used by the Medical District to heal towers
@@ -22,22 +47,20 @@ public class Health : MonoBehaviour
         health += healthPickup;
     }
 
-    //Destroy tower if health depleted
+    //Destroy tower
     void Die()
     {
         Destroy(gameObject);
     }
 
-    /*
-    Tower flashes when hit, iframes initiated 
-    ----This can be implemented if needed---
-    
+
+    //CoRoutine to blink when hit
     private IEnumerator Blink()
     {
         hit = true;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 2; i++)
         {
-            GetComponent<Renderer>().material.color = Color.clear;
+            GetComponent<Renderer>().material.color = Color.red;
             yield return new WaitForSeconds(0.1f);
             GetComponent<Renderer>().material.color = Color.white;
             yield return new WaitForSeconds(0.1f);
@@ -45,6 +68,20 @@ public class Health : MonoBehaviour
         hit = false;
         StopCoroutine("Blink");
     }
-    */
 
+    //Repeating function whwn tower is dying
+    private void BlinkTillDeath()
+    {
+        //Blink to red
+        if (GetComponent<Renderer>().material.color == Color.white)
+        {
+            GetComponent<Renderer>().material.color = Color.red;
+        }
+        //Blink to white
+        else
+        {
+            GetComponent<Renderer>().material.color = Color.white;
+        }
+    }
+   
 }
