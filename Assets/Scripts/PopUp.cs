@@ -11,7 +11,7 @@ public class PopUp : MonoBehaviour
 
     public void popUp()
     {
-        Debug.Log(clicked);
+        //Bring up pop up menu based on button clicks
         if (clicked == true)
         {
             canvas.enabled = true;

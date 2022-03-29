@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
@@ -10,6 +11,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     private RectTransform rectTransform;
     private Transform buildTower;
     private Vector3 mousePos;
+    public Image image;
     public GameController gameController;
     public GridLayout gridLayout;           //Hexagonal grid layout
     public GameObject tower;                //Tower to be built
@@ -18,7 +20,23 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     
     void Start() 
     {
-        
+        image = GetComponent<Image>();
+    }
+    void Update()
+    {
+        //Grey-out towers if there is not enough credits to build
+        if(tower.GetComponent<Tower>().cost > gameController.GetComponent<GameController>().credits)
+        {
+            var tempColor = image.color;
+            tempColor.a = 0.5f;
+            image.color = tempColor;
+        }
+        else if(tower.GetComponent<Tower>().cost <= gameController.GetComponent<GameController>().credits)
+        {
+            var tempColor = image.color;
+            tempColor.a = 1f;
+            image.color = tempColor;
+        }
     }
 
     private void Awake()
@@ -29,7 +47,15 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Detect when clicked and dragging begins
     public void OnBeginDrag(PointerEventData eventData)
     {
-        building = true;
+        //If not enough credits don't start building actions
+        if (gameController.GetComponent<GameController>().credits >= tower.GetComponent<Tower>().cost)
+        {
+            building = true;
+        }
+        else
+        {
+            building = false;
+        }
     }
 
     //Handles position while being dragged
@@ -45,7 +71,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
 
         //Instantiate a new tower at end of drag location
-        if (!GridController.occupied)
+        if (!GridController.occupied && building == true)
         {
             cellPos.x += 1;
             Instantiate(tower, gridLayout.CellToLocal(cellPos), Quaternion.identity);
