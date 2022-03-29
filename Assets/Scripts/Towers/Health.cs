@@ -58,7 +58,7 @@ public class Health : MonoBehaviour
     //CoRoutine to blink when hit
     private IEnumerator Blink()
     {
-        hit = true;
+        //hit = true;
         for (int i = 0; i < 2; i++)
         {
             GetComponent<Renderer>().material.color = Color.red;
@@ -66,7 +66,7 @@ public class Health : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.white;
             yield return new WaitForSeconds(0.1f);
         }
-        hit = false;
+        //hit = false;
         StopCoroutine("Blink");
     }
 

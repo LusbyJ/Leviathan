@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4168992079030493383}
   - component: {fileID: 7281344908700385788}
   - component: {fileID: 1634809219401510323}
+  - component: {fileID: 2324028006574769963}
   m_Layer: 0
   m_Name: DroneTower
   m_TagString: Tower
@@ -71,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 131416539
+  m_SortingLayer: 1
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 3bb2f47372e898d41a25514bcb928bc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -146,3 +147,19 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.25}
       - {x: 0.16, y: -0.19999999}
       - {x: 0.07, y: -0.11}
+--- !u!114 &2324028006574769963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198363401410674453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ecf8993e78cdc740bc0dc599dfb5493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  gridLayout: {fileID: 0}
+  tower: {fileID: 0}
+  spot: {fileID: 0}

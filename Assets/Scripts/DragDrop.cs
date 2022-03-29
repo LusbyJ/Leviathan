@@ -10,12 +10,16 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     private RectTransform rectTransform;
     private Transform buildTower;
     private Vector3 mousePos;
+    public GameController gameController;
     public GridLayout gridLayout;           //Hexagonal grid layout
     public GameObject tower;                //Tower to be built
     public RectTransform spot;              //Spot on pop up canvas
     public static bool building = false;    //holds if building
     
-    void Start() { }
+    void Start() 
+    {
+        
+    }
 
     private void Awake()
     { 
@@ -25,28 +29,34 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Detect when clicked and dragging begins
     public void OnBeginDrag(PointerEventData eventData)
     {
-        //Debug.Log("OnBeginDrag");
+        building = true;
     }
 
     //Handles position while being dragged
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        
     }
 
     //Detects when click released after dragging
     public void OnEndDrag(PointerEventData eventData)
     {
+        Vector2 hoverPos = Camera.main.ScreenToWorldPoint(eventData.position);
+        Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
+
         //Instantiate a new tower at end of drag location
         if (!GridController.occupied)
         {
-            Vector2 hoverPos = Camera.main.ScreenToWorldPoint(eventData.position);
-            Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
             cellPos.x += 1;
-            
-            //destroy object being dragged 
-            Destroy(gameObject);
             Instantiate(tower, gridLayout.CellToLocal(cellPos), Quaternion.identity);
+            cellPos.x += 8;
+            gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
+            gridLayout.GetComponent<GridController>().occupyTile(cellPos);
+        }
+        else
+        {
+            cellPos.x += 9;
+            gridLayout.GetComponent<GridController>().ResetTile(cellPos);      
         }
         building = false;
     }
@@ -54,7 +64,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Detects when clicked
     public void OnPointerDown(PointerEventData eventData)
     {
-        //Debug.Log("Slot pressed");
-        building = true;
+     
     }
 }

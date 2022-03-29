@@ -49,4 +49,15 @@ public class GridController : MonoBehaviour
                 previousMousePos = cellPos;
         }      
     }
+    
+    public void ResetTile(Vector3Int cellPos)
+    {
+        interactiveMap.SetTile(cellPos, null);     
+        occupied = false;
+    }
+
+    public void occupyTile(Vector3Int cellPos)
+    {
+        mainMap.SetTile(cellPos, blockedTile);
+    }
 }

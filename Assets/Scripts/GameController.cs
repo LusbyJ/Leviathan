@@ -40,6 +40,12 @@ public class GameController : Singleton<GameController>
 		}
     }
 	
+	public void reduceCredits(float cost)
+    {
+		credits -= cost;
+    }
+
+
 	private void updateRound(){ round++; }
 	
 	private void spawnEnemy(int spawn, int type){ 

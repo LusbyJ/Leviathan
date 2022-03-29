@@ -507,9 +507,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 6705512431368553355, guid: dfd1b3c14917eb34888a12c59f5652f2, type: 3}
-  spot: {fileID: 217442516}
+  spot: {fileID: 0}
 --- !u!114 &217442518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,7 +633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 15
+  m_text: 25
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -847,6 +848,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 9213127437140424177, guid: b08da6b4f981b7442870891bc9981930, type: 3}
   spot: {fileID: 0}
@@ -1999,7 +2001,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 30
+  m_text: 50
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -4541,6 +4543,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 3198363401410674453, guid: c6fe79291606e3344a29b26674867dd9, type: 3}
   spot: {fileID: 0}
@@ -49644,7 +49647,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1885287074}
   - component: {fileID: 1885287073}
-  - component: {fileID: 1885287072}
   - component: {fileID: 1885287075}
   m_Layer: 0
   m_Name: Grid
@@ -49653,18 +49655,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1885287072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1885287071}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 63ff5ad332cd93640836393f32a5487d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!156049354 &1885287073
 Grid:
   m_ObjectHideFlags: 0
