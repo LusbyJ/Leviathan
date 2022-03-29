@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -15,13 +16,11 @@ public class Health : MonoBehaviour
         if (gameObject.name != "Central")
         {
             StartCoroutine("Blink");
-            StartCoroutine("BlinkTillDeath");
         }
 
         //If central tower being attacked and health is less than 10 blink forever
         if (gameObject.name == "Central" && health < 10 && !dying)
         {
-            Debug.Log("Central tower being attacked");
             dying = true;
             InvokeRepeating("BlinkTillDeath", 0, 0.1f);
 
@@ -33,11 +32,7 @@ public class Health : MonoBehaviour
         //If health is depleted Die
         if (health <= 0)
         {
-            if (gameObject.name == "Central")
-                Die(); //Put gameover here
-
-            else
-                Die();
+           Die();
         }
     }
 
@@ -50,6 +45,12 @@ public class Health : MonoBehaviour
     //Destroy tower
     void Die()
     {
+        if (gameObject.name == "Central")
+        {
+            Debug.Log("Made it to next scene");
+            //CancelInvoke("BlinkTillDeath");
+            SceneManager.LoadScene("GameOver");
+        }
         Destroy(gameObject);
     }
 
