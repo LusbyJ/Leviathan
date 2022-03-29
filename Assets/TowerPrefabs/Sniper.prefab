@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6834215607397897908}
   - component: {fileID: 6573581674032539373}
   - component: {fileID: -4618618457553244681}
-  - component: {fileID: 8613352873355439264}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Tower
@@ -80,7 +79,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 9e7ed40aa707fad49bb32da7956bc164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -153,21 +152,6 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.25}
       - {x: 0.16, y: -0.19999999}
       - {x: 0.07, y: -0.11}
---- !u!114 &8613352873355439264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6705512431368553355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 338e82676cca58c4f89227e09d0e4df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  area:
-    m_Position: {x: 0, y: 0, z: 0}
-    m_Size: {x: 1, y: 1, z: 1}
 --- !u!1 &8428318497393006754
 GameObject:
   m_ObjectHideFlags: 0
