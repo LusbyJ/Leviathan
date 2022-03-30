@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;   //Tower Max Health
+    public int maxHealth=100;   //Tower Max Health
     [HideInInspector]
     public int health;      //Tower health
     private bool hit;       //indicates if hit
