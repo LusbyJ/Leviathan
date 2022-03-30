@@ -507,6 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 6705512431368553355, guid: dfd1b3c14917eb34888a12c59f5652f2, type: 3}
@@ -848,6 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 9213127437140424177, guid: b08da6b4f981b7442870891bc9981930, type: 3}
@@ -4543,6 +4545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 1575689957}
+  image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
   tower: {fileID: 3198363401410674453, guid: c6fe79291606e3344a29b26674867dd9, type: 3}

@@ -5,10 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int health;      //Tower health  
+    public int maxHealth;   //Tower Max Health
+    [HideInInspector]
+    public int health;      //Tower health
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
 
+
+    void Start(){
+      health=maxHealth;
+    }
     //Take damage from enemies
     public void takeDamage(int damage)
     {
@@ -40,6 +46,7 @@ public class Health : MonoBehaviour
     public void gainHealth(int healthPickup)
     {
         health += healthPickup;
+        health=Mathf.Min(health,maxHealth);
     }
 
     //Destroy tower
@@ -84,5 +91,5 @@ public class Health : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.white;
         }
     }
-   
+
 }
