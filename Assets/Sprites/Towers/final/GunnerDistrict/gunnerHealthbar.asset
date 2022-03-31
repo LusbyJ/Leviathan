@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: gunnerHealthbar
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: -2579390505087835917, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -2039293828256930887, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -6004355968284458582, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -328450875558113661, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -3653593796332750081, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 4162275550281037267, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -1862074528851634021, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -6763724531232181951, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 7349959912577712432, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 166531127635929794, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: -5685433007046400570, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 2548630168825832300, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 4087866480246235067, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
+  - {fileID: 886475938650916174, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
