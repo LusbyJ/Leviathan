@@ -37,6 +37,10 @@ public class GameController : Singleton<GameController>
 		if(currEnemies.Count == 0){
 			updateRound();
 			if(round == 2){ StartCoroutine(round2()); }
+			else if(round == 3){ StartCoroutine(round3()); }
+			else if(round == 4){ StartCoroutine(round4()); }
+			else if(round == 5){ StartCoroutine(round5()); }
+			else if(round == 6){ round6(); }
 		}
     }
 	
@@ -74,5 +78,51 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
 		yield return new WaitForSeconds(3);
 		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 1));
+	}
+	
+	private IEnumerator round3(){
+		currEnemies.Add(spawnPoints[5].spawnEnemyType(5, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[5].spawnEnemyType(5, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
+	}
+	
+	private IEnumerator round4(){
+		currEnemies.Add(spawnPoints[29].spawnEnemyType(29, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[21].spawnEnemyType(21, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[25].spawnEnemyType(25, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[29].spawnEnemyType(29, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[21].spawnEnemyType(21, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[25].spawnEnemyType(25, 1));
+	}
+	
+	private IEnumerator round5(){
+		currEnemies.Add(spawnPoints[38].spawnEnemyType(38, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[16].spawnEnemyType(16, 1));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 0));
+		yield return new WaitForSeconds(3);
+		currEnemies.Add(spawnPoints[18].spawnEnemyType(18, 1));
+	}
+	
+	private void round6(){
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 2));
 	}
 }

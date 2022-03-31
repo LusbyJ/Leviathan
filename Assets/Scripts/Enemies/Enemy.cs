@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
 	public Animator animator;
 	
 	private	Vector3 movement;
+	private int power;
 	private bool ground;
 	private bool flying;
 	private float health;
@@ -34,6 +35,8 @@ public abstract class Enemy : MonoBehaviour
 	
 	public void setHealth(float life){ health = life; }
 	
+	public void setPower(int damage){ power = damage; }
+	
 	public void setGround(bool grounded){ ground = grounded; }
 	
 	public void setFlying(bool flies){ flying = flies; }
@@ -49,11 +52,12 @@ public abstract class Enemy : MonoBehaviour
 	public bool isDead(){ return dead; }
 	
 	public void takeDamage(float damage){
+		StartCoroutine(blink());
 		health -= damage;
 		if(health <= 0){ 
 			dead = true;
 			GameController.instance.credits += 20;
-			}
+		}
 	}
 	
 	public void move(){
@@ -63,6 +67,12 @@ public abstract class Enemy : MonoBehaviour
 		direction.Normalize();
 		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
 		animator.SetBool("moving", moving);
+	}
+	
+	private IEnumerator blink(){
+		GetComponent<Renderer>().material.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<Renderer>().material.color = Color.white;
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision){
@@ -76,7 +86,7 @@ public abstract class Enemy : MonoBehaviour
 	
 	private void OnCollisionStay2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
-			collision.gameObject.GetComponent<Health>().takeDamage(1);
+			collision.gameObject.GetComponent<Health>().takeDamage(power);
 			resetTimer();
 		}
 	}
