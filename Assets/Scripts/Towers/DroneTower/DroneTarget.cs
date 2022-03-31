@@ -41,15 +41,17 @@ public class DroneTarget : MonoBehaviour
         }
         if(Target==Owner){
           float TargetDist=Summoner.LeashRange;
-          FlyingEnemy[] PotentialFoes = FindObjectsOfType(typeof(FlyingEnemy)) as FlyingEnemy[];
-          foreach(FlyingEnemy foeScr in PotentialFoes)
+          Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
+          foreach(Enemy foeScr in PotentialFoes)
           {
-              GameObject foe=foeScr.gameObject;
-              Vector2 FoeVector=new Vector2(Owner.transform.position.x,Owner.transform.position.y)-new Vector2(foe.transform.position.x,foe.transform.position.y);
-              float FoeDist=FoeVector.magnitude;
-              if(FoeDist<TargetDist){
-                Target=foe;
-                TargetDist=FoeDist;
+              if(foeScr.isFlying()){
+                GameObject foe=foeScr.gameObject;
+                Vector2 FoeVector=new Vector2(Owner.transform.position.x,Owner.transform.position.y)-new Vector2(foe.transform.position.x,foe.transform.position.y);
+                float FoeDist=FoeVector.magnitude;
+                if(FoeDist<TargetDist){
+                  Target=foe;
+                  TargetDist=FoeDist;
+                }
               }
           }
         }
