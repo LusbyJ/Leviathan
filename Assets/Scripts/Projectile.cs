@@ -18,6 +18,7 @@ public class Projectile : MonoBehaviour
           Destroy(gameObject);
         }else{
           transform.position=Vector3.Lerp(StartPosition,Target.transform.position,LerpVal);
+          transform.eulerAngles=new Vector3(0,0,Vector2.Angle(Vector2.right,StartPosition-Target.transform.position));
         }
       }else{
         Destroy(gameObject);

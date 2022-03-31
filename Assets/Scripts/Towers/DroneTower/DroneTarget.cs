@@ -40,10 +40,9 @@ public class DroneTarget : MonoBehaviour
           }
         }
         if(Target==Owner){
-          Debug.Log("Searching For Foe!");
           float TargetDist=Summoner.LeashRange;
-          GroundEnemy[] PotentialFoes = FindObjectsOfType(typeof(GroundEnemy)) as GroundEnemy[];
-          foreach(GroundEnemy foeScr in PotentialFoes)
+          FlyingEnemy[] PotentialFoes = FindObjectsOfType(typeof(FlyingEnemy)) as FlyingEnemy[];
+          foreach(FlyingEnemy foeScr in PotentialFoes)
           {
               GameObject foe=foeScr.gameObject;
               Vector2 FoeVector=new Vector2(Owner.transform.position.x,Owner.transform.position.y)-new Vector2(foe.transform.position.x,foe.transform.position.y);
