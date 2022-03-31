@@ -8,6 +8,7 @@ public class displayObject : MonoBehaviour
     public Vector3 rotation;
     public Vector3 offset = new Vector3(0, 0.05f, 0);
     public int orderInLayer = 0;
+    public string StackSortingLayerName="Towers";
 
     public List<GameObject> partList;
     void GenerateStack()
@@ -44,6 +45,7 @@ public class displayObject : MonoBehaviour
             SpriteRenderer sp=part.GetComponent<SpriteRenderer>();
             sp.sprite=stackObject.stack[s];
             sp.sortingOrder = s;
+            sp.sortingLayerName=StackSortingLayerName;
             s += 1;
         }
     }

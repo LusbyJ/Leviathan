@@ -1806,6 +1806,10 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 1762555336865602954, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 3317730252862008175, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
       propertyPath: m_SortingLayer
       value: -1

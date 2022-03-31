@@ -48,6 +48,7 @@ MonoBehaviour:
   rotation: {x: 45, y: 0, z: 0}
   offset: {x: 0, y: 0.01, z: 0}
   orderInLayer: 0
+  StackSortingLayerName: Towers
   partList: []
 --- !u!114 &1556377289457853491
 MonoBehaviour:
@@ -135,7 +136,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_Sprite: {fileID: 886475938650916174, guid: 6e1e05debbf57a84b9711d1b9cb692cc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

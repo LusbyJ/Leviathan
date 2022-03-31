@@ -22,7 +22,6 @@ public class HealthStack : MonoBehaviour
     {
       float percentage=Mathf.Clamp01((float)hpScript.health/(float)hpScript.maxHealth);
       int value=Mathf.FloorToInt(percentage*(length-1));
-      Debug.Log(percentage);
       renderer.sprite=sprites.stack[value];
     }
 }
