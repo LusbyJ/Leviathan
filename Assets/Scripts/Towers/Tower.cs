@@ -7,12 +7,12 @@ public class Tower : MonoBehaviour
     public float attackTime;
     public int cost;
     public GameObject projectile;
-  
+    public bool OverrideTargetting=false; //Used for medical tower active
 
     // Update is called once per frame
     void Update()
     {
-            
+
     }
 
     //Upgrade tower
@@ -29,7 +29,7 @@ public class Tower : MonoBehaviour
 
     //Use active ability
     void OnMouseOver()
-    { 
+    {
         if(Input.GetMouseButtonDown(1) && !Input.GetKey("left shift"))
         {
             Debug.Log("Trying to use ability " + gameObject.name);

@@ -15,6 +15,7 @@ public class DroneTarget : MonoBehaviour
     public float AttackTime=2f;
     private float AttackTimer;
     public GameObject DroneProjectile;
+    private Tower OwnerTower;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +23,7 @@ public class DroneTarget : MonoBehaviour
       Summoner=Owner.GetComponent<DroneSummoner>();
       Display=gameObject.GetComponent<displayObject>();
       AttackTimer=0;
+      OwnerTower=Owner.GetComponent<Tower>();
     }
 
     // Update is called once per frame
@@ -30,7 +32,7 @@ public class DroneTarget : MonoBehaviour
       if(!Owner){
         Destroy(this);
       }else{
-
+        //Reset the target if it doesn't exist or if it's out of range.
         if(!Target){
           Target=Owner;
         }else{
@@ -39,12 +41,14 @@ public class DroneTarget : MonoBehaviour
               Target=Owner;
           }
         }
+        //If there is no target, find a new one
         if(Target==Owner){
           float TargetDist=Summoner.LeashRange;
           Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
           foreach(Enemy foeScr in PotentialFoes)
           {
-              if(foeScr.isFlying()){
+              //Ensure foe is flying
+              if(OwnerTower.OverrideTargetting||foeScr.isFlying()){
                 GameObject foe=foeScr.gameObject;
                 Vector2 FoeVector=new Vector2(Owner.transform.position.x,Owner.transform.position.y)-new Vector2(foe.transform.position.x,foe.transform.position.y);
                 float FoeDist=FoeVector.magnitude;
@@ -71,7 +75,7 @@ public class DroneTarget : MonoBehaviour
           );
           Angle=Vector2.Angle(Vector2.right,Direction);
           Display.rotation=new Vector3(45,0,Angle);
-          //Attacking
+          //Attack
           if(AttackTimer>0){
             AttackTimer-=Time.deltaTime;
           }
