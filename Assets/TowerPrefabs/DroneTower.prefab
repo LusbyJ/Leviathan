@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7281344908700385788}
   - component: {fileID: 1634809219401510323}
   - component: {fileID: 2324028006574769963}
+  - component: {fileID: 1414693374245349468}
   m_Layer: 0
   m_Name: DroneTower
   m_TagString: Tower
@@ -113,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 0
+  maxHealth: 100
   health: 100
 --- !u!60 &1634809219401510323
 PolygonCollider2D:
@@ -166,3 +167,17 @@ MonoBehaviour:
   gridLayout: {fileID: 0}
   tower: {fileID: 0}
   spot: {fileID: 0}
+--- !u!114 &1414693374245349468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198363401410674453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6242f81273f20f541bcfefcac9b98f8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Drone: {fileID: 7742015956759435664, guid: 63122b4937f6a214a8942129c873f72a, type: 3}
+  DroneCount: 3

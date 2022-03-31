@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7742015956759435667}
   - component: {fileID: 7742015956759435666}
   - component: {fileID: 7742015956759435665}
+  - component: {fileID: 882160506601923138}
   m_Layer: 0
   m_Name: Drone
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   rotation: {x: 45, y: 0, z: 0}
   offset: {x: 0, y: 0.005, z: 0}
   orderInLayer: 0
+  StackSortingLayerName: Towers
   partList: []
 --- !u!114 &7742015956759435665
 MonoBehaviour:
@@ -64,3 +66,15 @@ MonoBehaviour:
   Display: {fileID: 0}
   baseStack: {fileID: 11400000, guid: 02fb4d5233879e24283dc1dd52b6ec65, type: 2}
   fireStack: {fileID: 11400000, guid: 02fb4d5233879e24283dc1dd52b6ec65, type: 2}
+--- !u!114 &882160506601923138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7742015956759435664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc55d1dbd58a8b74dab3fbc2a0090ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
