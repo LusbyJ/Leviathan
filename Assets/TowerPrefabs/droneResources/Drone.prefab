@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7742015956759435667}
   - component: {fileID: 7742015956759435666}
-  - component: {fileID: 7742015956759435665}
   - component: {fileID: 882160506601923138}
   m_Layer: 0
   m_Name: Drone
@@ -51,21 +50,6 @@ MonoBehaviour:
   orderInLayer: 0
   StackSortingLayerName: Towers
   partList: []
---- !u!114 &7742015956759435665
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7742015956759435664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88df53e6de7522c4e8d6f84c707bdddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Display: {fileID: 0}
-  baseStack: {fileID: 11400000, guid: 02fb4d5233879e24283dc1dd52b6ec65, type: 2}
-  fireStack: {fileID: 11400000, guid: 02fb4d5233879e24283dc1dd52b6ec65, type: 2}
 --- !u!114 &882160506601923138
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +62,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc55d1dbd58a8b74dab3fbc2a0090ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Owner: {fileID: 0}
+  Summoner: {fileID: 0}
+  Accel: 0.01
+  Angle: 0
+  MaxSpeed: 2
+  Display: {fileID: 0}
+  AttackTime: 1
+  DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}

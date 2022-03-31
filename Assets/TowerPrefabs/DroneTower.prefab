@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 5
   health: 100
 --- !u!60 &1634809219401510323
 PolygonCollider2D:
@@ -181,3 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Drone: {fileID: 7742015956759435664, guid: 63122b4937f6a214a8942129c873f72a, type: 3}
   DroneCount: 3
+  LeashRange: 1.2

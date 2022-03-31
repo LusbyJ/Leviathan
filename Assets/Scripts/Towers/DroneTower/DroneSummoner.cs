@@ -7,6 +7,7 @@ public class DroneSummoner : MonoBehaviour
     public GameObject Drone;
     private float SummonDistance=0.2f;
     public int DroneCount=3;
+    public float LeashRange=1.2f;
     // Start is called before the first frame update
     void Start()
     {
