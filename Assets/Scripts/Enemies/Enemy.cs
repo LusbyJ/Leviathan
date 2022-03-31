@@ -9,6 +9,7 @@ public abstract class Enemy : MonoBehaviour
 	public bool moving;
 	public Rigidbody2D rb;
 	public float timerInterval;
+	public Animator animator;
 	
 	private	Vector3 movement;
 	private bool ground;
@@ -61,6 +62,7 @@ public abstract class Enemy : MonoBehaviour
 		else{ direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
 		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+		animator.SetBool("moving", moving);
 	}
 	
 	private void OnCollisionEnter2D(Collision2D collision){
