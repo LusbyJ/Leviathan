@@ -15,16 +15,16 @@ public class Projectile : MonoBehaviour
       if(Target)
       {
         LerpVal+=Time.deltaTime*LerpSpd;
-<<<<<<< HEAD
+
         if(LerpVal>=1)
         {
           Target.GetComponent<Enemy>().takeDamage(Damage);
-=======
+
         if(LerpVal>=1){
           try{
             Target.GetComponent<Enemy>().takeDamage(Damage);
           }catch{}
->>>>>>> fe4d0147566ee099e8c88456dcb6eeec634f20f7
+
           Destroy(gameObject);
         }
         else
