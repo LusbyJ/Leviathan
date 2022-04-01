@@ -12,6 +12,7 @@ public class Leviathan : Enemy
 		speed = 0.5f*speed;
 		setPower(10);
 		setHealth(200);
+		setBounty(200);
     }
 
     // Update is called once per frame

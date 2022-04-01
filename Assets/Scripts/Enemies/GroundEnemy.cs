@@ -12,6 +12,7 @@ public class GroundEnemy : Enemy
 		speed = 1.5f*speed;
 		setPower(1);
 		setHealth(20);
+		setBounty(20);
     }
 
     // Update is called once per frame

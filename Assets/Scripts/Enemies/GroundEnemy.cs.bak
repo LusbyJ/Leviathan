@@ -10,6 +10,7 @@ public class GroundEnemy : Enemy
 		setGround(true);
 		setFlying(false);
 		speed = 1.5f*speed;
+		setPower(1);
 		setHealth(20);
     }
 

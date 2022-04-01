@@ -19,6 +19,7 @@ public abstract class Enemy : MonoBehaviour
 	private float level;
 	private bool dead;
 	private float timer;
+	private float bounty;
 	
 	// Start is called before the first frame update
     void Start()
@@ -51,14 +52,18 @@ public abstract class Enemy : MonoBehaviour
 	
 	public bool isDead(){ return dead; }
 	
+	public void setBounty(float credits){ bounty = credits; }
+	
 	public void takeDamage(float damage){
 		StartCoroutine(blink());
 		health -= damage;
 		if(health <= 0){ 
 			dead = true;
-			GameController.instance.credits += 20;
+			GameController.instance.credits += bounty;
 		}
 	}
+	
+	public void kill(){ Destroy(gameObject); }
 	
 	public void move(){
 		Vector3 direction;

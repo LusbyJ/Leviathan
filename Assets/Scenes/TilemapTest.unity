@@ -1651,8 +1651,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 350, y: 219}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: 364.03268, y: 219}
+  m_SizeDelta: {x: 228.0654, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &398513720
 MonoBehaviour:
@@ -4194,7 +4194,7 @@ MonoBehaviour:
   - {fileID: 234126910}
   roundText: {fileID: 358420211}
   creditText: {fileID: 398513720}
-  round: 0
+  round: 1
   credits: 0
 --- !u!4 &1299160855
 Transform:

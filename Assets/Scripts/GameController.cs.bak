@@ -17,7 +17,7 @@ public class GameController : Singleton<GameController>
 	// Start is called before the first frame update
     void Start()
     {
-        //round = 1;
+        round = 1;
 		credits = 500;
 		currEnemies = new List<Enemy>();
 		StartCoroutine(round1());
@@ -31,7 +31,8 @@ public class GameController : Singleton<GameController>
 		foreach(Enemy e in currEnemies){
 			if(e.isDead()){
 				currEnemies.Remove(e);
-				Destroy(e);
+				e.kill();
+				break;
 			}
 		}
 		if(currEnemies.Count == 0){
@@ -59,13 +60,13 @@ public class GameController : Singleton<GameController>
 	private IEnumerator round1(){
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 0));
-		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
-		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
-		yield return new WaitForSeconds(3);
-		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 0));
+		// currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 0));
+		// yield return new WaitForSeconds(3);
+		// currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
+		// yield return new WaitForSeconds(3);
+		// currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
+		// yield return new WaitForSeconds(3);
+		// currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 0));
 	}
 	
 	private IEnumerator round2(){

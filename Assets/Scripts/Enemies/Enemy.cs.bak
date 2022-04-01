@@ -12,13 +12,14 @@ public abstract class Enemy : MonoBehaviour
 	public Animator animator;
 	
 	private	Vector3 movement;
-	private float power;
+	private int power;
 	private bool ground;
 	private bool flying;
 	private float health;
 	private float level;
 	private bool dead;
 	private float timer;
+	private float bounty;
 	
 	// Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public abstract class Enemy : MonoBehaviour
 	
 	public void setHealth(float life){ health = life; }
 	
-	public void setPower(float damage){ power = damage; }
+	public void setPower(int damage){ power = damage; }
 	
 	public void setGround(bool grounded){ ground = grounded; }
 	
@@ -56,9 +57,11 @@ public abstract class Enemy : MonoBehaviour
 		health -= damage;
 		if(health <= 0){ 
 			dead = true;
-			GameController.instance.credits += 20;
+			GameController.instance.credits += bounty;
 		}
 	}
+	
+	public void kill(){ Destroy(gameObject); }
 	
 	public void move(){
 		Vector3 direction;

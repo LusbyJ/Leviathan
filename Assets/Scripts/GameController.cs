@@ -31,7 +31,8 @@ public class GameController : Singleton<GameController>
 		foreach(Enemy e in currEnemies){
 			if(e.isDead()){
 				currEnemies.Remove(e);
-				Destroy(e);
+				e.kill();
+				break;
 			}
 		}
 		if(currEnemies.Count == 0){
