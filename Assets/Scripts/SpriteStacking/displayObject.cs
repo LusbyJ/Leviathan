@@ -9,6 +9,7 @@ public class displayObject : MonoBehaviour
     public Vector3 offset = new Vector3(0, 0.05f, 0);
     public int orderInLayer = 0;
     public string StackSortingLayerName="Towers";
+    public Vector3 partScale=new Vector3(1,1,1);
 
     public List<GameObject> partList;
     void GenerateStack()
@@ -40,6 +41,7 @@ public class displayObject : MonoBehaviour
         foreach (GameObject part in partList)
         {
             part.transform.localPosition = v;
+            part.transform.localScale=partScale;
             v += offset;
             part.transform.localRotation = Quaternion.Euler(rotation);
             SpriteRenderer sp=part.GetComponent<SpriteRenderer>();

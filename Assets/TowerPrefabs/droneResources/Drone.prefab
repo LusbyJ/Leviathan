@@ -49,6 +49,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0.005, z: 0}
   orderInLayer: 0
   StackSortingLayerName: Towers
+  partScale: {x: 1, y: 1, z: 1}
   partList: []
 --- !u!114 &882160506601923138
 MonoBehaviour:
