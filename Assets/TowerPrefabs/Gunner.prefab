@@ -222,7 +222,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: -4
+  m_SortingOrder: -1
   m_Sprite: {fileID: 2039045772450023717, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 4, y: -2, z: 0}
+  cell: {x: 1, y: 0, z: 0}
   attackTime: 4
   damage: 1
   cost: 100
@@ -312,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 9213127437140424177}
-  TargetDist: 0.5
+  TargetDist: 1
   Accel: 0.01
   MaxSpeed: 2
   Display: {fileID: 0}
