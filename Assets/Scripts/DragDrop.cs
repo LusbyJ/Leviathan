@@ -75,6 +75,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             cellPos.x += 1;
             Instantiate(tower, gridLayout.CellToLocal(cellPos), Quaternion.identity);
+            tower.GetComponent<Tower>().GetComponent<SpriteRenderer>().sortingOrder = cellPos.x;
+            Debug.Log(tower.GetComponent<Tower>().GetComponent<SpriteRenderer>().sortingOrder);
             cellPos.x += 8;
             gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
             gridLayout.GetComponent<GridController>().occupyTile(cellPos);

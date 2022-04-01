@@ -106,6 +106,7 @@ MonoBehaviour:
   attackTime: 15
   cost: 50
   projectile: {fileID: 0}
+  OverrideTargetting: 0
 --- !u!114 &6573581674032539373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   rotation: {x: 45, y: 0, z: 0}
   offset: {x: 0, y: 0.01, z: 0}
   orderInLayer: 0
+  StackSortingLayerName: Towers
   partList: []
 --- !u!114 &1946992696384912934
 MonoBehaviour:
