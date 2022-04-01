@@ -14,7 +14,9 @@ public class Projectile : MonoBehaviour
       if(Target){
         LerpVal+=Time.deltaTime*LerpSpd;
         if(LerpVal>=1){
-          Target.GetComponent<Enemy>().takeDamage(Damage);
+          try{
+            Target.GetComponent<Enemy>().takeDamage(Damage);
+          }catch{}
           Destroy(gameObject);
         }else{
           transform.position=Vector3.Lerp(StartPosition,Target.transform.position,LerpVal);
@@ -23,6 +25,5 @@ public class Projectile : MonoBehaviour
       }else{
         Destroy(gameObject);
       }
-
     }
 }

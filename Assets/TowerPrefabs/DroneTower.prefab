@@ -102,6 +102,7 @@ MonoBehaviour:
   attackTime: 100
   cost: 25
   projectile: {fileID: 0}
+  OverrideTargetting: 1
 --- !u!114 &7281344908700385788
 MonoBehaviour:
   m_ObjectHideFlags: 0
