@@ -105,9 +105,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {x: 1, y: 0, z: 0}
-  attackTime: 15
-  damage: 10
-  cost: 50
+  attackTime: 10
+  damage: 5
+  cost: 200
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!114 &6573581674032539373
@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 20
   health: 100
 --- !u!60 &-4618618457553244681
 PolygonCollider2D:
@@ -179,6 +179,8 @@ MonoBehaviour:
   DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
   IdleStack: {fileID: 11400000, guid: 15f15a87a25ac0542974c95c0eef7f31, type: 2}
   FireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}
+  TargetsGround: 1
+  TargetsAir: 1
 --- !u!1 &8428318497393006754
 GameObject:
   m_ObjectHideFlags: 0

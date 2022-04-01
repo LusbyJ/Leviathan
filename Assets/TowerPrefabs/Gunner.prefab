@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 10
   health: 100
 --- !u!114 &1394296632046091434
 MonoBehaviour:
@@ -261,9 +261,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cell: {x: 4, y: -2, z: 0}
-  attackTime: 10
-  damage: 2
-  cost: 25
+  attackTime: 4
+  damage: 1
+  cost: 100
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!60 &446279084970338994
