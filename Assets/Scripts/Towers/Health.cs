@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
@@ -12,8 +13,9 @@ public class Health : MonoBehaviour
     private bool dying;     //indicates if central hub is about to die
 
 
-    void Start(){
-      health=maxHealth;
+    void Start()
+    {
+        health=maxHealth;
     }
     //Take damage from enemies
     public void takeDamage(int damage)
@@ -38,7 +40,9 @@ public class Health : MonoBehaviour
         //If health is depleted Die
         if (health <= 0)
         {
-           Die();
+            //mainMap.SetTile(gameObject.GetComponent<Tower>().cell, emptyTile);
+            //GetComponent<GridController>().occupyTile(gameObject.GetComponent<Tower>().cell);
+            Die();
         }
     }
 

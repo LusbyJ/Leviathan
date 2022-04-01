@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
+    public Vector3Int cell;
     public float attackTime;
     public int cost;
     public GameObject projectile;

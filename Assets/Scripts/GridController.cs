@@ -13,6 +13,7 @@ public class GridController : MonoBehaviour
     public Tilemap mainMap;             //TileMap used for base tiles
     public Tile hoverTile;              //Tile to display spaces
     public Tile blockedTile;            //Tile to display blocked spaces
+    public Tile emptyTile;              //Tile with no tower
     public GameObject tower;            //Tower being built
     
 
@@ -27,12 +28,12 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
         //Handles setting tiles during drag and drop tower building
         if (DragDrop.building == true)
         {
-            Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
-            cellPos.x += 9;
+            
             
             if (mainMap.GetTile(cellPos) == blockedTile)
             {
@@ -47,13 +48,22 @@ public class GridController : MonoBehaviour
                 occupied = false;
             }
                 previousMousePos = cellPos;
-        }      
+        }
+        else
+        {
+            interactiveMap.SetTile(cellPos, null);
+        }
     }
     
     public void ResetTile(Vector3Int cellPos)
     {
         interactiveMap.SetTile(cellPos, null);     
         occupied = false;
+    }
+
+    public void removeTile(Vector3Int cellPos)
+    {
+        mainMap.SetTile(cellPos, emptyTile);
     }
 
     public void occupyTile(Vector3Int cellPos)
