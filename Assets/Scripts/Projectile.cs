@@ -12,34 +12,19 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        if (Target)
-        {
-            LerpVal += Time.deltaTime * LerpSpd;
-
-            if (LerpVal >= 1)
-            {
-                Target.GetComponent<Enemy>().takeDamage(Damage);
-
-                if (LerpVal >= 1)
-                {
-                    try
-                    {
-                        Target.GetComponent<Enemy>().takeDamage(Damage);
-                    }
-                    catch { }
-
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    transform.position = Vector3.Lerp(StartPosition, Target.transform.position, LerpVal);
-                    transform.eulerAngles = new Vector3(0, 0, Vector2.Angle(Vector2.right, StartPosition - Target.transform.position));
-                }
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+      if(Target){
+        LerpVal+=Time.deltaTime*LerpSpd;
+        if(LerpVal>=1){
+          Target.GetComponent<Enemy>().takeDamage(Damage);
+          try{
+            Target.GetComponent<Enemy>().takeDamage(Damage);
+          }catch{}
+          Destroy(gameObject);
+        }else{
+          transform.position=Vector3.Lerp(StartPosition,Target.transform.position,LerpVal);
         }
-    }
+      }else{
+        Destroy(gameObject);
+      }
+  }
 }
