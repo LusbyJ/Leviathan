@@ -237,7 +237,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 2039045772450023717, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -278,6 +278,7 @@ MonoBehaviour:
   attackTime: 10
   cost: 25
   projectile: {fileID: 0}
+  OverrideTargetting: 0
 --- !u!60 &446279084970338994
 PolygonCollider2D:
   m_ObjectHideFlags: 0
