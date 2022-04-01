@@ -13,13 +13,18 @@ public class Targeting : MonoBehaviour
     public displayObject Display;
     public float waitTime = 2f;
     private float AttackTimer;
+    public float muzzleTime=0.1f;
     public GameObject DroneProjectile;
     private Tower OwnerTower;
+    public stackobject IdleStack;
+    public stackobject FireStack;
+    public bool TargetsGround=true;
+    public bool TargetsAir=true;
     // Start is called before the first frame update
     void Start()
     {
         Target = Owner;
-        Display = gameObject.GetComponent<displayObject>();
+        Display = gameObject.transform.GetChild(0).GetComponent<displayObject>();
         AttackTimer = 0;
         OwnerTower = Owner.GetComponent<Tower>();
     }
@@ -38,15 +43,17 @@ public class Targeting : MonoBehaviour
             {
                 Target = Owner;
             }
-         
+
             //If there is no target, find a new one
             if (Target == Owner)
             {
                 Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
                 foreach (Enemy foeScr in PotentialFoes)
                 {
-                    //Ensure foe is flying
-                    if (OwnerTower.OverrideTargetting || !foeScr.isFlying())
+                    //Check Targetting
+                    if (OwnerTower.OverrideTargetting ||
+                    (TargetsGround&&foeScr.isGround())||
+                    (TargetsAir&&foeScr.isFlying()))
                     {
                         GameObject foe = foeScr.gameObject;
                         Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
@@ -65,25 +72,25 @@ public class Targeting : MonoBehaviour
                 Vector2 Direction = new Vector2(Target.transform.position.x, Target.transform.position.y) -
                 new Vector2(transform.position.x, transform.position.y);
                 Direction = Direction.normalized;
-         
+
                 if (AttackTimer > 0)
                 {
-                    
+
                     AttackTimer -= Time.deltaTime;
-                   
+
                 }
                 if (Target && Target != Owner)
                 {
                     if (AttackTimer <= 0)
                     {
-                        
-                        float angle = Vector2.SignedAngle(gameObject.transform.position, Direction); // Returns a value between -180 and 180.
-                        gameObject.transform.GetChild(0).GetComponent<testStack>().Display.rotation.z = angle + 120;
-                       
-                        
+
+                        float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
+                        Display.rotation.z = angle;
+                        Display.stackObject=FireStack;
+
                         //No projectile
                         Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
-                        
+
 
                         //GameObject Projectile = Instantiate(DroneProjectile, gameObject.transform);
                         //Projectile prj = Projectile.GetComponent<Projectile>();
@@ -91,6 +98,11 @@ public class Targeting : MonoBehaviour
                         //prj.Target = Target;
                         AttackTimer += waitTime;
                     }
+                    if(AttackTimer<waitTime-muzzleTime){
+                      Display.stackObject=IdleStack;
+                    }
+                }else{
+                  Display.stackObject=IdleStack;
                 }
             }
         }

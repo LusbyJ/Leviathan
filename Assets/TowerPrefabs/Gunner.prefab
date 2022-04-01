@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5644665199053088265}
   - component: {fileID: 4334720934669302451}
-  - component: {fileID: 1556377289457853491}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -50,22 +49,6 @@ MonoBehaviour:
   orderInLayer: 0
   StackSortingLayerName: Towers
   partList: []
---- !u!114 &1556377289457853491
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6188480596903116024}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88df53e6de7522c4e8d6f84c707bdddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shooting: 0
-  Display: {fileID: 0}
-  baseStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
-  fireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
 --- !u!1 &8552944661763891737
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,7 +222,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: -2
+  m_SortingOrder: -4
   m_Sprite: {fileID: 2039045772450023717, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -277,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 2, y: -4, z: 0}
+  cell: {x: 4, y: -2, z: 0}
   attackTime: 10
   damage: 2
   cost: 25
@@ -334,5 +317,9 @@ MonoBehaviour:
   MaxSpeed: 2
   Display: {fileID: 0}
   waitTime: 0.5
+  muzzleTime: 0.1
   DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
-  shooting: 0
+  IdleStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
+  FireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
+  TargetsGround: 1
+  TargetsAir: 0
