@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6834215607397897908}
   - component: {fileID: 6573581674032539373}
   - component: {fileID: -4618618457553244681}
+  - component: {fileID: -101462773169022677}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Tower
@@ -79,7 +80,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: -2
+  m_SortingOrder: -8
   m_Sprite: {fileID: 21300000, guid: 9e7ed40aa707fad49bb32da7956bc164, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,8 +104,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 2, y: -9, z: 0}
+  cell: {x: 8, y: -7, z: 0}
   attackTime: 15
+  damage: 10
   cost: 50
   projectile: {fileID: 0}
   OverrideTargetting: 0
@@ -155,6 +157,25 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.25}
       - {x: 0.16, y: -0.19999999}
       - {x: 0.07, y: -0.11}
+--- !u!114 &-101462773169022677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6705512431368553355}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c7e91ee20ef144b951303cf7aadf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 6705512431368553355}
+  TargetDist: 2
+  Accel: 0.01
+  MaxSpeed: 2
+  Display: {fileID: 0}
+  waitTime: 3
+  DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
 --- !u!1 &8428318497393006754
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df53e6de7522c4e8d6f84c707bdddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooting: 0
   Display: {fileID: 0}
   baseStack: {fileID: 11400000, guid: 15f15a87a25ac0542974c95c0eef7f31, type: 2}
   fireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}

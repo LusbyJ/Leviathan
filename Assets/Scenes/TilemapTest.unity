@@ -49707,6 +49707,7 @@ MonoBehaviour:
   mainMap: {fileID: 1773400931}
   hoverTile: {fileID: 11400000, guid: ea210210a3d854a4295fa9ab3e99303d, type: 2}
   blockedTile: {fileID: 11400000, guid: 7cbda092ef9b72549ad5daefa8a790a4, type: 2}
+  emptyTile: {fileID: 0}
   tower: {fileID: 6705512431368553355, guid: dfd1b3c14917eb34888a12c59f5652f2, type: 3}
 --- !u!1001 &1901316881
 PrefabInstance:

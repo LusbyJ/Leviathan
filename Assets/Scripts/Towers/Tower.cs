@@ -6,6 +6,7 @@ public class Tower : MonoBehaviour
 {
     public Vector3Int cell;
     public float attackTime;
+    public int damage;
     public int cost;
     public GameObject projectile;
     public bool OverrideTargetting=false; //Used for medical tower active

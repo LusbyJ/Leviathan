@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class testStack : MonoBehaviour
 {
+    public int shooting = 0;
     public displayObject Display;
     public stackobject baseStack;
     public stackobject fireStack;
@@ -17,8 +18,10 @@ public class testStack : MonoBehaviour
     void FixedUpdate()
     {
       Display.rotation.z++;
-      if(Input.GetKey("space")){
-        Display.stackObject=fireStack;
+      if(shooting == 1)
+        {
+            Debug.Log("Got to shooting");
+            Display.stackObject=fireStack;
       }else{
         Display.stackObject=baseStack;
       }

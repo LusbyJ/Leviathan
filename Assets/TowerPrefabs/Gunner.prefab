@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88df53e6de7522c4e8d6f84c707bdddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shooting: 0
   Display: {fileID: 0}
   baseStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
   fireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
@@ -175,6 +176,7 @@ GameObject:
   - component: {fileID: 5873525936255045056}
   - component: {fileID: 1394296632046091434}
   - component: {fileID: 446279084970338994}
+  - component: {fileID: 8070298963052318773}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Tower
@@ -237,7 +239,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: -1
+  m_SortingOrder: -2
   m_Sprite: {fileID: 2039045772450023717, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -262,7 +264,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  emptyTile: {fileID: 11400000, guid: 9fa41082edbb44444bf16a5622532042, type: 2}
   health: 100
 --- !u!114 &1394296632046091434
 MonoBehaviour:
@@ -276,8 +277,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 0, y: 0, z: 0}
+  cell: {x: 2, y: -4, z: 0}
   attackTime: 10
+  damage: 2
   cost: 25
   projectile: {fileID: 0}
   OverrideTargetting: 0
@@ -314,3 +316,23 @@ PolygonCollider2D:
       - {x: 0.1465098, y: -0.25627437}
       - {x: 0.17686275, y: -0.19188252}
       - {x: 0.049058795, y: -0.06200017}
+--- !u!114 &8070298963052318773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213127437140424177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18c7e91ee20ef144b951303cf7aadf69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Owner: {fileID: 9213127437140424177}
+  TargetDist: 0.5
+  Accel: 0.01
+  MaxSpeed: 2
+  Display: {fileID: 0}
+  waitTime: 0.5
+  DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
+  shooting: 0

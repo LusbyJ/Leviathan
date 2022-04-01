@@ -59,6 +59,7 @@ public class DroneTarget : MonoBehaviour
               }
           }
         }
+
         if(Target){
           //Get the direction to the target
           Vector2 Direction=new Vector2(Target.transform.position.x,Target.transform.position.y)-
