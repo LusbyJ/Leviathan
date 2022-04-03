@@ -9,10 +9,6 @@ public class Leviathan : Enemy
     {
         setGround(true);
 		setFlying(true);
-		speed = 0.5f*speed;
-		setPower(10);
-		setHealth(200);
-		setBounty(200);
     }
 
     // Update is called once per frame

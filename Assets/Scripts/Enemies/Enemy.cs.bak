@@ -5,6 +5,9 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public float speed;
+	public int power;
+	public float health;
+	public float bounty;
 	public Transform centralTower;
 	public bool moving;
 	public Rigidbody2D rb;
@@ -12,14 +15,10 @@ public abstract class Enemy : MonoBehaviour
 	public Animator animator;
 	
 	private	Vector3 movement;
-	private int power;
 	private bool ground;
 	private bool flying;
-	private float health;
-	private float level;
 	private bool dead;
 	private float timer;
-	private float bounty;
 	
 	// Start is called before the first frame update
     void Start()
@@ -34,10 +33,6 @@ public abstract class Enemy : MonoBehaviour
 		move();
 	}
 	
-	public void setHealth(float life){ health = life; }
-	
-	public void setPower(int damage){ power = damage; }
-	
 	public void setGround(bool grounded){ ground = grounded; }
 	
 	public void setFlying(bool flies){ flying = flies; }
@@ -46,11 +41,16 @@ public abstract class Enemy : MonoBehaviour
 	
 	public bool isFlying(){ return flying; }
 	
-	public void setLevel(float newLevel){ level = newLevel; }
-	
 	public void resetTimer(){ timer = timerInterval; }
 	
 	public bool isDead(){ return dead; }
+	
+	public void levelUp(int numLevels){
+		for(int i = 0; i < numLevels; i++){
+			power *= 2;
+			health *= 1.5f;
+		}
+	}
 	
 	public void takeDamage(float damage){
 		StartCoroutine(blink());
