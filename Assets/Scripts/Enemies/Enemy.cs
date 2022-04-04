@@ -57,6 +57,7 @@ public abstract class Enemy : MonoBehaviour
 		health -= damage;
 		if(health <= 0){ 
 			dead = true;
+			animator.SetBool("dead", dead);
 			GameController.instance.credits += bounty;
 		}
 	}
