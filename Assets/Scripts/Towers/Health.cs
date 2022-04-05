@@ -11,7 +11,8 @@ public class Health : MonoBehaviour
     public int health;      //Tower health
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
-
+    //public Tilemap mainMap;
+    public Tile emptyTile;
 
     void Start()
     {
@@ -21,9 +22,11 @@ public class Health : MonoBehaviour
     public void takeDamage(int damage)
     {
         //If tower being attacked is not the central hub, blink for each hit
-        if (gameObject.name != "Central")
+        if (hit == false)
         {
             StartCoroutine("Blink");
+            //Take damage
+            health -= damage;
         }
 
         //If central tower being attacked and health is less than 10 blink forever
@@ -31,17 +34,16 @@ public class Health : MonoBehaviour
         {
             dying = true;
             InvokeRepeating("BlinkTillDeath", 0, 0.1f);
-
         }
 
-        //Take damage
-        health -= damage;
+        
+        
 
         //If health is depleted Die
         if (health <= 0)
         {
             //mainMap.SetTile(gameObject.GetComponent<Tower>().cell, emptyTile);
-            //GetComponent<GridController>().occupyTile(gameObject.GetComponent<Tower>().cell);
+            GetComponent<GridController>().GetComponent<Grid>().GetComponent<GridController>().removeTile(gameObject.GetComponent<Tower>().cell);
             Die();
         }
     }
@@ -58,8 +60,6 @@ public class Health : MonoBehaviour
     {
         if (gameObject.name == "Central")
         {
-            Debug.Log("Made it to next scene");
-            //CancelInvoke("BlinkTillDeath");
             SceneManager.LoadScene("GameOver");
         }
         Destroy(gameObject);
@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
     //CoRoutine to blink when hit
     private IEnumerator Blink()
     {
-        //hit = true;
+        hit = true;
         for (int i = 0; i < 2; i++)
         {
             GetComponent<Renderer>().material.color = Color.red;
@@ -77,7 +77,7 @@ public class Health : MonoBehaviour
             GetComponent<Renderer>().material.color = Color.white;
             yield return new WaitForSeconds(0.1f);
         }
-        //hit = false;
+        hit = false;
         StopCoroutine("Blink");
     }
 

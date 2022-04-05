@@ -24,6 +24,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     }
     void Update()
     {
+        if(Input.GetKeyDown("space"))
+        {
+            building = false;
+        }
+
         //Grey-out towers if there is not enough credits to build
         if(tower.GetComponent<Tower>().cost > gameController.GetComponent<GameController>().credits)
         {
