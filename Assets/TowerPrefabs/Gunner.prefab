@@ -249,6 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   health: 100
+  emptyTile: {fileID: 0}
 --- !u!114 &1394296632046091434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 0, y: -1, z: 0}
+  cell: {x: 1, y: 0, z: 0}
   attackTime: 4
   damage: 1
   cost: 100

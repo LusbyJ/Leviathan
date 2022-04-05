@@ -11,13 +11,12 @@ public class Health : MonoBehaviour
     public int health;      //Tower health
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
-    //public Tilemap mainMap;
-    public Tile emptyTile;
-
+  
     void Start()
     {
         health=maxHealth;
     }
+
     //Take damage from enemies
     public void takeDamage(int damage)
     {
@@ -36,14 +35,9 @@ public class Health : MonoBehaviour
             InvokeRepeating("BlinkTillDeath", 0, 0.1f);
         }
 
-        
-        
-
         //If health is depleted Die
         if (health <= 0)
         {
-            //mainMap.SetTile(gameObject.GetComponent<Tower>().cell, emptyTile);
-            GetComponent<GridController>().GetComponent<Grid>().GetComponent<GridController>().removeTile(gameObject.GetComponent<Tower>().cell);
             Die();
         }
     }
@@ -62,6 +56,11 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
+        Vector3Int realPos = gameObject.GetComponent<Tower>().cell;
+        GridController.towerList.Remove(realPos);
+        //Debug.Log(realPos);
+        //Debug.Log(gameObject.GetComponent<Tower>().cell);
+       
         Destroy(gameObject);
     }
 

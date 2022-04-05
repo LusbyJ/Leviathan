@@ -80,15 +80,13 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             cellPos.x += 1;
             Instantiate(tower, gridLayout.CellToLocal(cellPos), Quaternion.identity);
-            tower.GetComponent<Tower>().cell = cellPos;
-            //tower.GetComponent<Tower>().GetComponent<SpriteRenderer>().sortingOrder = cellPos.x*(-1);
-            cellPos.x -= 1;
+            GridController.towerList.Add(cellPos);
             gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
-            gridLayout.GetComponent<GridController>().occupyTile(cellPos);
+            GridController.occupied = false;
+            
         }
         else
         {
-            //cellPos.x += 9;
             gridLayout.GetComponent<GridController>().ResetTile(cellPos);      
         }
         building = false;

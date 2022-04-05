@@ -39,6 +39,7 @@ public class GameController : Singleton<GameController>
 		level = 1;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
+		addCentralHub();
     }
 
     // Update is called once per frame
@@ -75,7 +76,18 @@ public class GameController : Singleton<GameController>
 			}
 		}
     }
-	
+	public void addCentralHub()
+    {
+		GridController.towerList.Add(new Vector3Int(1, -1, 0));
+		GridController.towerList.Add(new Vector3Int(2, -1, 0));
+		GridController.towerList.Add(new Vector3Int(3, -1, 0));
+		GridController.towerList.Add(new Vector3Int(2, 0, 0));
+		GridController.towerList.Add(new Vector3Int(3, 0, 0));
+		GridController.towerList.Add(new Vector3Int(2, -2, 0));
+		GridController.towerList.Add(new Vector3Int(3, -2, 0));
+
+	}
+
 	public void reduceCredits(float cost){ credits -= cost; }
 
 	private void updateRound(){ round++; }

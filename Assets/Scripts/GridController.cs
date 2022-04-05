@@ -15,6 +15,7 @@ public class GridController : MonoBehaviour
     public Tile blockedTile;            //Tile to display blocked spaces
     public Tile emptyTile;              //Tile with no tower
     public GameObject tower;            //Tower being built
+    public static List<Vector3Int> towerList = new List<Vector3Int>();
     
 
     public static Vector2 buildTower;
@@ -28,14 +29,15 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+      
         Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
+        Vector3Int realPos = cellPos;
+        realPos.x += 1;
         //Handles setting tiles during drag and drop tower building
         if (DragDrop.building == true)
-        {
-            
-            
-            if (mainMap.GetTile(cellPos) == blockedTile)
+        {        
+            if (towerList.Contains(realPos) == true)
             {
                 interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
                 interactiveMap.SetTile(cellPos, blockedTile);
