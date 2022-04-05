@@ -78,8 +78,11 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         //Instantiate a new tower at end of drag location
         if (!GridController.occupied && building == true)
         {
-            cellPos.x += 1;
-            Instantiate(tower, gridLayout.CellToLocal(cellPos), Quaternion.identity);
+            Vector3Int placePosition = cellPos;
+            placePosition.x = cellPos.x + 1;
+            tower.GetComponent<Tower>().cell = cellPos;
+            Instantiate(tower, gridLayout.CellToLocal(placePosition), Quaternion.identity);
+            Debug.Log(cellPos);
             GridController.towerList.Add(cellPos);
             gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
             GridController.occupied = false;

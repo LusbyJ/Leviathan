@@ -29,15 +29,13 @@ public class GridController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      
         Vector2 hoverPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
-        Vector3Int realPos = cellPos;
-        realPos.x += 1;
+        
         //Handles setting tiles during drag and drop tower building
         if (DragDrop.building == true)
         {        
-            if (towerList.Contains(realPos) == true)
+            if (towerList.Contains(cellPos) == true)
             {
                 interactiveMap.SetTile(previousMousePos, null); //Remove old hoverTile
                 interactiveMap.SetTile(cellPos, blockedTile);

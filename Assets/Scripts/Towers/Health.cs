@@ -52,15 +52,15 @@ public class Health : MonoBehaviour
     //Destroy tower
     void Die()
     {
+        //If central hub destoryed end game
         if (gameObject.name == "Central")
         {
             SceneManager.LoadScene("GameOver");
         }
+       
+        //Remove tower position from tower list and destroy tower
         Vector3Int realPos = gameObject.GetComponent<Tower>().cell;
         GridController.towerList.Remove(realPos);
-        //Debug.Log(realPos);
-        //Debug.Log(gameObject.GetComponent<Tower>().cell);
-       
         Destroy(gameObject);
     }
 

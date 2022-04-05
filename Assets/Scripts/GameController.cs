@@ -76,19 +76,20 @@ public class GameController : Singleton<GameController>
 			}
 		}
     }
-	public void addCentralHub()
+
+	//Adds cell positions of central hub to the list of tower positions
+    public void addCentralHub()
     {
+		GridController.towerList.Add(new Vector3Int(1, -2, 0));
+		GridController.towerList.Add(new Vector3Int(0, -1, 0));
+		GridController.towerList.Add(new Vector3Int(1, 0, 0));
 		GridController.towerList.Add(new Vector3Int(1, -1, 0));
-		GridController.towerList.Add(new Vector3Int(2, -1, 0));
-		GridController.towerList.Add(new Vector3Int(3, -1, 0));
-		GridController.towerList.Add(new Vector3Int(2, 0, 0));
-		GridController.towerList.Add(new Vector3Int(3, 0, 0));
-		GridController.towerList.Add(new Vector3Int(2, -2, 0));
-		GridController.towerList.Add(new Vector3Int(3, -2, 0));
+        GridController.towerList.Add(new Vector3Int(2, 0, 0));
+        GridController.towerList.Add(new Vector3Int(2, -1, 0));
+        GridController.towerList.Add(new Vector3Int(2, -2, 0));
+    }
 
-	}
-
-	public void reduceCredits(float cost){ credits -= cost; }
+    public void reduceCredits(float cost){ credits -= cost; }
 
 	private void updateRound(){ round++; }
 	
