@@ -8,16 +8,16 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
-    private RectTransform rectTransform;
     private Transform buildTower;
     private Vector3 mousePos;
     public Image image;
     public GameController gameController;
     public GridLayout gridLayout;           //Hexagonal grid layout
     public GameObject tower;                //Tower to be built
-    public RectTransform spot;              //Spot on pop up canvas
+    public GameObject range;                //Range of tower indicator
     public static bool building = false;    //holds if building
     
+
     void Start() 
     {
         image = GetComponent<Image>();
@@ -44,11 +44,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         }
     }
 
-    private void Awake()
-    { 
-        rectTransform = GetComponent<RectTransform>();
-    }
-
     //Detect when clicked and dragging begins
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -56,10 +51,19 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         if (gameController.GetComponent<GameController>().credits >= tower.GetComponent<Tower>().cost)
         {
             building = true;
+            if (tower.name != "DroneTower")
+            {
+                //Get the towers targetDistance, Instantiate target range indicator
+                float d = tower.GetComponent<Targeting>().TargetDist;
+                Vector3 targetDistance = new Vector3(d, d, 0);
+                range.transform.localScale = targetDistance;
+                Instantiate(range);
+            }
         }
         else
         {
             building = false;
+
         }
     }
 
@@ -74,19 +78,19 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         Vector2 hoverPos = Camera.main.ScreenToWorldPoint(eventData.position);
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
-
-        //Instantiate a new tower at end of drag location
+    
         if (!GridController.occupied && building == true)
         {
+            //Instantiate a new tower at end of drag location
             Vector3Int placePosition = cellPos;
             placePosition.x = cellPos.x + 1;
             tower.GetComponent<Tower>().cell = cellPos;
             Instantiate(tower, gridLayout.CellToLocal(placePosition), Quaternion.identity);
-            Debug.Log(cellPos);
+           
+            //Add tower location to towerList, reduce credits, occupy tile
             GridController.towerList.Add(cellPos);
             gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
-            GridController.occupied = false;
-            
+            GridController.occupied = false;        
         }
         else
         {
