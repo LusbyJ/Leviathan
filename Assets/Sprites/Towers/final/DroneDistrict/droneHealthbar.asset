@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: droneHealthbar
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 1564104201007879773, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 7082425816363089369, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 2647072819545505761, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -8906925236673603551, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 36763549754343991, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 5591550582057136137, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 8536967386770006096, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -4155891012310308970, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 798724306052518036, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 653922927240413561, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: 7453402202956635858, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -4028851980839753308, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -7357132989119528355, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -8492508645884787758, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}
+  - {fileID: -7686384841426402885, guid: 15da4e2ca3aacb24c857217b18c621e1, type: 3}

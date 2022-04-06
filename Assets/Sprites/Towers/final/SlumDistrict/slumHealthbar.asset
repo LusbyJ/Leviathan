@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: slumHealthbar
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 6971009075886088964, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: -6450875950345136379, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: -7043123837742180470, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 5279893673006619212, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 1596375102600244070, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: -2450726894899443290, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: -2903709622533157613, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 7978771393548382092, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 7127610799349819379, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 8043547024610186941, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: -34470882634217360, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 6478235827563187143, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 1502071688193621356, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}
+  - {fileID: 9057751661784332712, guid: 13c34501c68ace94b9bf50fa69bc437f, type: 3}

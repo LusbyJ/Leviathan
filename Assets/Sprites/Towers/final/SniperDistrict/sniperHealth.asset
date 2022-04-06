@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: sniperHealth
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 3104313040181769122, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -606267731900127280, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -4187492842160135336, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: 3984486370502971602, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: 8506555396103277040, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -7964884466069677016, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -2602187421458041497, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -6778760857737077602, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -4942631590504730118, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: 662085141800506892, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -5317999878364004554, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -41776922272150535, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -2589658684304878660, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -7340554979546689429, guid: a5564169b9788664491a9068988712ea, type: 3}
+  - {fileID: -7626146044609915490, guid: a5564169b9788664491a9068988712ea, type: 3}

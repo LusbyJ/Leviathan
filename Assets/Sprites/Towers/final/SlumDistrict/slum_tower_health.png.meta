@@ -1,28 +1,49 @@
 fileFormatVersion: 2
-guid: 9e7ed40aa707fad49bb32da7956bc164
+guid: 13c34501c68ace94b9bf50fa69bc437f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3959407331555192676
-    second: sniper_tower_base_0
+      213: 6971009075886088964
+    second: slum_tower_health_0
   - first:
-      213: 7086288758890893373
-    second: sniper_tower_base_1
+      213: -6450875950345136379
+    second: slum_tower_health_1
   - first:
-      213: 5688123009447362850
-    second: sniper_tower_base_2
+      213: -7043123837742180470
+    second: slum_tower_health_2
   - first:
-      213: 9062100897251302041
-    second: sniper_tower_base_3
+      213: 5279893673006619212
+    second: slum_tower_health_3
   - first:
-      213: 6597420623991643534
-    second: sniper_tower_base_4
+      213: 1596375102600244070
+    second: slum_tower_health_4
   - first:
-      213: -8334881888852675530
-    second: sniper_tower_base_5
+      213: -2450726894899443290
+    second: slum_tower_health_5
   - first:
-      213: 3681057116125669523
-    second: sniper_tower_base_6
+      213: -2903709622533157613
+    second: slum_tower_health_6
+  - first:
+      213: 7978771393548382092
+    second: slum_tower_health_7
+  - first:
+      213: 7127610799349819379
+    second: slum_tower_health_8
+  - first:
+      213: 8043547024610186941
+    second: slum_tower_health_9
+  - first:
+      213: -34470882634217360
+    second: slum_tower_health_10
+  - first:
+      213: 6478235827563187143
+    second: slum_tower_health_11
+  - first:
+      213: 1502071688193621356
+    second: slum_tower_health_12
+  - first:
+      213: 9057751661784332712
+    second: slum_tower_health_13
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,7 +145,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sniper_tower_base_0
+      name: slum_tower_health_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46fac6e7df3a2f630800000000000000
-      internalID: 3959407331555192676
+      spriteID: 403e63e02dffdb060800000000000000
+      internalID: 6971009075886088964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_1
+      name: slum_tower_health_1
       rect:
         serializedVersion: 2
         x: 32
@@ -159,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d301989d41e875260800000000000000
-      internalID: 7086288758890893373
+      spriteID: 50751995082e976a0800000000000000
+      internalID: -6450875950345136379
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_2
+      name: slum_tower_health_2
       rect:
         serializedVersion: 2
         x: 64
@@ -180,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22106d87db540fe40800000000000000
-      internalID: 5688123009447362850
+      spriteID: a879a468f2cc14e90800000000000000
+      internalID: -7043123837742180470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_3
+      name: slum_tower_health_3
       rect:
         serializedVersion: 2
         x: 96
@@ -201,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a9963c0cc03cd70800000000000000
-      internalID: 9062100897251302041
+      spriteID: c4a546f4253f54940800000000000000
+      internalID: 5279893673006619212
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_4
+      name: slum_tower_health_4
       rect:
         serializedVersion: 2
         x: 128
@@ -222,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8d9bd65a1fbe8b50800000000000000
-      internalID: 6597420623991643534
+      spriteID: 66be3c6a2b6772610800000000000000
+      internalID: 1596375102600244070
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_5
+      name: slum_tower_health_5
       rect:
         serializedVersion: 2
         x: 160
@@ -243,14 +264,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 634791a051d845c80800000000000000
-      internalID: -8334881888852675530
+      spriteID: 6a9c504afd44dfdd0800000000000000
+      internalID: -2450726894899443290
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_6
+      name: slum_tower_health_6
       rect:
         serializedVersion: 2
         x: 192
@@ -264,8 +285,155 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398289ca1fdb51330800000000000000
-      internalID: 3681057116125669523
+      spriteID: 31d070a9b73f3b7d0800000000000000
+      internalID: -2903709622533157613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_7
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8fef702f4a4abe60800000000000000
+      internalID: 7978771393548382092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_8
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f7eb70224c5ae260800000000000000
+      internalID: 7127610799349819379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_9
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db65a00076b60af60800000000000000
+      internalID: 8043547024610186941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0784e753ae8858ff0800000000000000
+      internalID: -34470882634217360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_11
+      rect:
+        serializedVersion: 2
+        x: 352
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cbcc19792157e950800000000000000
+      internalID: 6478235827563187143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_12
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6db3f9fd3e68d410800000000000000
+      internalID: 1502071688193621356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slum_tower_health_13
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a9fb58752993bd70800000000000000
+      internalID: 9057751661784332712
       vertices: []
       indices: 
       edges: []

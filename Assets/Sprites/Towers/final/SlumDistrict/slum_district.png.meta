@@ -1,28 +1,28 @@
 fileFormatVersion: 2
-guid: 9e7ed40aa707fad49bb32da7956bc164
+guid: 6ac5d60cb7a77264c968ba38bbefee3d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3959407331555192676
-    second: sniper_tower_base_0
+      213: 8822315091115972130
+    second: slum_district_0
   - first:
-      213: 7086288758890893373
-    second: sniper_tower_base_1
+      213: 4326913047935239668
+    second: slum_district_1
   - first:
-      213: 5688123009447362850
-    second: sniper_tower_base_2
+      213: -389318867258187145
+    second: slum_district_2
   - first:
-      213: 9062100897251302041
-    second: sniper_tower_base_3
+      213: -5803602983367601150
+    second: slum_district_3
   - first:
-      213: 6597420623991643534
-    second: sniper_tower_base_4
+      213: -5030066887781702568
+    second: slum_district_4
   - first:
-      213: -8334881888852675530
-    second: sniper_tower_base_5
+      213: -83121149460609198
+    second: slum_district_5
   - first:
-      213: 3681057116125669523
-    second: sniper_tower_base_6
+      213: 6343598947547965124
+    second: slum_district_6
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -124,7 +124,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sniper_tower_base_0
+      name: slum_district_0
       rect:
         serializedVersion: 2
         x: 0
@@ -138,14 +138,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46fac6e7df3a2f630800000000000000
-      internalID: 3959407331555192676
+      spriteID: 226198e25d82f6a70800000000000000
+      internalID: 8822315091115972130
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_1
+      name: slum_district_1
       rect:
         serializedVersion: 2
         x: 32
@@ -159,14 +159,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d301989d41e875260800000000000000
-      internalID: 7086288758890893373
+      spriteID: 4f5ce2cfd784c0c30800000000000000
+      internalID: 4326913047935239668
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_2
+      name: slum_district_2
       rect:
         serializedVersion: 2
         x: 64
@@ -180,14 +180,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 22106d87db540fe40800000000000000
-      internalID: 5688123009447362850
+      spriteID: 772e7bc8d8cd89af0800000000000000
+      internalID: -389318867258187145
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_3
+      name: slum_district_3
       rect:
         serializedVersion: 2
         x: 96
@@ -201,14 +201,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99a9963c0cc03cd70800000000000000
-      internalID: 9062100897251302041
+      spriteID: 2041afed5d5757fa0800000000000000
+      internalID: -5803602983367601150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_4
+      name: slum_district_4
       rect:
         serializedVersion: 2
         x: 128
@@ -222,14 +222,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8d9bd65a1fbe8b50800000000000000
-      internalID: 6597420623991643534
+      spriteID: 8542155e0dc913ab0800000000000000
+      internalID: -5030066887781702568
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_5
+      name: slum_district_5
       rect:
         serializedVersion: 2
         x: 160
@@ -243,14 +243,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 634791a051d845c80800000000000000
-      internalID: -8334881888852675530
+      spriteID: 257041541c1b8def0800000000000000
+      internalID: -83121149460609198
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sniper_tower_base_6
+      name: slum_district_6
       rect:
         serializedVersion: 2
         x: 192
@@ -264,8 +264,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398289ca1fdb51330800000000000000
-      internalID: 3681057116125669523
+      spriteID: 4c6632a02adf80850800000000000000
+      internalID: 6343598947547965124
       vertices: []
       indices: 
       edges: []
