@@ -50,3 +50,6 @@ TagManager:
   - name: Towers
     uniqueID: 131416539
     locked: 0
+  - name: Explosion
+    uniqueID: 1272663327
+    locked: 0

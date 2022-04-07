@@ -59,7 +59,7 @@ public abstract class Enemy : MonoBehaviour
 		if(health <= 0){ 
 			GameController.instance.credits += bounty;
 			explode();
-			Invoke("die", 0.3f);
+			Invoke("die", 0.5f);
 		}
 	}
 	
