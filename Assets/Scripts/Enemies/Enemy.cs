@@ -8,13 +8,14 @@ public abstract class Enemy : MonoBehaviour
 	public int power;
 	public float health;
 	public float bounty;
+	public Explosion death;
 	public Transform centralTower;
 	public bool moving;
 	public Rigidbody2D rb;
 	public float timerInterval;
 	public Animator animator;
-
-	private Vector3 movement;
+	
+	private	Vector3 movement;
 	private bool ground;
 	private bool flying;
 	private bool dead;
@@ -57,12 +58,17 @@ public abstract class Enemy : MonoBehaviour
 		health -= damage;
 		if(health <= 0){ 
 			dead = true;
-			animator.SetBool("dead", dead);
 			GameController.instance.credits += bounty;
+			explode();
 		}
 	}
 	
 	public void kill(){ Destroy(gameObject); }
+	
+	private void explode(){
+		Explosion boom = Instantiate(death, transform.position, Quaternion.identity);
+        boom.transform.parent = transform;
+	}
 	
 	public void move(){
 		Vector3 direction;
@@ -95,6 +101,7 @@ public abstract class Enemy : MonoBehaviour
             {
 				takeDamage(collision.gameObject.GetComponent<Tower>().damage);
             }
+
 			resetTimer();
 		}
 	}

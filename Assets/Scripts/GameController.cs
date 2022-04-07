@@ -23,6 +23,7 @@ public class GameController : Singleton<GameController>
 	private int level;
 	private int upgrade;
 	private int leviathanSpawn;
+	//add transform to spawn explosion? or do it in Enemy class?
 	
 	// Start is called before the first frame update
     void Start()
@@ -39,7 +40,6 @@ public class GameController : Singleton<GameController>
 		level = 1;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
-		addCentralHub();
     }
 
     // Update is called once per frame
@@ -76,22 +76,12 @@ public class GameController : Singleton<GameController>
 			}
 		}
     }
+	
+	public void reduceCredits(float cost){ credits -= cost; }
 
-	//Adds cell positions of central hub to the list of tower positions
-    public void addCentralHub()
-    {
-		GridController.towerList.Add(new Vector3Int(1, -2, 0));
-		GridController.towerList.Add(new Vector3Int(0, -1, 0));
-		GridController.towerList.Add(new Vector3Int(1, 0, 0));
-		GridController.towerList.Add(new Vector3Int(1, -1, 0));
-        GridController.towerList.Add(new Vector3Int(2, 0, 0));
-        GridController.towerList.Add(new Vector3Int(2, -1, 0));
-        GridController.towerList.Add(new Vector3Int(2, -2, 0));
-    }
-
-    public void reduceCredits(float cost){ credits -= cost; }
-
-	private void updateRound(){ round++; }
+	private void updateRound(){ 
+		round++;
+	}
 	
 	private void spawnEnemy(int spawn, int type){ 
 		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type)); 

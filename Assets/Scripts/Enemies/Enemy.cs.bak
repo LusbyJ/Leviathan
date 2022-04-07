@@ -8,6 +8,7 @@ public abstract class Enemy : MonoBehaviour
 	public int power;
 	public float health;
 	public float bounty;
+	public Explosion death;
 	public Transform centralTower;
 	public bool moving;
 	public Rigidbody2D rb;
@@ -63,6 +64,11 @@ public abstract class Enemy : MonoBehaviour
 	
 	public void kill(){ Destroy(gameObject); }
 	
+	private void explode(){
+		Explosion boom = Instantiate(death, transform.position, Quaternion.identity);
+        boom.transform.parent = transform;
+	}
+	
 	public void move(){
 		Vector3 direction;
 		if(moving){ direction = centralTower.position - transform.position; }
@@ -90,6 +96,11 @@ public abstract class Enemy : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			if(collision.gameObject.name == "Slum")
+            {
+				takeDamage(collision.gameObject.GetComponent<Tower>().damage);
+            }
+
 			resetTimer();
 		}
 	}

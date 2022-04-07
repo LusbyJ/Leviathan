@@ -52,6 +52,7 @@ MonoBehaviour:
   power: 5
   health: 50
   bounty: 50
+  death: {fileID: 7410781099066043000, guid: 6c15a510caa998f4bbf111acb45b1023, type: 3}
   centralTower: {fileID: 0}
   moving: 1
   rb: {fileID: 1658898629150273283}

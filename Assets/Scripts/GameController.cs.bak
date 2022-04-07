@@ -23,6 +23,7 @@ public class GameController : Singleton<GameController>
 	private int level;
 	private int upgrade;
 	private int leviathanSpawn;
+	//add transform to spawn explosion? or do it in Enemy class?
 	
 	// Start is called before the first frame update
     void Start()
@@ -65,6 +66,7 @@ public class GameController : Singleton<GameController>
 					warningClear();
 					StartCoroutine(startRound());
 					upgrade++;
+					maxPoints += 5;
 					if(level == 1){ level++; }
 				}
 				else{
@@ -77,7 +79,11 @@ public class GameController : Singleton<GameController>
 	
 	public void reduceCredits(float cost){ credits -= cost; }
 
-	private void updateRound(){ round++; }
+	private void updateRound(){ 
+		round++; 
+		ScoreBoard.newScore = round;
+		ScoreBoard.saveGame();
+	}
 	
 	private void spawnEnemy(int spawn, int type){ 
 		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type)); 
