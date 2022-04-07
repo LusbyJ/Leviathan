@@ -13,8 +13,8 @@ public abstract class Enemy : MonoBehaviour
 	public Rigidbody2D rb;
 	public float timerInterval;
 	public Animator animator;
-	
-	private	Vector3 movement;
+
+	private Vector3 movement;
 	private bool ground;
 	private bool flying;
 	private bool dead;
@@ -91,6 +91,10 @@ public abstract class Enemy : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			if(collision.gameObject.name == "Slum")
+            {
+				takeDamage(collision.gameObject.GetComponent<Tower>().damage);
+            }
 			resetTimer();
 		}
 	}
