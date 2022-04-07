@@ -54,7 +54,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             if (tower.name != "DroneTower")
             {
                 //Get the towers targetDistance, Instantiate target range indicator
-                float d = tower.GetComponent<Targeting>().TargetDist;
+                float d = tower.GetComponent<Targeting>().TargetDist*2;
                 Vector3 targetDistance = new Vector3(d, d, 0);
                 range.transform.localScale = targetDistance;
                 Instantiate(range);
