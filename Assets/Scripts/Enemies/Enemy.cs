@@ -97,6 +97,8 @@ public abstract class Enemy : MonoBehaviour
 	private void OnCollisionStay2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			
+			//Take damage if attacking slum
 			if(collision.gameObject.name == "Slum")
             {
 				takeDamage(collision.gameObject.GetComponent<Tower>().damage);

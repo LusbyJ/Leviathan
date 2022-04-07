@@ -33,7 +33,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         if(tower.GetComponent<Tower>().cost > gameController.GetComponent<GameController>().credits)
         {
             var tempColor = image.color;
-            tempColor.a = 0.5f;
+            tempColor.a = 0.2f;
             image.color = tempColor;
         }
         else if(tower.GetComponent<Tower>().cost <= gameController.GetComponent<GameController>().credits)
@@ -51,7 +51,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         if (gameController.GetComponent<GameController>().credits >= tower.GetComponent<Tower>().cost)
         {
             building = true;
-            if (tower.name != "DroneTower")
+            if (tower.name != "DroneTower" && tower.name != "Slum")
             {
                 //Get the towers targetDistance, Instantiate target range indicator
                 float d = tower.GetComponent<Targeting>().TargetDist*2;
