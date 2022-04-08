@@ -11,7 +11,8 @@ public class Health : MonoBehaviour
     public int health;      //Tower health
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
-  
+    public bool canBeHealed=true; //indicates if the damagable object can be healed by defeating Leviathan or by being next to medical tower.
+
     void Start()
     {
         health=maxHealth;
@@ -57,7 +58,7 @@ public class Health : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         }
-       
+
         //Remove tower position from tower list and destroy tower
         Vector3Int realPos = gameObject.GetComponent<Tower>().cell;
         GridController.towerList.Remove(realPos);
