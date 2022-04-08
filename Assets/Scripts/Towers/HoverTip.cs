@@ -1,18 +1,26 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 using UnityEngine;
 
 public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public void OnPointerEnter(PointerEventData eventData)
+    //Detect if the Cursor starts to pass over the GameObject
+    public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        Debug.Log("Hovered");
+        //Output to console the GameObject's name and the following message
+        Debug.Log("Cursor Entering " + name + " GameObject");
     }
 
-    public void OnPointerExit(PointerEventData eventData)
+    //Detect when Cursor leaves the GameObject
+    public void OnPointerExit(PointerEventData pointerEventData)
     {
-        Debug.Log("Exited");
+        //Output the following message with the GameObject's name
+        Debug.Log("Cursor Exiting " + name + " GameObject");
+    }
+
+       public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        //Output the following message with the GameObject's name
+        Debug.Log("updating" + name + " GameObject");
     }
 }

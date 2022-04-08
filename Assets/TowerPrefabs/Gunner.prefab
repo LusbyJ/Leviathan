@@ -161,6 +161,7 @@ GameObject:
   - component: {fileID: 1394296632046091434}
   - component: {fileID: 446279084970338994}
   - component: {fileID: 8070298963052318773}
+  - component: {fileID: 7087375667388940826}
   m_Layer: 0
   m_Name: Gunner
   m_TagString: Tower
@@ -325,3 +326,15 @@ MonoBehaviour:
   FireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
   TargetsGround: 1
   TargetsAir: 0
+--- !u!114 &7087375667388940826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9213127437140424177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
