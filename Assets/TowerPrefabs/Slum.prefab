@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 874840511845539921}
   - component: {fileID: 2086582392500897839}
   - component: {fileID: 2607915577404999822}
-  - component: {fileID: -3309097267774538569}
   m_Layer: 0
   m_Name: Slum
   m_TagString: Tower
@@ -113,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 1, y: -4, z: 0}
+  cell: {x: 1, y: -3, z: 0}
   attackTime: 0
   damage: 2
   cost: 15
@@ -153,18 +152,6 @@ PolygonCollider2D:
       - {x: 0.16, y: -0.25}
       - {x: 0.16, y: -0.19999999}
       - {x: 0.07, y: -0.11}
---- !u!114 &-3309097267774538569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5206318282047469724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6130143092949937557
 GameObject:
   m_ObjectHideFlags: 0

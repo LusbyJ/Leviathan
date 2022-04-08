@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6573581674032539373}
   - component: {fileID: -4618618457553244681}
   - component: {fileID: -101462773169022677}
-  - component: {fileID: -3931810149351524230}
   m_Layer: 0
   m_Name: Sniper
   m_TagString: Tower
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 3, y: -5, z: 0}
+  cell: {x: 0, y: -2, z: 0}
   attackTime: 10
   damage: 10
   cost: 200
@@ -184,18 +183,6 @@ MonoBehaviour:
   FireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}
   TargetsGround: 1
   TargetsAir: 1
---- !u!114 &-3931810149351524230
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6705512431368553355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8428318497393006754
 GameObject:
   m_ObjectHideFlags: 0
