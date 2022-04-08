@@ -16,7 +16,7 @@ public class GameController : Singleton<GameController>
 	public float round;
 	public float credits;
 	public bool towerPlaced;
-	
+
 	private List<Enemy> currEnemies;
 	private List<int[]> nextRound;
 	private int maxPoints;
@@ -24,7 +24,7 @@ public class GameController : Singleton<GameController>
 	private int upgrade;
 	private int leviathanSpawn;
 	//add transform to spawn explosion? or do it in Enemy class?
-	
+
 	// Start is called before the first frame update
     void Start()
     {
@@ -49,7 +49,7 @@ public class GameController : Singleton<GameController>
         if(towerPlaced){
 			roundText.text = "Round " + round;
 			creditText.text = "Credits: " + credits;
-			
+
 			foreach(Enemy e in currEnemies){
 				if(e.isDead()){
 					currEnemies.Remove(e);
@@ -59,6 +59,7 @@ public class GameController : Singleton<GameController>
 			}
 			if(currEnemies.Count == 0 && nextRound.Count == 0){
 				updateRound();
+        refreshTowers();
 				leviathanWarning();
 				if(round == 1){ StartCoroutine(round1()); }
 				else if(round == 2){ StartCoroutine(round2()); }
@@ -93,14 +94,14 @@ public class GameController : Singleton<GameController>
 
 	public void reduceCredits(float cost){ credits -= cost; }
 
-	private void updateRound(){ 
+	private void updateRound(){
 		round++;
 	}
-	
-	private void spawnEnemy(int spawn, int type){ 
-		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type)); 
+
+	private void spawnEnemy(int spawn, int type){
+		currEnemies.Add(spawnPoints[spawn].spawnEnemyType(spawn, type));
 	}
-	
+
 	private void generateRound(){
 		int[] nextEnemy = new int[2];
 		int points = maxPoints;
@@ -115,7 +116,7 @@ public class GameController : Singleton<GameController>
 			if(maxEnemy > 2 && points < 2){ maxEnemy = 2; }
 		}
 	}
-	
+
 	private void leviathan(){
 		if(leviathanSpawn == 0){ nextRound.Add(new int[]{5, 4}); }
 		else if(leviathanSpawn == 1){ nextRound.Add(new int[]{15, 4}); }
@@ -123,21 +124,37 @@ public class GameController : Singleton<GameController>
 		else{ nextRound.Add(new int[]{36, 4}); }
 		leviathanSpawn = Random.Range(0, 4);
 	}
-	
+
 	private void leviathanWarning(){
 		if(leviathanSpawn == 0){ levTop.enabled = true; }
 		else if(leviathanSpawn == 1){ levRight.enabled = true; }
 		else if(leviathanSpawn == 2){ levBottom.enabled = true; }
 		else{ levLeft.enabled = true; }
 	}
-	
+
+  private void refreshTowers(){
+    //if it's the round after the leviathan
+    if(round%10==1){
+      GameObject[] towers=GameObject.FindGameObjectsWithTag("Tower");
+      foreach(GameObject tower in towers){
+        //Heal
+        Health h=tower.GetComponent<Health>();
+        if(h.canBeHealed){ //ensure tower is not central tower.
+          h.health=h.maxHealth;
+        }
+        //Refresh Abilities
+        //TODO\\
+      }
+    }
+  }
+
 	private void warningClear(){
 		levLeft.enabled = false;
 		levRight.enabled = false;
 		levTop.enabled = false;
 		levBottom.enabled = false;
 	}
-	
+
 	private IEnumerator startRound(){
 		foreach(int[] arr in nextRound){
 			currEnemies.Add(spawnPoints[arr[0]].spawnEnemyType(arr[0], arr[1]));
@@ -146,7 +163,7 @@ public class GameController : Singleton<GameController>
 		foreach(Enemy e in currEnemies){ e.levelUp(upgrade); }
 		nextRound.Clear();
 	}
-	
+
 	private IEnumerator round1(){
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(2);
@@ -154,7 +171,7 @@ public class GameController : Singleton<GameController>
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
 	}
-	
+
 	private IEnumerator round2(){
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
 		yield return new WaitForSeconds(2);
