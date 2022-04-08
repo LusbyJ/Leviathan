@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4269057710398039038}
   m_Layer: 0
   m_Name: Slum
-  m_TagString: Tower
+  m_TagString: Slum
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
