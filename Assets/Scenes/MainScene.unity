@@ -4070,8 +4070,13 @@ MonoBehaviour:
   - {fileID: 1320412179}
   roundText: {fileID: 662960660}
   creditText: {fileID: 658288977}
+  levLeft: {fileID: 0}
+  levRight: {fileID: 0}
+  levTop: {fileID: 0}
+  levBottom: {fileID: 0}
   round: 0
   credits: 0
+  towerPlaced: 0
 --- !u!114 &2056776929 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 373077587187760624, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
