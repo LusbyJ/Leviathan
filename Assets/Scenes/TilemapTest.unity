@@ -4335,7 +4335,7 @@ MonoBehaviour:
   levBottom: {fileID: 1969583981}
   round: 1
   credits: 0
-  towerPlaced: 1
+  towerPlaced: 0
 --- !u!4 &1299160855
 Transform:
   m_ObjectHideFlags: 0

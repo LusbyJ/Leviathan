@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, 
+public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     IEndDragHandler, IDragHandler
 {
     [SerializeField] private Canvas canvas;
@@ -16,9 +16,9 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     public GameObject tower;                //Tower to be built
     public GameObject range;                //Range of tower indicator
     public static bool building = false;    //holds if building
-    
 
-    void Start() 
+
+    void Start()
     {
         image = GetComponent<Image>();
     }
@@ -70,7 +70,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Handles position while being dragged
     public void OnDrag(PointerEventData eventData)
     {
-        
+
     }
 
     //Detects when click released after dragging
@@ -78,7 +78,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     {
         Vector2 hoverPos = Camera.main.ScreenToWorldPoint(eventData.position);
         Vector3Int cellPos = gridLayout.LocalToCell(hoverPos);
-    
+
         if (!GridController.occupied && building == true)
         {
             //Instantiate a new tower at end of drag location
@@ -86,15 +86,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             placePosition.x = cellPos.x + 1;
             tower.GetComponent<Tower>().cell = cellPos;
             Instantiate(tower, gridLayout.CellToLocal(placePosition), Quaternion.identity);
-           
+
             //Add tower location to towerList, reduce credits, occupy tile
             GridController.towerList.Add(cellPos);
-            gameController.GetComponent<GameController>().reduceCredits(tower.GetComponent<Tower>().cost);
-            GridController.occupied = false;        
+            GameController gcontrol=gameController.GetComponent<GameController>();
+            gcontrol.reduceCredits(tower.GetComponent<Tower>().cost);
+            gcontrol.towerPlaced=true;
+            GridController.occupied = false;
         }
         else
         {
-            gridLayout.GetComponent<GridController>().ResetTile(cellPos);      
+            gridLayout.GetComponent<GridController>().ResetTile(cellPos);
         }
         building = false;
     }
@@ -102,6 +104,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
     //Detects when clicked
     public void OnPointerDown(PointerEventData eventData)
     {
-     
+
     }
 }
