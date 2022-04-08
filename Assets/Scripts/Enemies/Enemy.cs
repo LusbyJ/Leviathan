@@ -18,6 +18,7 @@ public abstract class Enemy : MonoBehaviour
 	private	Vector3 movement;
 	private bool ground;
 	private bool flying;
+	private bool dying;
 	private bool dead;
 	private float timer;
 	
@@ -25,6 +26,7 @@ public abstract class Enemy : MonoBehaviour
     void Start()
     {
 		moving = true;
+		dying = false;
 		dead = false;
 		timer = 1; 
     }
@@ -56,7 +58,8 @@ public abstract class Enemy : MonoBehaviour
 	public void takeDamage(float damage){
 		StartCoroutine(blink());
 		health -= damage;
-		if(health <= 0){ 
+		if(health <= 0 && !dying){
+			dying = true;
 			GameController.instance.credits += bounty;
 			explode();
 			Invoke("die", 0.5f);
