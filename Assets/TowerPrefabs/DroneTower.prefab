@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 7281344908700385788}
   - component: {fileID: 1634809219401510323}
   - component: {fileID: 1414693374245349468}
+  - component: {fileID: 2208526367939213627}
   m_Layer: 0
   m_Name: DroneTower
   m_TagString: Tower
@@ -200,6 +201,7 @@ MonoBehaviour:
   attackTime: 100
   damage: 0
   cost: 125
+  upgradeCost: 0
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!114 &7281344908700385788
@@ -264,3 +266,15 @@ MonoBehaviour:
   Drone: {fileID: 7742015956759435664, guid: 63122b4937f6a214a8942129c873f72a, type: 3}
   DroneCount: 3
   LeashRange: 1.2
+--- !u!114 &2208526367939213627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3198363401410674453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

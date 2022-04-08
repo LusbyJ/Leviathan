@@ -8,6 +8,7 @@ public class Tower : MonoBehaviour
     public float attackTime;
     public int damage;
     public int cost;
+    public int upgradeCost;
     public GameObject projectile;
     public bool OverrideTargetting=false; //Used for medical tower active
 

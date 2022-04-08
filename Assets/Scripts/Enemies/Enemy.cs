@@ -97,12 +97,15 @@ public abstract class Enemy : MonoBehaviour
     }
 	
 	private void OnCollisionStay2D(Collision2D collision){
-		if(collision.gameObject.tag == "Tower" && timer <= 0){
+		if (collision.gameObject.name == "Slum")
+		{
+			takeDamage(collision.gameObject.GetComponent<Tower>().damage);
+		}
+		if (collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
-			if(collision.gameObject.name == "Slum")
-            {
-				takeDamage(collision.gameObject.GetComponent<Tower>().damage);
-            }
+
+		
+
 
 			resetTimer();
 		}
