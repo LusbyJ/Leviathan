@@ -12,6 +12,11 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         tipToShow = "" + gameObject.GetComponent<Tower>().upgradeCost;
     }
 
+    void Update()
+    {
+        tipToShow = "" + gameObject.GetComponent<Tower>().upgradeCost;
+    }
+
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
