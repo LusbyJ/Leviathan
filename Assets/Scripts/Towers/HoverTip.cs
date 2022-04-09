@@ -1,26 +1,42 @@
-
+using System.Collections;
 using UnityEngine.EventSystems;
 using UnityEngine;
 
 public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public string tipToShow;
+    private float waitTime = 0.2f;
+
+    void Start()
+    {
+        tipToShow = "" + gameObject.GetComponent<Tower>().upgradeCost;
+    }
+
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        //Output to console the GameObject's name and the following message
-        Debug.Log("Cursor Entering " + name + " GameObject");
+        StopAllCoroutines();
+        StartCoroutine(StartTimer());
     }
 
     //Detect when Cursor leaves the GameObject
     public void OnPointerExit(PointerEventData pointerEventData)
     {
-        //Output the following message with the GameObject's name
-        Debug.Log("Cursor Exiting " + name + " GameObject");
+        StopAllCoroutines();
+        MouseTipManager.OnMouseLoseFocus();
+    }
+    
+    //Displays upgrade window
+    public void ShowUpgrade()
+    {
+        MouseTipManager.OnMouseHover(tipToShow, Input.mousePosition);
     }
 
-       public void OnPointerClick(PointerEventData pointerEventData)
+    //Timer to wait so pup up doesn't immediately show up
+    private IEnumerator StartTimer()
     {
-        //Output the following message with the GameObject's name
-        Debug.Log("updating" + name + " GameObject");
+        yield return new WaitForSeconds(waitTime);
+
+        ShowUpgrade();
     }
 }

@@ -34,7 +34,7 @@ public class MouseTipManager : MonoBehaviour
     {
         tipText.text = tip;
         upgradeWindow.gameObject.SetActive(true);
-        upgradeWindow.transform.position = new Vector2(mousePos.x, mousePos.y + upgradeWindow.sizeDelta.y * 2);
+        upgradeWindow.transform.position = new Vector2(mousePos.x, mousePos.y + upgradeWindow.sizeDelta.y * (-2));
     }
 
     private void HideUpgrade()

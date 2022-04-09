@@ -269,7 +269,7 @@ MonoBehaviour:
   damage: 2
   cost: 100
   upgradeLevel: 1
-  upgradeCost: 0
+  upgradeCost: 100
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!60 &446279084970338994
@@ -318,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Owner: {fileID: 9213127437140424177}
-  TargetDist: 1
+  TargetDist: 1.18
   Accel: 0.01
   MaxSpeed: 2
   Display: {fileID: 0}
@@ -341,3 +341,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipToShow: 

@@ -107,12 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameController: {fileID: 0}
-  cell: {x: 0, y: 0, z: 0}
+  cell: {x: 1, y: -3, z: 0}
   attackTime: 10
   damage: 16
   cost: 200
   upgradeLevel: 1
-  upgradeCost: 0
+  upgradeCost: 150
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!114 &6573581674032539373
@@ -199,6 +199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipToShow: 
 --- !u!1 &8428318497393006754
 GameObject:
   m_ObjectHideFlags: 0

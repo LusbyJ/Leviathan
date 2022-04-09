@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  canBeHealed: 1
 --- !u!114 &2086582392500897839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -119,7 +120,7 @@ MonoBehaviour:
   damage: 2
   cost: 75
   upgradeLevel: 1
-  upgradeCost: 25
+  upgradeCost: 50
   projectile: {fileID: 0}
   OverrideTargetting: 0
 --- !u!60 &2607915577404999822
@@ -167,6 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46f84e6fa07b044cbd484058de40e64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipToShow: 
 --- !u!1 &6130143092949937557
 GameObject:
   m_ObjectHideFlags: 0
