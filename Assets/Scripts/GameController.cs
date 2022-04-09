@@ -15,6 +15,7 @@ public class GameController : Singleton<GameController>
 	public Image levTop;
 	public Image levBottom;
 	public float round;
+  public FloatSO ScoreSO;
 	public float credits;
 	public bool towerPlaced;
 
@@ -41,6 +42,7 @@ public class GameController : Singleton<GameController>
 		level = 1;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
+    ScoreSO.Value=1;
 		addCentralHub();
 	}
 
@@ -97,6 +99,7 @@ public class GameController : Singleton<GameController>
 
 	private void updateRound(){
 		round++;
+    ScoreSO.Value=round;
 	}
 
 	private void spawnEnemy(int spawn, int type){

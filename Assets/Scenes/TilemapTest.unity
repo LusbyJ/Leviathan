@@ -4571,6 +4571,7 @@ MonoBehaviour:
   levTop: {fileID: 1694617063}
   levBottom: {fileID: 1969583981}
   round: 1
+  ScoreSO: {fileID: 11400000, guid: 014ee14a4d6c1564d8d1dfae92f57846, type: 2}
   credits: 0
   towerPlaced: 0
 --- !u!4 &1299160855
