@@ -263,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameController: {fileID: 0}
   cell: {x: 1, y: 1, z: 0}
   attackTime: 4
   damage: 2
@@ -322,7 +321,7 @@ MonoBehaviour:
   Accel: 0.01
   MaxSpeed: 2
   Display: {fileID: 0}
-  waitTime: 0.2
+  waitTime: 1
   muzzleTime: 0.1
   DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
   IdleStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
