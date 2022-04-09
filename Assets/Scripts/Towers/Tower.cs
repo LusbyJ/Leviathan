@@ -16,17 +16,24 @@ public class Tower : MonoBehaviour
     private bool activeAbility = false;
     public bool used = false;
 
+    public Sprite level2Sprite;
+    public Sprite level3Sprite;
+
     // Update is called once per frame
     void Update()
     {
-        if(upgrading && upgradeLevel < 4)
+        if (upgradeLevel == 2)
         {
-            applyUpgrades();
+            gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
         }
-
-        if(upgradeLevel == 4 && !used)
+        
+        if(upgradeLevel == 3)
         {
-            activeAbility = true;
+            gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
+            if (!used)
+            {
+                activeAbility = true;
+            }
         }
     }
 
@@ -38,18 +45,18 @@ public class Tower : MonoBehaviour
         {
             used = true;
             //TODO use active ability
-
         }
 
         //If left click check if credits are sufficient and upgrade
         if(Input.GetMouseButtonDown(0))
         {
-            if(GameController.instance.credits >= upgradeCost)
-            {
+            if(GameController.instance.credits >= upgradeCost && upgradeLevel < 3)
+            {         
                 GameController.instance.credits -= upgradeCost;
                 upgradeLevel++;
                 upgradeCost *= 2;
                 upgrading = true;
+                applyUpgrades();
             }      
         }
     }
@@ -82,11 +89,11 @@ public class Tower : MonoBehaviour
         }
 
         //upgrade drone
-        if (gameObject.name == "Slum(Clone)")
+        if (gameObject.name == "DroneTower(Clone)")
         {
             gameObject.GetComponent<Health>().maxHealth += 10;
             gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-            gameObject.GetComponent<DroneSummoner>().DroneCount += 1;
+            gameObject.GetComponent<DroneSummoner>().SummonDrone();
         }
         upgrading = false;
     }

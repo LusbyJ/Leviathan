@@ -272,6 +272,8 @@ MonoBehaviour:
   projectile: {fileID: 0}
   OverrideTargetting: 0
   used: 0
+  level2Sprite: {fileID: 3547205501756355817, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
+  level3Sprite: {fileID: 2774931514640212788, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
 --- !u!60 &446279084970338994
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -35,7 +35,7 @@ public class GameController : Singleton<GameController>
 		levTop.enabled = false;
 		levBottom.enabled = false;
 		round = 0;
-		credits = 500;
+		credits = 5000;
 		currEnemies = new List<Enemy>();
 		nextRound = new List<int[]>();
 		maxPoints = 5;
