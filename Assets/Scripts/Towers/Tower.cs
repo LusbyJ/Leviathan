@@ -22,12 +22,12 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (upgradeLevel == 2)
+        if (upgradeLevel == 2 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
         }
         
-        if(upgradeLevel == 3)
+        if(upgradeLevel == 3 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
             if (!used)

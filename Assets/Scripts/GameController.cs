@@ -42,7 +42,7 @@ public class GameController : Singleton<GameController>
 		level = 1;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
-    ScoreSO.Value=1;
+		ScoreSO.Value=1;
 		addCentralHub();
 	}
 
