@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Linq;
 
 public class GameController : Singleton<GameController>
 {
@@ -136,6 +137,8 @@ public class GameController : Singleton<GameController>
     //if it's the round after the leviathan
     if(round%10==1){
       GameObject[] towers=GameObject.FindGameObjectsWithTag("Tower");
+      GameObject[] slums=GameObject.FindGameObjectsWithTag("Slum");
+      towers=towers.Concat(slums).ToArray();
       foreach(GameObject tower in towers){
         //Heal
         Health h=tower.GetComponent<Health>();
