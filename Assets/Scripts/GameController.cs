@@ -33,9 +33,12 @@ public class GameController : Singleton<GameController>
 	// Start is called before the first frame update
     void Start()
     {
+		//Clear tower lists, then add central tower to list and reset tileMap
+		GridController.towerList.Clear();
+		GridController.deadTowers.Clear();
 		addCentralHub();
 		resetTilemap();
-		GridController.deadTowers.Clear();
+		
 		levLeft.enabled = false;
 		levRight.enabled = false;
 		levTop.enabled = false;
