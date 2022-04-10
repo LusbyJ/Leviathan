@@ -33,7 +33,10 @@ public class GameController : Singleton<GameController>
 	// Start is called before the first frame update
     void Start()
     {
-        levLeft.enabled = false;
+		addCentralHub();
+		resetTilemap();
+		GridController.deadTowers.Clear();
+		levLeft.enabled = false;
 		levRight.enabled = false;
 		levTop.enabled = false;
 		levBottom.enabled = false;
@@ -45,8 +48,7 @@ public class GameController : Singleton<GameController>
 		level = 1;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
-		ScoreSO.Value=1;
-		addCentralHub();
+		ScoreSO.Value=1;	
 	}
 
     // Update is called once per frame
