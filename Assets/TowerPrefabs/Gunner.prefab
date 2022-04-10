@@ -321,12 +321,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 9213127437140424177}
   TargetDist: 1.18
-  Accel: 0.01
-  MaxSpeed: 2
   Display: {fileID: 0}
   waitTime: 0.7
-  muzzleTime: 0.05
-  DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
+  muzzleTime: 0.1
   IdleStack: {fileID: 11400000, guid: 608237f67e60d144fb032a8bbe7ba7f5, type: 2}
   FireStack: {fileID: 11400000, guid: 3f3b96e28f94a6845b51b532d8c904e7, type: 2}
   TargetsGround: 1

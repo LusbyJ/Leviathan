@@ -8,13 +8,10 @@ public class Targeting : MonoBehaviour
     private GameObject Target;
     private Vector2 Speed;
     public float TargetDist;
-    public float Accel = 0.01f;
-    public float MaxSpeed = 2f;
     public displayObject Display;
     public float waitTime = 2f;
     private float AttackTimer;
     public float muzzleTime=0.1f;
-    public GameObject DroneProjectile;
     private Tower OwnerTower;
     public stackobject IdleStack;
     public stackobject FireStack;
@@ -32,6 +29,7 @@ public class Targeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        muzzleTime=Mathf.Min(muzzleTime,waitTime/2);
         if (!Owner)
         {
             Destroy(this);
