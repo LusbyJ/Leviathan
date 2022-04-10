@@ -62,6 +62,7 @@ public class Health : MonoBehaviour
         //Remove tower position from tower list and destroy tower
         Vector3Int realPos = gameObject.GetComponent<Tower>().cell;
         GridController.towerList.Remove(realPos);
+        GridController.deadTowers.Add(realPos);
         Destroy(gameObject);
     }
 

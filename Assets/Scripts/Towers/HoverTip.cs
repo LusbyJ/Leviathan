@@ -20,10 +20,12 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        StopAllCoroutines();
-        StartCoroutine(StartTimer());
+        if (DragDrop.building == false && gameObject.GetComponent<Tower>().upgradeLevel < 3)
+        {
+            StopAllCoroutines();
+            StartCoroutine(StartTimer());
+        }
     }
-
     //Detect when Cursor leaves the GameObject
     public void OnPointerExit(PointerEventData pointerEventData)
     {

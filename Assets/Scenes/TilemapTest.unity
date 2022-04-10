@@ -4574,6 +4574,8 @@ MonoBehaviour:
   ScoreSO: {fileID: 11400000, guid: 014ee14a4d6c1564d8d1dfae92f57846, type: 2}
   credits: 0
   towerPlaced: 0
+  mainMap: {fileID: 1773400931}
+  emptyTile: {fileID: 11400000, guid: 9fa41082edbb44444bf16a5622532042, type: 2}
 --- !u!4 &1299160855
 Transform:
   m_ObjectHideFlags: 0
@@ -50214,7 +50216,6 @@ MonoBehaviour:
   mainMap: {fileID: 1773400931}
   hoverTile: {fileID: 11400000, guid: ea210210a3d854a4295fa9ab3e99303d, type: 2}
   blockedTile: {fileID: 11400000, guid: 7cbda092ef9b72549ad5daefa8a790a4, type: 2}
-  emptyTile: {fileID: 0}
   tower: {fileID: 0}
 --- !u!1001 &1901316881
 PrefabInstance:

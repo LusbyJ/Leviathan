@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   health: 100
   canBeHealed: 1
 --- !u!114 &2086582392500897839
@@ -114,7 +114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 0, y: -3, z: 0}
+  cell: {x: 1, y: -3, z: 0}
   attackTime: 0
   damage: 2
   cost: 75

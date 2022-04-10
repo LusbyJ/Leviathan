@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.Tilemaps;
 
 public class GameController : Singleton<GameController>
 {
@@ -15,9 +16,11 @@ public class GameController : Singleton<GameController>
 	public Image levTop;
 	public Image levBottom;
 	public float round;
-  public FloatSO ScoreSO;
+	public FloatSO ScoreSO;
 	public float credits;
 	public bool towerPlaced;
+	public Tilemap mainMap;
+	public Tile emptyTile;
 
 	private List<Enemy> currEnemies;
 	private List<int[]> nextRound;
@@ -62,7 +65,7 @@ public class GameController : Singleton<GameController>
 			}
 			if(currEnemies.Count == 0 && nextRound.Count == 0){
 				updateRound();
-        refreshTowers();
+				refreshTowers();
 				leviathanWarning();
 				if(round == 1){ StartCoroutine(round1()); }
 				else if(round == 2){ StartCoroutine(round2()); }
@@ -99,7 +102,7 @@ public class GameController : Singleton<GameController>
 
 	private void updateRound(){
 		round++;
-    ScoreSO.Value=round;
+		ScoreSO.Value=round;
 	}
 
 	private void spawnEnemy(int spawn, int type){
@@ -136,23 +139,40 @@ public class GameController : Singleton<GameController>
 		else{ levLeft.enabled = true; }
 	}
 
-  private void refreshTowers(){
-    //if it's the round after the leviathan
-    if(round%10==1){
-      GameObject[] towers=GameObject.FindGameObjectsWithTag("Tower");
-      GameObject[] slums=GameObject.FindGameObjectsWithTag("Slum");
-      towers=towers.Concat(slums).ToArray();
-      foreach(GameObject tower in towers){
-        //Heal
-        Health h=tower.GetComponent<Health>();
-        if(h.canBeHealed){ //ensure tower is not central tower.
-          h.health=h.maxHealth;
-        }
+	private void refreshTowers(){
+		//if it's the round after the leviathan
+		if(round%10==1){
+			resetTilemap();
+			GridController.deadTowers.Clear();
+			GameObject[] towers=GameObject.FindGameObjectsWithTag("Tower");
+			GameObject[] slums=GameObject.FindGameObjectsWithTag("Slum");
+			towers=towers.Concat(slums).ToArray();
+			foreach(GameObject tower in towers){
+				//Heal
+				Health h=tower.GetComponent<Health>();
+				if(h.canBeHealed){ //ensure tower is not central tower.
+					h.health=h.maxHealth;
+				}
         //Refresh Abilities
         //TODO\\
-      }
-    }
-  }
+			}
+		}
+	}
+
+	//Reset tilemap tiles
+	private void resetTilemap()
+    {
+		foreach (var position in mainMap.cellBounds.allPositionsWithin)
+		{
+			if (!mainMap.HasTile(position))
+			{
+				continue;
+			}
+			// Tile is not empty; do stuff
+			mainMap.SetTile(position, emptyTile);
+			
+		}
+	}
 
 	private void warningClear(){
 		levLeft.enabled = false;
