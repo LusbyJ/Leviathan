@@ -92,7 +92,7 @@ public class Tower : MonoBehaviour
             gameObject.GetComponent<Targeting>().waitTime *= 0.7f;
 
             //Upgrade cost
-            upgradeCost *= 6;
+            upgradeCost *= 3;
         }
 
         //upgrade slum
@@ -104,10 +104,10 @@ public class Tower : MonoBehaviour
             towerHealth.health = towerHealth.maxHealth;
 
             //upgrade damage
-            damage *= 2;
+            damage *= 3;
 
             //upgrade cost
-            upgradeCost *= 4;
+            upgradeCost *= 3;
         }
 
         //upgrade drone
@@ -124,7 +124,7 @@ public class Tower : MonoBehaviour
             }
 
             //upgrade cost
-            upgradeCost *= 5;
+            upgradeCost *= 3;
         }
         upgrading = false;
     }

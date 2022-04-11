@@ -50,7 +50,7 @@ public abstract class Enemy : MonoBehaviour
 
 	public void levelUp(int numLevels){
 		for(int i = 0; i < numLevels; i++){
-			power *= 2;
+			power = Mathf.CeilToInt(power*1.5f);
 			health *= 2.5f;
 		}
 	}
