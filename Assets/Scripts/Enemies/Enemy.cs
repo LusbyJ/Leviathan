@@ -61,19 +61,11 @@ public abstract class Enemy : MonoBehaviour
 		if(health <= 0 && !dying){
 			dying = true;
 			GameController.instance.credits += bounty;
-			explode();
-			Invoke("die", 0.5f);
+			dead = true;
 		}
 	}
 
 	public void kill(){ Destroy(gameObject); }
-
-	private void die(){ dead = true; }
-
-	private void explode(){
-		Explosion boom = Instantiate(death, transform.position, Quaternion.identity);
-        boom.transform.parent = transform;
-	}
 
 	public void move(){
 		Vector3 direction;

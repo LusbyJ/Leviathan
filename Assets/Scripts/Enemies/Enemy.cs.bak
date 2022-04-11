@@ -14,64 +14,62 @@ public abstract class Enemy : MonoBehaviour
 	public Rigidbody2D rb;
 	public float timerInterval;
 	public Animator animator;
-	
+
 	private	Vector3 movement;
 	private bool ground;
 	private bool flying;
+	private bool dying;
 	private bool dead;
 	private float timer;
-	
+
 	// Start is called before the first frame update
     void Start()
     {
 		moving = true;
+		dying = false;
 		dead = false;
-		timer = 1; 
+		timer = 1;
     }
-	
+
 	void FixedUpdate(){
 		timer -= Time.deltaTime;
 		move();
 	}
-	
+
 	public void setGround(bool grounded){ ground = grounded; }
-	
+
 	public void setFlying(bool flies){ flying = flies; }
-	
+
 	public bool isGround(){ return ground; }
-	
+
 	public bool isFlying(){ return flying; }
-	
+
 	public void resetTimer(){ timer = timerInterval; }
-	
+
 	public bool isDead(){ return dead; }
-	
+
 	public void levelUp(int numLevels){
 		for(int i = 0; i < numLevels; i++){
 			power *= 2;
-			health *= 1.5f;
+			health *= 2.5f;
 		}
 	}
-	
+
 	public void takeDamage(float damage){
 		StartCoroutine(blink());
 		health -= damage;
-		if(health <= 0){ 
+		if(health <= 0 && !dying){
+			dying = true;
 			GameController.instance.credits += bounty;
 			explode();
 			Invoke("die", 0.5f);
 		}
 	}
-	
+
 	public void kill(){ Destroy(gameObject); }
-	
+
 	private void die(){ dead = true; }
-	
-	private void explode(){
-		Explosion boom = Instantiate(death, transform.position, Quaternion.identity);
-        boom.transform.parent = transform;
-	}
-	
+
 	public void move(){
 		Vector3 direction;
 		if(moving){ direction = centralTower.position - transform.position; }
@@ -80,13 +78,13 @@ public abstract class Enemy : MonoBehaviour
 		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
 		animator.SetBool("moving", moving);
 	}
-	
+
 	private IEnumerator blink(){
 		GetComponent<Renderer>().material.color = Color.red;
         yield return new WaitForSeconds(0.1f);
         GetComponent<Renderer>().material.color = Color.white;
 	}
-	
+
 	private void OnCollisionEnter2D(Collision2D collision){
 		if(collision.gameObject.tag == "Enemy"){
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
@@ -95,19 +93,21 @@ public abstract class Enemy : MonoBehaviour
 			moving = false;
         }
     }
-	
+
 	private void OnCollisionStay2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
-			if(collision.gameObject.name == "Slum")
-            {
-				takeDamage(collision.gameObject.GetComponent<Tower>().damage);
-            }
 			resetTimer();
+		}
+		else if (collision.gameObject.tag == "Slum" && timer <= 0)
+		{
+			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			resetTimer();
+			takeDamage(collision.gameObject.GetComponent<Tower>().damage);
 		}
 	}
 
-	
+
 	private void OnCollisionExit2D(Collision2D collision){
 		if(collision.gameObject.tag == "Tower"){
 			moving = true;
