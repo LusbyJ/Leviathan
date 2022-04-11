@@ -202,7 +202,7 @@ MonoBehaviour:
   damage: 0
   cost: 125
   upgradeLevel: 1
-  upgradeCost: 100
+  upgradeCost: 350
   projectile: {fileID: 0}
   OverrideTargetting: 0
   used: 0
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 5
+  maxHealth: 15
   health: 100
   canBeHealed: 1
 --- !u!60 &1634809219401510323

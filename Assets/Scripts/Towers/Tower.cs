@@ -26,7 +26,7 @@ public class Tower : MonoBehaviour
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
         }
-        
+
         if(upgradeLevel == 3 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
@@ -51,13 +51,13 @@ public class Tower : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
         {
             if(GameController.instance.credits >= upgradeCost && upgradeLevel < 3)
-            {         
+            {
                 GameController.instance.credits -= upgradeCost;
                 upgradeLevel++;
-                
+
                 upgrading = true;
                 applyUpgrades();
-            }      
+            }
         }
     }
 
@@ -68,14 +68,15 @@ public class Tower : MonoBehaviour
         if(gameObject.name == "Gunner(Clone)")
         {
             //upgrade maxHealth, reset health to max
-            gameObject.GetComponent<Health>().maxHealth += 10;
-            gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-            
+            Health towerHealth=gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *=2;
+            towerHealth.health = towerHealth.maxHealth;
+
             //upgrade fireRate
-            gameObject.GetComponent<Targeting>().waitTime -= 0.3f;
+            gameObject.GetComponent<Targeting>().waitTime *= 0.25f;
 
             //upgrade Cost
-            upgradeCost *= 2;
+            upgradeCost *= 3;
 
         }
 
@@ -83,42 +84,47 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "Sniper(Clone)")
         {
             //Reset Health to max
-            gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-            
+            Health towerHealth=gameObject.GetComponent<Health>();
+            towerHealth.health = towerHealth.maxHealth;
+
             //upgrade damage, upgrade fireRate
-            damage += 2;
-            gameObject.GetComponent<Targeting>().waitTime -= 0.3f;
+            damage *=2;
+            gameObject.GetComponent<Targeting>().waitTime *= 0.7f;
 
             //Upgrade cost
-            upgradeCost *= 2;
+            upgradeCost *= 6;
         }
 
         //upgrade slum
         if (gameObject.name == "Slum(Clone)")
         {
             //Upgrade health, reset health to max
-            gameObject.GetComponent<Health>().maxHealth += 10;
-            gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-           
+            Health towerHealth=gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *=2;
+            towerHealth.health = towerHealth.maxHealth;
+
             //upgrade damage
-            damage += 2;
+            damage *= 2;
 
             //upgrade cost
-            upgradeCost *= 2;
+            upgradeCost *= 4;
         }
 
         //upgrade drone
         if (gameObject.name == "DroneTower(Clone)")
         {
             //upgrade health, reset health to max
-            gameObject.GetComponent<Health>().maxHealth += 10;
-            gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-            
+            Health towerHealth=gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *=2;
+            towerHealth.health = towerHealth.maxHealth;
             //Upgrade/add drone
-            gameObject.GetComponent<DroneSummoner>().SummonDrone();
+            DroneSummoner summoner=gameObject.GetComponent<DroneSummoner>();
+            for(var i=0;i<upgradeLevel;i++){
+                summoner.SummonDrone();
+            }
 
             //upgrade cost
-            upgradeCost *= 2;
+            upgradeCost *= 5;
         }
         upgrading = false;
     }

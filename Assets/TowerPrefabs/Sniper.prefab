@@ -111,7 +111,7 @@ MonoBehaviour:
   damage: 16
   cost: 200
   upgradeLevel: 1
-  upgradeCost: 150
+  upgradeCost: 450
   projectile: {fileID: 0}
   OverrideTargetting: 0
   used: 0
@@ -179,12 +179,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Owner: {fileID: 6705512431368553355}
   TargetDist: 3
-  Accel: 0.01
-  MaxSpeed: 2
   Display: {fileID: 0}
   waitTime: 2.5
   muzzleTime: 0.1
-  DroneProjectile: {fileID: 8837915347852106071, guid: 836eb18b5ecca4a4bb4d697c3f2c677d, type: 3}
   IdleStack: {fileID: 11400000, guid: 15f15a87a25ac0542974c95c0eef7f31, type: 2}
   FireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}
   TargetsGround: 1
