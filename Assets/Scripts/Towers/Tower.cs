@@ -54,7 +54,7 @@ public class Tower : MonoBehaviour
             {         
                 GameController.instance.credits -= upgradeCost;
                 upgradeLevel++;
-                upgradeCost *= 2;
+                
                 upgrading = true;
                 applyUpgrades();
             }      
@@ -67,33 +67,58 @@ public class Tower : MonoBehaviour
         //Upgrade Gunner
         if(gameObject.name == "Gunner(Clone)")
         {
+            //upgrade maxHealth, reset health to max
             gameObject.GetComponent<Health>().maxHealth += 10;
             gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
-            gameObject.GetComponent<Targeting>().waitTime -= 0.3f; 
+            
+            //upgrade fireRate
+            gameObject.GetComponent<Targeting>().waitTime -= 0.3f;
+
+            //upgrade Cost
+            upgradeCost *= 2;
+
         }
 
         //Upgrade sniper
         if (gameObject.name == "Sniper(Clone)")
         {
+            //Reset Health to max
             gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
+            
+            //upgrade damage, upgrade fireRate
             damage += 2;
             gameObject.GetComponent<Targeting>().waitTime -= 0.3f;
+
+            //Upgrade cost
+            upgradeCost *= 2;
         }
 
         //upgrade slum
         if (gameObject.name == "Slum(Clone)")
         {
+            //Upgrade health, reset health to max
             gameObject.GetComponent<Health>().maxHealth += 10;
             gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
+           
+            //upgrade damage
             damage += 2;
+
+            //upgrade cost
+            upgradeCost *= 2;
         }
 
         //upgrade drone
         if (gameObject.name == "DroneTower(Clone)")
         {
+            //upgrade health, reset health to max
             gameObject.GetComponent<Health>().maxHealth += 10;
             gameObject.GetComponent<Health>().health = gameObject.GetComponent<Health>().maxHealth;
+            
+            //Upgrade/add drone
             gameObject.GetComponent<DroneSummoner>().SummonDrone();
+
+            //upgrade cost
+            upgradeCost *= 2;
         }
         upgrading = false;
     }
