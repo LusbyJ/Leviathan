@@ -64,6 +64,7 @@ public class GameController : Singleton<GameController>
 			foreach(Enemy e in currEnemies){
 				if(e.isDead()){
 					currEnemies.Remove(e);
+					explode(e);
 					e.kill();
 					break;
 				}
@@ -104,6 +105,11 @@ public class GameController : Singleton<GameController>
 
 
 	public void reduceCredits(float cost){ credits -= cost; }
+	
+	private void explode(Enemy e){
+		Explosion boom = Instantiate(e.death, transform.position, Quaternion.identity);
+        boom.transform.position = e.transform.position;
+	}
 
 	private void updateRound(){
 		round++;
