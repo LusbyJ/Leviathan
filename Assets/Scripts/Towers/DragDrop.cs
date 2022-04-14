@@ -59,6 +59,22 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
                 range.transform.localScale = targetDistance;
                 Instantiate(range);
             }
+            if (tower.name == "DroneTower")
+            {
+                //Get the towers targetDistance, Instantiate target range indicator
+                float d = tower.GetComponent<DroneSummoner>().LeashRange * 2;
+                Vector3 targetDistance = new Vector3(d, d, 0);
+                range.transform.localScale = targetDistance;
+                Instantiate(range);
+            }
+            if (tower.name == "Slum")
+            {
+                //Get the towers targetDistance, Instantiate target range indicator
+                float d = 0.4f;
+                Vector3 targetDistance = new Vector3(d, d, 0);
+                range.transform.localScale = targetDistance;
+                Instantiate(range);
+            }
         }
         else
         {
