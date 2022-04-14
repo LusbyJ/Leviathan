@@ -251,6 +251,7 @@ MonoBehaviour:
   maxHealth: 12
   health: 100
   canBeHealed: 1
+  fire: {fileID: 6081660315543946115, guid: 3ac461203b0c2184ab4a5b2dbbbcd82b, type: 3}
 --- !u!114 &1394296632046091434
 MonoBehaviour:
   m_ObjectHideFlags: 0

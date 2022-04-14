@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
     public bool canBeHealed=true; //indicates if the damagable object can be healed by defeating Leviathan or by being next to medical tower.
+    public GameObject fire;
 
     void Start()
     {
@@ -63,6 +64,16 @@ public class Health : MonoBehaviour
         Vector3Int realPos = gameObject.GetComponent<Tower>().cell;
         GridController.towerList.Remove(realPos);
         GridController.deadTowers.Add(realPos);
+        
+        //Get Position of tower and adjust offset
+        Vector3 firePosition = gameObject.transform.position;
+        firePosition.y -= 0.17f;
+
+        //Instantiate fire at tower position
+        Instantiate(fire, firePosition, Quaternion.identity);
+        GridController.fires.Add(fire);
+        
+        //Destroy tower
         Destroy(gameObject);
     }
 
