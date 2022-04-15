@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: ChemicalTurret
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: -6347485599109965087, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: -2978809279940954278, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: -1739073814060761415, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: 4757750112291793535, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: 6983865049856473490, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: -1296465852249496103, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
+  - {fileID: 8945721776181222848, guid: f20ee013bb0de0b4ca9bbd2a3c51009d, type: 3}
