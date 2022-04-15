@@ -111,6 +111,7 @@ MonoBehaviour:
   damage: 16
   cost: 200
   upgradeLevel: 1
+  abilityReady: 0
   upgradeCost: 450
   projectile: {fileID: 0}
   OverrideTargetting: 0
@@ -181,7 +182,7 @@ MonoBehaviour:
   Owner: {fileID: 6705512431368553355}
   TargetDist: 3
   Display: {fileID: 0}
-  waitTime: 2.5
+  waitTime: 0
   muzzleTime: 0.1
   IdleStack: {fileID: 11400000, guid: 15f15a87a25ac0542974c95c0eef7f31, type: 2}
   FireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}
