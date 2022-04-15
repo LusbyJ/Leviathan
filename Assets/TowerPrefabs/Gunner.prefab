@@ -269,6 +269,7 @@ MonoBehaviour:
   damage: 2
   cost: 100
   upgradeLevel: 1
+  abilityReady: 0
   upgradeCost: 250
   projectile: {fileID: 0}
   OverrideTargetting: 0
