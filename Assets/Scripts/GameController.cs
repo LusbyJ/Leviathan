@@ -202,21 +202,33 @@ public class GameController : Singleton<GameController>
 
 	private void refreshTowers(){
 		//if it's the round after the leviathan
-		if(round%10==1){
+		if (round % 10 == 1)
+		{
 			resetTilemap();
 			GridController.deadTowers.Clear();
-			GameObject[] towers=GameObject.FindGameObjectsWithTag("Tower");
-			GameObject[] slums=GameObject.FindGameObjectsWithTag("Slum");
-			towers=towers.Concat(slums).ToArray();
-			foreach(GameObject tower in towers){
+			GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+			GameObject[] slums = GameObject.FindGameObjectsWithTag("Slum");
+			towers = towers.Concat(slums).ToArray();
+			foreach (GameObject tower in towers)
+			{
 				//Heal
-				Health h=tower.GetComponent<Health>();
-				if(h.canBeHealed){ //ensure tower is not central tower.
-					h.health=h.maxHealth;
+				Health h = tower.GetComponent<Health>();
+				if (h.canBeHealed)
+				{ //ensure tower is not central tower.
+					h.health = h.maxHealth;
 				}
-        //Refresh Abilities
-        //TODO\\
+
+
+				//Refresh Abilities
+				//TODO\\
 			}
+			//Destory fires
+
+			foreach (GameObject fire in GridController.fires)
+			{
+				Destroy(fire);
+			}
+			GridController.fires.Clear();
 		}
 	}
 

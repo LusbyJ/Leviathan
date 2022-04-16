@@ -15,12 +15,14 @@ public abstract class Enemy : MonoBehaviour
 	public float timerInterval;
 	public Animator animator;
 
+
 	private	Vector3 movement;
 	private bool ground;
 	private bool flying;
 	private bool dying;
 	private bool dead;
 	private float timer;
+  private Vector3 direction;
 
 	// Start is called before the first frame update
     void Start()
@@ -50,7 +52,7 @@ public abstract class Enemy : MonoBehaviour
 
 	public void levelUp(int numLevels){
 		for(int i = 0; i < numLevels; i++){
-			power *= 2;
+			power = Mathf.CeilToInt(power*1.5f);
 			health *= 2.5f;
 		}
 	}
@@ -68,13 +70,15 @@ public abstract class Enemy : MonoBehaviour
 	public void kill(){ Destroy(gameObject); }
 
 	public void move(){
-		Vector3 direction;
 		if(moving){ direction = centralTower.position - transform.position; }
 		else{ direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
 		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
 		animator.SetBool("moving", moving);
 	}
+public Vector3 getDirection(){
+  return direction;
+}
 
 	private IEnumerator blink(){
 		GetComponent<Renderer>().material.color = Color.red;
