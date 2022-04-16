@@ -15,6 +15,8 @@ public class GameController : Singleton<GameController>
 	public Image levRight;
 	public Image levTop;
 	public Image levBottom;
+	public Image[] nextRoundUI;
+	public Sprite[] enemyUI;
 	public float round;
 	public FloatSO ScoreSO;
 	public float credits;
@@ -23,12 +25,12 @@ public class GameController : Singleton<GameController>
 	public Tile emptyTile;
 
 	private List<Enemy> currEnemies;
+	private List<int[]> thisRound;
 	private List<int[]> nextRound;
 	private int maxPoints;
 	private int level;
 	private int upgrade;
 	private int leviathanSpawn;
-	//add transform to spawn explosion? or do it in Enemy class?
 
 	// Start is called before the first frame update
     void Start()
@@ -43,9 +45,14 @@ public class GameController : Singleton<GameController>
 		levRight.enabled = false;
 		levTop.enabled = false;
 		levBottom.enabled = false;
+		nextRoundUI[0].sprite = enemyUI[0];
+		nextRoundUI[1].enabled = false;
+		nextRoundUI[2].enabled = false;
+		nextRoundUI[3].enabled = false;
 		round = 0;
 		credits = 500;
 		currEnemies = new List<Enemy>();
+		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
 		maxPoints = 5;
 		level = 1;
@@ -59,7 +66,7 @@ public class GameController : Singleton<GameController>
     {
         if(towerPlaced){
 			roundText.text = "Round " + round;
-			creditText.text = "Credits: " + credits;
+			creditText.text = "" + credits;
 
 			foreach(Enemy e in currEnemies){
 				if(e.isDead()){
@@ -69,22 +76,28 @@ public class GameController : Singleton<GameController>
 					break;
 				}
 			}
-			if(currEnemies.Count == 0 && nextRound.Count == 0){
+			if(currEnemies.Count == 0 && thisRound.Count == 0){
 				updateRound();
 				refreshTowers();
 				leviathanWarning();
+				if(round == 10){ leviathan(); }
 				if(round == 1){ StartCoroutine(round1()); }
 				else if(round == 2){ StartCoroutine(round2()); }
+				else if(round == 3){ StartCoroutine(round3()); }
+				else if(round == 4){ StartCoroutine(round4()); }
+				else if(round == 5){ StartCoroutine(round5()); }
+				else if(round == 6){ StartCoroutine(round6()); }
+				else if(round == 7){ StartCoroutine(round7()); }
+				else if(round == 8){ StartCoroutine(round8()); }
+				else if(round == 9){ StartCoroutine(round9()); }
 				else if(round%10 == 0){
-					leviathan();
 					warningClear();
+					maxPoints += 5;
 					StartCoroutine(startRound());
 					upgrade++;
-					maxPoints += 5;
 					if(level == 1){ level++; }
 				}
 				else{
-					generateRound();
 					StartCoroutine(startRound());
 				}
 			}
@@ -124,14 +137,46 @@ public class GameController : Singleton<GameController>
 		int[] nextEnemy = new int[2];
 		int points = maxPoints;
 		int maxEnemy = 2*level;
+		int g = 0;
+		int f = 0;
+		int gb = 0;
+		int fb = 0;
+		int i = 0;
+		int active = 0;
 		while(points > 0){
 			nextEnemy[0] = Random.Range(0, 40);
 			nextEnemy[1] = Random.Range(0, maxEnemy);
+			if(nextEnemy[1] == 0){ g++; }
+			else if(nextEnemy[1] == 1){ f++; }
+			else if(nextEnemy[1] == 2){ gb++; }
+			else if(nextEnemy[1] == 3){ fb++; }
 			if(nextEnemy[1] < 2){ points -= 1; }
 			else{ points -= 2; }
 			nextRound.Add(nextEnemy);
 			nextEnemy = new int[2];
 			if(maxEnemy > 2 && points < 2){ maxEnemy = 2; }
+		}
+		nextRoundUI[0].enabled = false;
+		nextRoundUI[1].enabled = false;
+		nextRoundUI[2].enabled = false;
+		nextRoundUI[3].enabled = false;
+		if(g > 0){ 
+			nextRoundUI[i].sprite = enemyUI[0];
+			nextRoundUI[i++].enabled = true;
+			active++;
+		}
+		if(f > 0){ 
+			nextRoundUI[i].sprite = enemyUI[1];
+			nextRoundUI[i++].enabled = true;
+			active++;
+		}
+		if(gb > 0){ 
+			nextRoundUI[i].sprite = enemyUI[2];
+			nextRoundUI[i++].enabled = true;
+		}
+		if(fb > 0){ 
+			nextRoundUI[i].sprite = enemyUI[3];
+			nextRoundUI[i++].enabled = true;
 		}
 	}
 
@@ -141,6 +186,11 @@ public class GameController : Singleton<GameController>
 		else if(leviathanSpawn == 2){ nextRound.Add(new int[]{26, 4}); }
 		else{ nextRound.Add(new int[]{36, 4}); }
 		leviathanSpawn = Random.Range(0, 4);
+		
+		nextRoundUI[0].sprite = enemyUI[4];
+		nextRoundUI[1].enabled = false;
+		nextRoundUI[2].enabled = false;
+		nextRoundUI[3].enabled = false;
 	}
 
 	private void leviathanWarning(){
@@ -193,15 +243,21 @@ public class GameController : Singleton<GameController>
 	}
 
 	private IEnumerator startRound(){
-		foreach(int[] arr in nextRound){
+		thisRound = new List<int[]>(nextRound);
+		nextRound.Clear();
+		if(round%10 == 9){ leviathan(); }
+		else{ generateRound(); }
+		foreach(int[] arr in thisRound){
 			currEnemies.Add(spawnPoints[arr[0]].spawnEnemyType(arr[0], arr[1]));
 			yield return new WaitForSeconds(1);
 		}
 		foreach(Enemy e in currEnemies){ e.levelUp(upgrade); }
-		nextRound.Clear();
+		thisRound.Clear();
 	}
 
 	private IEnumerator round1(){
+		nextRoundUI[0].sprite = enemyUI[0];
+		
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 0));
@@ -210,10 +266,88 @@ public class GameController : Singleton<GameController>
 	}
 
 	private IEnumerator round2(){
+		nextRoundUI[0].sprite = enemyUI[2];
+		
+		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[5].spawnEnemyType(5, 0));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[26].spawnEnemyType(26, 0));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[28].spawnEnemyType(28, 0));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 0));
+	}
+	
+	private IEnumerator round3(){
+		nextRoundUI[0].sprite = enemyUI[1];
+		
+		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 2));
+		yield return new WaitForSeconds(2);
+	}
+	
+	private IEnumerator round4(){
+		nextRoundUI[0].sprite = enemyUI[1];
+		
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[34].spawnEnemyType(34, 1));
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
+	}
+	
+	private IEnumerator round5(){
+		nextRoundUI[0].sprite = enemyUI[3];
+		
+		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 1));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[5].spawnEnemyType(5, 1));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[26].spawnEnemyType(26, 1));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[28].spawnEnemyType(28, 1));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 1));
+	}
+	
+	private IEnumerator round6(){
+		nextRoundUI[0].sprite = enemyUI[1];
+		nextRoundUI[1].sprite = enemyUI[2];
+		nextRoundUI[1].enabled = true;
+		
+		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 3));
+		yield return new WaitForSeconds(2);
+	}
+	
+	private IEnumerator round7(){
+		nextRoundUI[0].sprite = enemyUI[0];
+		nextRoundUI[1].sprite = enemyUI[3];
+		
+		currEnemies.Add(spawnPoints[26].spawnEnemyType(26, 2));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[24].spawnEnemyType(22, 1));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[28].spawnEnemyType(24, 1));
+	}
+	
+	private IEnumerator round8(){
+		nextRoundUI[0].sprite = enemyUI[2];
+		nextRoundUI[1].sprite = enemyUI[3];
+		
+		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 3));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[4].spawnEnemyType(4, 0));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[8].spawnEnemyType(8, 0));
+	}
+	
+	private IEnumerator round9(){
+		nextRoundUI[0].sprite = enemyUI[4];
+		nextRoundUI[1].enabled = false;
+		
+		
+		currEnemies.Add(spawnPoints[39].spawnEnemyType(39, 2));
+		yield return new WaitForSeconds(2);
+		currEnemies.Add(spawnPoints[19].spawnEnemyType(19, 3));
 	}
 }
