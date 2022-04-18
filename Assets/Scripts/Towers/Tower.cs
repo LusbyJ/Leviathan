@@ -20,20 +20,29 @@ public class Tower : MonoBehaviour
     public Sprite level2Sprite;
     public Sprite level3Sprite;
 
+    public Animator animator;
+
     // Update is called once per frame
     void Update()
     {
         if (upgradeLevel == 2 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
+            animator.SetBool("isLevel2", true);
         }
 
         if(upgradeLevel == 3 && gameObject.name != "Central")
         {
+            if(used)
+            {
+                animator.SetBool("isActive", false);
+            }
             gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
             if (!used)
             {
+                animator.SetBool("isLevel3", true);
                 activeAbility = true;
+                animator.SetBool("isActive", true);
             }
         }
     }
@@ -44,6 +53,8 @@ public class Tower : MonoBehaviour
         //If right click use active ability
         if(Input.GetMouseButtonDown(1) && activeAbility && !used)
         {
+            Debug.Log("active ability being used");
+            animator.SetBool("isActive", false);
             used = true;
             //TODO use active ability
         }
