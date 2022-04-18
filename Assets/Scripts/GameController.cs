@@ -50,7 +50,7 @@ public class GameController : Singleton<GameController>
 		nextRoundUI[2].enabled = false;
 		nextRoundUI[3].enabled = false;
 		round = 0;
-		credits = 500;
+		credits = 5000;
 		currEnemies = new List<Enemy>();
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
@@ -218,9 +218,10 @@ public class GameController : Singleton<GameController>
 					h.health = h.maxHealth;
 				}
 
+				//reset active ability
+				Tower a = tower.GetComponent<Tower>();
+				a.used = false;
 
-				//Refresh Abilities
-				//TODO\\
 			}
 			//Destory fires
 			foreach (GameObject rubble in GridController.fireList)
