@@ -17,8 +17,8 @@ public class GridController : MonoBehaviour
     public GameObject tower;            //Tower being built
     public static List<Vector3Int> towerList = new List<Vector3Int>();
     public static List<Vector3Int> deadTowers = new List<Vector3Int>();
-    public static List<GameObject> fires = new List<GameObject>();
-    
+    public static List<GameObject> fireList = new List<GameObject>();
+
 
     public static Vector2 buildTower;
     public static bool occupied = false;

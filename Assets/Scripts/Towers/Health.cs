@@ -70,8 +70,8 @@ public class Health : MonoBehaviour
         firePosition.y -= 0.17f;
 
         //Instantiate fire at tower position
-        Instantiate(fire, firePosition, Quaternion.identity);
-        GridController.fires.Add(fire);
+        var rubble = Instantiate(fire, firePosition, Quaternion.identity);
+        GridController.fireList.Add(rubble);
         
         //Destroy tower
         Destroy(gameObject);

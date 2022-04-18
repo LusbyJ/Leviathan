@@ -33,7 +33,7 @@ public class GameController : Singleton<GameController>
 	private int leviathanSpawn;
 
 	// Start is called before the first frame update
-    void Start()
+	void Start()
     {
 		//Clear tower lists, then add central tower to list and reset tileMap
 		GridController.towerList.Clear();
@@ -223,12 +223,11 @@ public class GameController : Singleton<GameController>
 				//TODO\\
 			}
 			//Destory fires
-
-			foreach (GameObject fire in GridController.fires)
+			foreach (GameObject rubble in GridController.fireList)
 			{
-				Destroy(fire);
+				Destroy(rubble);
 			}
-			GridController.fires.Clear();
+			GridController.fireList.Clear();
 		}
 	}
 
