@@ -99,10 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef852e348b2c61c4780820ad09774aa0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 1
   health: 100
   canBeHealed: 1
-  fire: {fileID: 6081660315543946115, guid: 3ac461203b0c2184ab4a5b2dbbbcd82b, type: 3}
+  fire: {fileID: 2240220564018176211, guid: 7ee8665b22a8dac49940244436510aa8, type: 3}
 --- !u!114 &2086582392500897839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 2, y: -6, z: 0}
+  cell: {x: 1, y: -7, z: 0}
   attackTime: 0
   damage: 2
   cost: 75

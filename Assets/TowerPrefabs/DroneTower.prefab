@@ -224,7 +224,7 @@ MonoBehaviour:
   maxHealth: 15
   health: 100
   canBeHealed: 1
-  fire: {fileID: 6081660315543946115, guid: 3ac461203b0c2184ab4a5b2dbbbcd82b, type: 3}
+  fire: {fileID: 2240220564018176211, guid: 7ee8665b22a8dac49940244436510aa8, type: 3}
 --- !u!60 &1634809219401510323
 PolygonCollider2D:
   m_ObjectHideFlags: 0
