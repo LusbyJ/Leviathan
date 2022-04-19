@@ -548,7 +548,7 @@ MonoBehaviour:
   image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
-  tower: {fileID: 1308346295386116365, guid: c2059a2da99bed641a175214fc669648, type: 3}
+  tower: {fileID: 7902719616748981907, guid: c2059a2da99bed641a175214fc669648, type: 3}
   range: {fileID: 6504553632675126900, guid: 186ffd625b1b13143aeaff9465331b28, type: 3}
 --- !u!114 &94220060
 MonoBehaviour:
@@ -4717,8 +4717,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 20.7, y: -0.5}
-  m_SizeDelta: {x: 20.2498, y: 12.3204}
+  m_AnchoredPosition: {x: 17.2267, y: -0.5}
+  m_SizeDelta: {x: 30.1632, y: 12.3204}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179966159
 MonoBehaviour:
@@ -4879,8 +4879,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 405}
-  m_SizeDelta: {x: 55, y: 13}
+  m_AnchoredPosition: {x: 8.1067, y: 405}
+  m_SizeDelta: {x: 71.2134, y: 13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1202862788
 MonoBehaviour:
@@ -51592,7 +51592,7 @@ MonoBehaviour:
   image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
-  tower: {fileID: 4703363210957644, guid: 9107eb86d4be8da4db6f50c006e38b3b, type: 3}
+  tower: {fileID: 4913684725956602767, guid: 9107eb86d4be8da4db6f50c006e38b3b, type: 3}
   range: {fileID: 6504553632675126900, guid: 186ffd625b1b13143aeaff9465331b28, type: 3}
 --- !u!114 &1910960284
 MonoBehaviour:
@@ -52243,7 +52243,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -8.5, y: 0.2}
+  m_AnchoredPosition: {x: -17.39, y: 0.2}
   m_SizeDelta: {x: 35.6922, y: 9.8496}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2019510201
