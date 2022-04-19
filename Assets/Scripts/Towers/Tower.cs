@@ -22,6 +22,20 @@ public class Tower : MonoBehaviour
 
     public Animator animator;
 
+    //Active abilities 
+    private float basicRate; //Gunner
+    private float activeRate; //Gunner
+
+    private float basicDamage; //Sniper
+
+    void Start()
+    {
+        basicRate = attackTime;
+        activeRate = basicRate * 2;
+
+        basicDamage = damage;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +59,12 @@ public class Tower : MonoBehaviour
                 animator.SetBool("isActive", true);
             }
         }
+
+        //Check for used bool to be changed to false when game Controller hits round%10 = 1
+        if(used == false)
+        {
+            resetActive();
+        }
     }
 
     //Detects button clicks when mouse is over tower
@@ -53,10 +73,9 @@ public class Tower : MonoBehaviour
         //If right click use active ability
         if(Input.GetMouseButtonDown(1) && activeAbility && !used)
         {
-            Debug.Log("active ability being used");
+            applyActive();
             animator.SetBool("isActive", false);
             used = true;
-            //TODO use active ability
         }
 
         //If left click check if credits are sufficient and upgrade
@@ -139,5 +158,22 @@ public class Tower : MonoBehaviour
             upgradeCost *= 3;
         }
         upgrading = false;
+    }
+
+    //Resets the towers active abilities
+    public void resetActive()
+    {
+        attackTime = basicRate;
+        damage = basicDamage;
+    }
+
+    //Sets the active ability
+    public void applyActive()
+    {
+        if (gameObject.name == "Gunner(Clone)")
+        {
+            Debug.Log("active ability being used");
+            attackTime = activeRate;
+        }
     }
 }

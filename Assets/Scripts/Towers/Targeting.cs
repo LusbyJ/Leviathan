@@ -89,11 +89,13 @@ public class Targeting : MonoBehaviour
                         //No projectile
                         Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
 
+                        //If Sniper shooting and active ability active increase base damage
+                        if(gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
+                        {
+                            gameObject.GetComponent<Tower>().damage += .1f;
+                            Debug.Log("Increasing Damage of Sniper by   = " + gameObject.GetComponent<Tower>().damage);
+                        }
 
-                        //GameObject Projectile = Instantiate(DroneProjectile, gameObject.transform);
-                        //Projectile prj = Projectile.GetComponent<Projectile>();
-                        //prj.StartPosition = gameObject.transform.position;
-                        //prj.Target = Target;
                         AttackTimer += waitTime;
                     }
                     if(AttackTimer<waitTime-muzzleTime){

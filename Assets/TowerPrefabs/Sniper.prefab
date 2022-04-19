@@ -109,7 +109,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cell: {x: 8, y: -1, z: 0}
   attackTime: 2.5
-  damage: 16
+  damage: 8
   cost: 200
   upgradeLevel: 1
   abilityReady: 0
