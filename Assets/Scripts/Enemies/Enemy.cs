@@ -118,6 +118,7 @@ public Vector3 getDirection(){
 			}
 		
 			resetTimer();
+			//Slum takes damage from attacking enemy
 			takeDamage(collision.gameObject.GetComponent<Tower>().damage);
 		}
 	}
