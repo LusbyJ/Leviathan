@@ -107,9 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 8, y: -1, z: 0}
+  cell: {x: 1, y: -3, z: 0}
   attackTime: 2.5
-  damage: 8
+  damage: 10
   cost: 200
   upgradeLevel: 1
   abilityReady: 0
@@ -184,7 +184,7 @@ MonoBehaviour:
   Owner: {fileID: 442097889682589451}
   TargetDist: 3
   Display: {fileID: 0}
-  waitTime: 0
+  waitTime: 3
   muzzleTime: 0.1
   IdleStack: {fileID: 11400000, guid: 15f15a87a25ac0542974c95c0eef7f31, type: 2}
   FireStack: {fileID: 11400000, guid: 2d6fab0e4cf63b544af8d2b3494c794e, type: 2}
