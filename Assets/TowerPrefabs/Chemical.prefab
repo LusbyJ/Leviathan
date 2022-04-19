@@ -226,7 +226,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8992005365194188322}
   - component: {fileID: 2999081051167408020}
-  - component: {fileID: 3404485076675306896}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -267,19 +266,3 @@ MonoBehaviour:
   StackSortingLayerName: Towers
   partScale: {x: 1, y: 1, z: 1}
   partList: []
---- !u!114 &3404485076675306896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6039898984128433770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88df53e6de7522c4e8d6f84c707bdddf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  shooting: 0
-  Display: {fileID: 0}
-  baseStack: {fileID: 11400000, guid: 40155e96065155d4eba234bd92d7c803, type: 2}
-  fireStack: {fileID: 11400000, guid: 40155e96065155d4eba234bd92d7c803, type: 2}

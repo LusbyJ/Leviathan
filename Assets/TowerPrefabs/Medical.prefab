@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: d08c2884b45277b4689c335a6f14cea3, type: 3}
+  m_Sprite: {fileID: 1808140275039243818, guid: d5546e725a77c4d47a24083a1024518b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,8 +101,15 @@ MonoBehaviour:
   attackTime: 25
   damage: 0
   cost: 25
+  upgradeLevel: 1
+  abilityReady: 0
+  upgradeCost: 0
   projectile: {fileID: 0}
   OverrideTargetting: 0
+  used: 0
+  level2Sprite: {fileID: 0}
+  level3Sprite: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!114 &2591557470029960600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117,6 +124,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 100
+  canBeHealed: 1
+  fire: {fileID: 0}
 --- !u!60 &3247803422199849733
 PolygonCollider2D:
   m_ObjectHideFlags: 0
