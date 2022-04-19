@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Drone: {fileID: 7742015956759435664, guid: 63122b4937f6a214a8942129c873f72a, type: 3}
+  activeDrone: {fileID: 7742015956759435664, guid: 63122b4937f6a214a8942129c873f72a, type: 3}
   DroneCount: 3
   LeashRange: 1.2
 --- !u!114 &51715058498421765

@@ -85,8 +85,6 @@ public class Targeting : MonoBehaviour
                         float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
                         Display.rotation.z = angle;
                         Display.stackObject=FireStack;
-
-                        //No projectile
                         Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
 
                         //If Sniper shooting and active ability active increase base damage

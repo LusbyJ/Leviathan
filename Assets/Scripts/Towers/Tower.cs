@@ -64,6 +64,12 @@ public class Tower : MonoBehaviour
         if(used == false)
         {
             resetActive();
+
+            //remove extra drone summoned 
+            if(gameObject.name == "DroneTower(Clone)")
+            {
+                gameObject.GetComponent<DroneSummoner>().resetDrones();
+            }
         }
     }
 
@@ -148,6 +154,7 @@ public class Tower : MonoBehaviour
             Health towerHealth=gameObject.GetComponent<Health>();
             towerHealth.maxHealth *=2;
             towerHealth.health = towerHealth.maxHealth;
+            
             //Upgrade/add drone
             DroneSummoner summoner=gameObject.GetComponent<DroneSummoner>();
             for(var i=0;i<upgradeLevel;i++){
@@ -163,17 +170,30 @@ public class Tower : MonoBehaviour
     //Resets the towers active abilities
     public void resetActive()
     {
+        //reset attack rate (Gunner)
         attackTime = basicRate;
+
+        //resets damage(used for sniper)
         damage = basicDamage;
     }
 
     //Sets the active ability
+    //Slum active ability managed in Enemy Script
+    //Sniper active ability managed in Targeting script
     public void applyActive()
     {
+        //Update values for gunner
         if (gameObject.name == "Gunner(Clone)")
         {
-            Debug.Log("active ability being used");
             attackTime = activeRate;
         }
+
+        //summon new drones
+        if (gameObject.name == "DroneTower(Clone)")
+        {
+            DroneSummoner summoner = gameObject.GetComponent<DroneSummoner>();
+            summoner.extraDrone();
+        }
+
     }
 }
