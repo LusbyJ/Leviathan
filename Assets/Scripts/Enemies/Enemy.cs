@@ -5,7 +5,7 @@ using UnityEngine;
 public abstract class Enemy : MonoBehaviour
 {
     public float speed;
-	public int power;
+	public float power;
 	public float health;
 	public float bounty;
 	public Explosion death;
@@ -22,7 +22,7 @@ public abstract class Enemy : MonoBehaviour
 	private bool dying;
 	private bool dead;
 	private float timer;
-  private Vector3 direction;
+	private Vector3 direction;
 
 	// Start is called before the first frame update
     void Start()
@@ -100,9 +100,23 @@ public Vector3 getDirection(){
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
 			resetTimer();
 		}
+		
+		//If attacking slum tower
 		else if (collision.gameObject.tag == "Slum" && timer <= 0)
 		{
-			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			//If tower has active ability set deal 50% damage
+			if(collision.gameObject.GetComponent<Tower>().used)
+            {
+				collision.gameObject.GetComponent<Health>().takeDamage(power/2);
+				Debug.Log("Damage reduced to " + power/2);
+			}
+			//deal normal damage;
+            else
+            {
+				collision.gameObject.GetComponent<Health>().takeDamage(power);
+				Debug.Log("Damage given " + power);
+			}
+		
 			resetTimer();
 			takeDamage(collision.gameObject.GetComponent<Tower>().damage);
 		}
