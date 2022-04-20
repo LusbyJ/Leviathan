@@ -55,7 +55,7 @@ public class GameController : Singleton<GameController>
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
 		maxPoints = 5;
-		level = 1;
+		level = 2;
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
 		ScoreSO.Value=1;	
@@ -95,7 +95,7 @@ public class GameController : Singleton<GameController>
 					maxPoints += 5;
 					StartCoroutine(startRound());
 					upgrade++;
-					if(level == 1){ level++; }
+					if(level == 2){ level++; }
 				}
 				else{
 					StartCoroutine(startRound());
@@ -141,6 +141,8 @@ public class GameController : Singleton<GameController>
 		int f = 0;
 		int gb = 0;
 		int fb = 0;
+		int gp = 0;
+		int fp = 0;
 		int i = 0;
 		int active = 0;
 		while(points > 0){
@@ -150,6 +152,8 @@ public class GameController : Singleton<GameController>
 			else if(nextEnemy[1] == 1){ f++; }
 			else if(nextEnemy[1] == 2){ gb++; }
 			else if(nextEnemy[1] == 3){ fb++; }
+			else if(nextEnemy[1] == 4){ gp++; }
+			else if(nextEnemy[1] == 5){ fp++; }
 			if(nextEnemy[1] < 2){ points -= 1; }
 			else{ points -= 2; }
 			nextRound.Add(nextEnemy);
@@ -178,16 +182,24 @@ public class GameController : Singleton<GameController>
 			nextRoundUI[i].sprite = enemyUI[3];
 			nextRoundUI[i++].enabled = true;
 		}
+		if(gp > 0 && i < 4){ 
+			nextRoundUI[i].sprite = enemyUI[4];
+			nextRoundUI[i++].enabled = true;
+		}
+		if(fp > 0 && i < 4){ 
+			nextRoundUI[i].sprite = enemyUI[5];
+			nextRoundUI[i++].enabled = true;
+		}
 	}
 
 	private void leviathan(){
-		if(leviathanSpawn == 0){ nextRound.Add(new int[]{5, 4}); }
-		else if(leviathanSpawn == 1){ nextRound.Add(new int[]{15, 4}); }
-		else if(leviathanSpawn == 2){ nextRound.Add(new int[]{26, 4}); }
-		else{ nextRound.Add(new int[]{36, 4}); }
+		if(leviathanSpawn == 0){ nextRound.Add(new int[]{5, 6}); }
+		else if(leviathanSpawn == 1){ nextRound.Add(new int[]{15, 6}); }
+		else if(leviathanSpawn == 2){ nextRound.Add(new int[]{26, 6}); }
+		else{ nextRound.Add(new int[]{36, 6}); }
 		leviathanSpawn = Random.Range(0, 4);
 		
-		nextRoundUI[0].sprite = enemyUI[4];
+		nextRoundUI[0].sprite = enemyUI[6];
 		nextRoundUI[1].enabled = false;
 		nextRoundUI[2].enabled = false;
 		nextRoundUI[3].enabled = false;
@@ -354,7 +366,7 @@ public class GameController : Singleton<GameController>
 	}
 	
 	private IEnumerator round9(){
-		nextRoundUI[0].sprite = enemyUI[4];
+		nextRoundUI[0].sprite = enemyUI[6];
 		nextRoundUI[1].enabled = false;
 		
 		
