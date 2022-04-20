@@ -51,7 +51,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         if (gameController.GetComponent<GameController>().credits >= tower.GetComponent<Tower>().cost)
         {
             building = true;
-            if (tower.name != "DroneTower" && tower.name != "Slum")
+            if (tower.name != "DroneTower" && tower.name != "Slum" && tower.name != "Medical")
             {
                 //Get the towers targetDistance, Instantiate target range indicator
                 float d = tower.GetComponent<Targeting>().TargetDist*2;
@@ -67,7 +67,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
                 range.transform.localScale = targetDistance;
                 Instantiate(range);
             }
-            if (tower.name == "Slum")
+            if (tower.name == "Slum" || tower.name == "Medical")
             {
                 //Get the towers targetDistance, Instantiate target range indicator
                 float d = 0.4f;

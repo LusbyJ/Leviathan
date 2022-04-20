@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8bd9c71c1f950a489e6d6a4059af7b7, type: 3}
+  m_Name: missile_turret
+  m_EditorClassIdentifier: 
+  stack:
+  - {fileID: 4199889612242402453, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: -5326229318871531342, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: -3980419703943998450, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: -2422586889305078380, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 1453310895524822259, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 4270841146536541770, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 8152350994396903047, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 1404754620749838316, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 6683237420843358950, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: -3160953918066734329, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}
+  - {fileID: 8318989279763207661, guid: 2620b0e9644d66a44acdcf8b759c8d67, type: 3}

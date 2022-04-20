@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth=100;   //Tower Max Health
+    public float maxHealth=100;   //Tower Max Health
     [HideInInspector]
-    public int health;      //Tower health
+    public float health;      //Tower health
     private bool hit;       //indicates if hit
     private bool dying;     //indicates if central hub is about to die
     public bool canBeHealed=true; //indicates if the damagable object can be healed by defeating Leviathan or by being next to medical tower.
@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
     }
 
     //Take damage from enemies
-    public void takeDamage(int damage)
+    public void takeDamage(float damage)
     {
         //If tower being attacked is not the central hub, blink for each hit
         if (hit == false)
@@ -70,8 +70,8 @@ public class Health : MonoBehaviour
         firePosition.y -= 0.17f;
 
         //Instantiate fire at tower position
-        Instantiate(fire, firePosition, Quaternion.identity);
-        GridController.fires.Add(fire);
+        var rubble = Instantiate(fire, firePosition, Quaternion.identity);
+        GridController.fireList.Add(rubble);
         
         //Destroy tower
         Destroy(gameObject);

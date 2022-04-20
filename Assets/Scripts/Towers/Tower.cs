@@ -20,20 +20,55 @@ public class Tower : MonoBehaviour
     public Sprite level2Sprite;
     public Sprite level3Sprite;
 
+    public Animator animator;
+
+    //Active abilities 
+    private float basicRate; //Gunner
+    private float activeRate; //Gunner
+
+    private float basicDamage; //Sniper
+
+    void Start()
+    {
+        basicRate = attackTime;
+        activeRate = basicRate * 2;
+
+        basicDamage = damage;
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (upgradeLevel == 2 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
+            animator.SetBool("isLevel2", true);
         }
 
         if(upgradeLevel == 3 && gameObject.name != "Central")
         {
+            if(used)
+            {
+                animator.SetBool("isActive", false);
+            }
             gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
             if (!used)
             {
+                animator.SetBool("isLevel3", true);
                 activeAbility = true;
+                animator.SetBool("isActive", true);
+            }
+        }
+
+        //Check for used bool to be changed to false when game Controller hits round%10 = 1
+        if(used == false)
+        {
+            resetActive();
+
+            //remove extra drone summoned 
+            if(gameObject.name == "DroneTower(Clone)")
+            {
+                gameObject.GetComponent<DroneSummoner>().resetDrones();
             }
         }
     }
@@ -44,8 +79,9 @@ public class Tower : MonoBehaviour
         //If right click use active ability
         if(Input.GetMouseButtonDown(1) && activeAbility && !used)
         {
+            applyActive();
+            animator.SetBool("isActive", false);
             used = true;
-            //TODO use active ability
         }
 
         //If left click check if credits are sufficient and upgrade
@@ -118,6 +154,7 @@ public class Tower : MonoBehaviour
             Health towerHealth=gameObject.GetComponent<Health>();
             towerHealth.maxHealth *=2;
             towerHealth.health = towerHealth.maxHealth;
+            
             //Upgrade/add drone
             DroneSummoner summoner=gameObject.GetComponent<DroneSummoner>();
             for(var i=0;i<upgradeLevel;i++){
@@ -128,5 +165,35 @@ public class Tower : MonoBehaviour
             upgradeCost *= 3;
         }
         upgrading = false;
+    }
+
+    //Resets the towers active abilities
+    public void resetActive()
+    {
+        //reset attack rate (Gunner)
+        attackTime = basicRate;
+
+        //resets damage(used for sniper)
+        damage = basicDamage;
+    }
+
+    //Sets the active ability
+    //Slum active ability managed in Enemy Script
+    //Sniper active ability managed in Targeting script
+    public void applyActive()
+    {
+        //Update values for gunner
+        if (gameObject.name == "Gunner(Clone)")
+        {
+            attackTime = activeRate;
+        }
+
+        //summon new drones
+        if (gameObject.name == "DroneTower(Clone)")
+        {
+            DroneSummoner summoner = gameObject.GetComponent<DroneSummoner>();
+            summoner.extraDrone();
+        }
+
     }
 }

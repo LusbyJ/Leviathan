@@ -33,7 +33,7 @@ public class GameController : Singleton<GameController>
 	private int leviathanSpawn;
 
 	// Start is called before the first frame update
-    void Start()
+	void Start()
     {
 		//Clear tower lists, then add central tower to list and reset tileMap
 		GridController.towerList.Clear();
@@ -50,7 +50,7 @@ public class GameController : Singleton<GameController>
 		nextRoundUI[2].enabled = false;
 		nextRoundUI[3].enabled = false;
 		round = 0;
-		credits = 500;
+		credits = 5000;
 		currEnemies = new List<Enemy>();
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
@@ -218,17 +218,17 @@ public class GameController : Singleton<GameController>
 					h.health = h.maxHealth;
 				}
 
+				//reset active ability
+				Tower a = tower.GetComponent<Tower>();
+				a.used = false;
 
-				//Refresh Abilities
-				//TODO\\
 			}
 			//Destory fires
-
-			foreach (GameObject fire in GridController.fires)
+			foreach (GameObject rubble in GridController.fireList)
 			{
-				Destroy(fire);
+				Destroy(rubble);
 			}
-			GridController.fires.Clear();
+			GridController.fireList.Clear();
 		}
 	}
 
