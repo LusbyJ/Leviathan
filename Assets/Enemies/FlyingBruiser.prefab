@@ -222,6 +222,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74040463f2002054c923856d69acb1ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprites: {fileID: 0}
+  sprites: {fileID: 11400000, guid: a015bd4e68353fc4cb4ef1432301600a, type: 2}
   enemy: {fileID: 4379390908771519267}
-  escript: {fileID: 0}
