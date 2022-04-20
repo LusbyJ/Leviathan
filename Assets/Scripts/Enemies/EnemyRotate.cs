@@ -14,6 +14,7 @@ public class EnemyRotate : MonoBehaviour
     {
       length=sprites.stack.Count;
       escript=enemy.GetComponent<Enemy>();
+      spriterenderer = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
