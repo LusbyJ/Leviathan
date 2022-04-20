@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreBoard : MonoBehaviour
 {
 	public FloatSO ScoreSO;
 	public TMP_Text[] scoreTexts;
 	public TMP_Text[] nameTexts;
+	public GameObject scorePopup;
+	public TMP_InputField input;
+	public Button button;
 	public int[] highScores;
 	public string[] scoreNames;
+	
+	private int newScore;
 	
     void Awake()
     {
@@ -62,20 +68,36 @@ public class ScoreBoard : MonoBehaviour
 				oldName = scoreNames[i];
 				highScores[i] = newScore;
 				scoreNames[i] = newName;
-				PlayerPrefs.SetInt((i + "_Score"), newScore);
-				PlayerPrefs.SetString((i + "_Name"), newName);
+				PlayerPrefs.SetInt(((i+1) + "_Score"), newScore);
+				PlayerPrefs.SetString(((i+1) + "_Name"), newName);
 			} else{
 				if(ScoreSO.Value > highScores[i]){
 					oldScore = highScores[i];
 					oldName = scoreNames[i];
 					highScores[i] = (int)ScoreSO.Value;
 					scoreNames[i] = "";
-					PlayerPrefs.SetInt((i + "_Score"), (int)ScoreSO.Value);
-					PlayerPrefs.SetString((i + "_Name"), "");
+					PlayerPrefs.SetInt(((i+1) + "_Score"), (int)ScoreSO.Value);
+					PlayerPrefs.SetString(((i+1) + "_Name"), "");
+					newScore = i;
 					added = true;
+					scorePopup.SetActive(true);
+					button.onClick.AddListener(SaveNewName);
 				}
 			}
 		}
+		Debug.Log("NewScore: " + newScore);
 		PlayerPrefs.Save();
+	}
+	
+	void SaveNewName(){
+		string newName = input.text;
+		Debug.Log("NewScore: " + newScore);
+		if(newScore > -1){ 
+			Debug.Log("In if");
+			scoreNames[newScore] = newName;
+			PlayerPrefs.SetString(((newScore+1) + "_Name"), newName);
+			PlayerPrefs.Save();
+		}
+		scorePopup.SetActive(false);
 	}
 }
