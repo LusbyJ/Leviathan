@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 2, y: -5, z: 0}
+  cell: {x: 1, y: -3, z: 0}
   attackTime: 0
   damage: 2
   cost: 75

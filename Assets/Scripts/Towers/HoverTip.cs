@@ -20,48 +20,97 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
        
     }
 
+    //Descriptions in upgrade window
     private void updateTip()
     {
         if (gameObject.name == "Slum(Clone)")
         {
-            tipToShow = " Slum District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Slum District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Slum District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
-
         if (gameObject.name == "Sniper(Clone)")
         {
-            tipToShow = " Sniper District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Sniper District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Sniper District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
 
         if (gameObject.name == "Gunner(Clone)")
         {
-            tipToShow = " Gunner District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Gunner District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Gunner District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
 
         if (gameObject.name == "DroneTower(Clone)")
         {
-            tipToShow = " Drone District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Drone District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Drone District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
 
         if (gameObject.name == "Chemical(Clone)")
         {
-            tipToShow = " Chemical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Chemical District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Chemical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
 
         if (gameObject.name == "Medical(Clone)")
         {
-            tipToShow = " Medical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Medical District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Medical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
 
         if (gameObject.name == "Missile(Clone)")
         {
-            tipToShow = " Missile District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            {
+                tipToShow = " Missile District\n    Active Ability Ready";
+            }
+            else
+            {
+                tipToShow = " Missile District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+            }
         }
     }
 
     //Detect if the Cursor starts to pass over the GameObject
     public void OnPointerEnter(PointerEventData pointerEventData)
     {
-        if (DragDrop.building == false && gameObject.GetComponent<Tower>().upgradeLevel < 3)
+        if (DragDrop.building == false && gameObject.GetComponent<Tower>().upgradeLevel < 4)
         {
             StopAllCoroutines();
             StartCoroutine(StartTimer());
@@ -77,9 +126,9 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     //Displays upgrade window
     public void ShowUpgrade()
     {
+        //Get towers health and update healthbar
         float healthStatus = gameObject.GetComponent<Health>().health / gameObject.GetComponent<Health>().maxHealth;
-        //MouseTipManager.tempHealth = new Vector3(healthStatus, 1f, 1f);
-        //health.transform.localScale = new Vector3(healthStatus,1f,1f);
+        MouseTipManager.tempHealth.transform.GetChild(1).transform.localScale = new Vector3(healthStatus, 1f, 1f);
         MouseTipManager.OnMouseHover(tipToShow, Input.mousePosition);
     }
 
@@ -87,7 +136,6 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     private IEnumerator StartTimer()
     {
         yield return new WaitForSeconds(waitTime);
-
         ShowUpgrade();
     }
 }

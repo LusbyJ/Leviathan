@@ -18,7 +18,7 @@ public class MouseTipManager : MonoBehaviour
     void Start()
     {
         HideUpgrade();
-        //tempHealth.transform.localScale = new Vector3(1f, 1f, 1f);
+        tempHealth = upgradeWindow;
     }
 
     private void OnEnable()
@@ -35,8 +35,8 @@ public class MouseTipManager : MonoBehaviour
 
     private void ShowUpgrade(string tip, Vector2 mousePos)
     {
-       
         tipText.text = tip;
+        updateHealth();
         upgradeWindow.gameObject.SetActive(true);
         upgradeWindow.transform.position = new Vector2(mousePos.x, mousePos.y + upgradeWindow.sizeDelta.y * (-2));
     }
@@ -44,6 +44,11 @@ public class MouseTipManager : MonoBehaviour
     private void HideUpgrade()
     {
         upgradeWindow.gameObject.SetActive(false);
+    }
+
+    private void updateHealth()
+    {
+        upgradeWindow.transform.GetChild(1).transform.localScale = tempHealth.transform.GetChild(1).transform.localScale;
     }
 
 }
