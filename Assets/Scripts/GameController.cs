@@ -64,10 +64,9 @@ public class GameController : Singleton<GameController>
     // Update is called once per frame
     void Update()
     {
-        if(towerPlaced){
-			roundText.text = "Round " + round;
-			creditText.text = "" + credits;
-
+        roundText.text = "Round " + round;
+		creditText.text = "" + credits;
+		if(towerPlaced){
 			foreach(Enemy e in currEnemies){
 				if(e.isDead()){
 					currEnemies.Remove(e);

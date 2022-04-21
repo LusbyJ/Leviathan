@@ -366,7 +366,7 @@ public class GameController : Singleton<GameController>
 	}
 	
 	private IEnumerator round9(){
-		nextRoundUI[0].sprite = enemyUI[4];
+		nextRoundUI[0].sprite = enemyUI[6];
 		nextRoundUI[1].enabled = false;
 		
 		

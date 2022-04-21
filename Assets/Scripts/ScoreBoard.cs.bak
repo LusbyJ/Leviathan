@@ -15,7 +15,7 @@ public class ScoreBoard : MonoBehaviour
 	public int[] highScores;
 	public string[] scoreNames;
 	
-	private int newScore = -1;
+	private int scoreInd;
 	
     void Awake()
     {
@@ -78,24 +78,23 @@ public class ScoreBoard : MonoBehaviour
 					scoreNames[i] = "";
 					PlayerPrefs.SetInt(((i+1) + "_Score"), (int)ScoreSO.Value);
 					PlayerPrefs.SetString(((i+1) + "_Name"), "");
-					newScore = i;
+					scoreInd = i;
 					added = true;
 					scorePopup.SetActive(true);
 					button.onClick.AddListener(SaveNewName);
 				}
 			}
 		}
-		Debug.Log("NewScore: " + newScore);
 		PlayerPrefs.Save();
+		Debug.Log("End: " + scoreInd);
 	}
 	
 	void SaveNewName(){
 		string newName = input.text;
-		Debug.Log("NewScore: " + newScore);
+		Debug.Log("SaveGame: " + scoreInd);
 		if(newScore > -1){ 
-			Debug.Log("In if");
-			scoreNames[newScore] = newName;
-			PlayerPrefs.SetString(((newScore+1) + "_Name"), newName);
+			scoreNames[scoreInd] = newName;
+			PlayerPrefs.SetString(((scoreInd+1) + "_Name"), newName);
 			PlayerPrefs.Save();
 		}
 		scorePopup.SetActive(false);
