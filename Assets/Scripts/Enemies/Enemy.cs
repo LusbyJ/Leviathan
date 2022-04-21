@@ -108,13 +108,11 @@ public Vector3 getDirection(){
 			if(collision.gameObject.GetComponent<Tower>().used)
             {
 				collision.gameObject.GetComponent<Health>().takeDamage(power/2);
-				Debug.Log("Damage reduced to " + power/2);
 			}
 			//deal normal damage;
             else
             {
 				collision.gameObject.GetComponent<Health>().takeDamage(power);
-				Debug.Log("Damage given " + power);
 			}
 		
 			resetTimer();

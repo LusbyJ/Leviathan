@@ -91,7 +91,6 @@ public class Targeting : MonoBehaviour
                         if(gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
                         {
                             gameObject.GetComponent<Tower>().damage += .1f;
-                            Debug.Log("Increasing Damage of Sniper by   = " + gameObject.GetComponent<Tower>().damage);
                         }
 
                         AttackTimer += waitTime;
