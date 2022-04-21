@@ -12,6 +12,7 @@ public class MouseTipManager : MonoBehaviour
     public static Action<string, Vector2> OnMouseHover;
     public static Action OnMouseLoseFocus;
 
+
     // Start is called before the first frame update
     void Start()
     {
