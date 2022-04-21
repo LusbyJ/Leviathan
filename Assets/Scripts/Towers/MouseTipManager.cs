@@ -8,6 +8,7 @@ public class MouseTipManager : MonoBehaviour
 {
     public TextMeshProUGUI tipText;
     public RectTransform upgradeWindow;
+    public static RectTransform tempHealth;
 
     public static Action<string, Vector2> OnMouseHover;
     public static Action OnMouseLoseFocus;
@@ -17,6 +18,7 @@ public class MouseTipManager : MonoBehaviour
     void Start()
     {
         HideUpgrade();
+        //tempHealth.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 
     private void OnEnable()
@@ -33,6 +35,7 @@ public class MouseTipManager : MonoBehaviour
 
     private void ShowUpgrade(string tip, Vector2 mousePos)
     {
+       
         tipText.text = tip;
         upgradeWindow.gameObject.SetActive(true);
         upgradeWindow.transform.position = new Vector2(mousePos.x, mousePos.y + upgradeWindow.sizeDelta.y * (-2));

@@ -78,9 +78,8 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void ShowUpgrade()
     {
         float healthStatus = gameObject.GetComponent<Health>().health / gameObject.GetComponent<Health>().maxHealth;
-
+        //MouseTipManager.tempHealth = new Vector3(healthStatus, 1f, 1f);
         //health.transform.localScale = new Vector3(healthStatus,1f,1f);
-        Debug.Log("Got here");
         MouseTipManager.OnMouseHover(tipToShow, Input.mousePosition);
     }
 
