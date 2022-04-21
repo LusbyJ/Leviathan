@@ -21,7 +21,10 @@ public class Targeting : MonoBehaviour
     void Start()
     {
         Target = Owner;
-        Display = gameObject.transform.GetChild(0).GetComponent<displayObject>();
+        if (gameObject.name != "Medical(Clone)")
+        {
+            Display = gameObject.transform.GetChild(0).GetComponent<displayObject>();
+        }
         AttackTimer = 0;
         OwnerTower = Owner.GetComponent<Tower>();
     }
@@ -45,20 +48,23 @@ public class Targeting : MonoBehaviour
             //If there is no target, find a new one
             if (Target == Owner)
             {
-                Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
-                foreach (Enemy foeScr in PotentialFoes)
+                if (gameObject.name != "Medical(Clone)")
                 {
-                    //Check Targetting
-                    if (OwnerTower.OverrideTargetting ||
-                    (TargetsGround&&foeScr.isGround())||
-                    (TargetsAir&&foeScr.isFlying()))
+                    Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
+                    foreach (Enemy foeScr in PotentialFoes)
                     {
-                        GameObject foe = foeScr.gameObject;
-                        Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
-                        float FoeDist = FoeVector.magnitude;
-                        if (FoeDist < TargetDist)
+                        //Check Targetting
+                        if (OwnerTower.OverrideTargetting ||
+                        (TargetsGround && foeScr.isGround()) ||
+                        (TargetsAir && foeScr.isFlying()))
                         {
-                            Target = foe;
+                            GameObject foe = foeScr.gameObject;
+                            Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
+                            float FoeDist = FoeVector.magnitude;
+                            if (FoeDist < TargetDist)
+                            {
+                                Target = foe;
+                            }
                         }
                     }
                 }
@@ -77,29 +83,35 @@ public class Targeting : MonoBehaviour
                     AttackTimer -= Time.deltaTime;
 
                 }
-                if (Target && Target != Owner)
+                if (gameObject.name != "Medical(Clone)")
                 {
-                    if (AttackTimer <= 0)
+                    if (Target && Target != Owner)
                     {
-
-                        float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
-                        Display.rotation.z = angle;
-                        Display.stackObject=FireStack;
-                        Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
-
-                        //If Sniper shooting and active ability active increase base damage
-                        if(gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
+                        if (AttackTimer <= 0)
                         {
-                            gameObject.GetComponent<Tower>().damage += .1f;
-                        }
 
-                        AttackTimer += waitTime;
+                            float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
+                            Display.rotation.z = angle;
+                            Display.stackObject = FireStack;
+                            Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+
+                            //If Sniper shooting and active ability active increase base damage
+                            if (gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
+                            {
+                                gameObject.GetComponent<Tower>().damage += .1f;
+                            }
+
+                            AttackTimer += waitTime;
+                        }
+                        if (AttackTimer < waitTime - muzzleTime)
+                        {
+                            Display.stackObject = IdleStack;
+                        }
                     }
-                    if(AttackTimer<waitTime-muzzleTime){
-                      Display.stackObject=IdleStack;
+                    else
+                    {
+                        Display.stackObject = IdleStack;
                     }
-                }else{
-                  Display.stackObject=IdleStack;
                 }
             }
         }

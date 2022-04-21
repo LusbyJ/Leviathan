@@ -114,7 +114,6 @@ public class Tower : MonoBehaviour
 
             //upgrade Cost
             upgradeCost *= 3;
-
         }
 
         //Upgrade sniper
@@ -164,6 +163,18 @@ public class Tower : MonoBehaviour
             //upgrade cost
             upgradeCost *= 3;
         }
+
+        //upgrade Medical
+        if(gameObject.name == "Medical(Clone)")
+        {
+            //upgrade health, reset health to max
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
+            towerHealth.health = towerHealth.maxHealth;
+
+            //upgrade heal per second
+            gameObject.GetComponent<Medical>().healingTime -= 5;
+        }
         upgrading = false;
     }
 
@@ -194,6 +205,5 @@ public class Tower : MonoBehaviour
             DroneSummoner summoner = gameObject.GetComponent<DroneSummoner>();
             summoner.extraDrone();
         }
-
     }
 }
