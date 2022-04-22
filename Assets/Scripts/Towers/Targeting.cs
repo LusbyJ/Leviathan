@@ -11,12 +11,14 @@ public class Targeting : MonoBehaviour
     public displayObject Display;
     public float waitTime = 2f;
     private float AttackTimer;
-    public float muzzleTime=0.1f;
+    public float muzzleTime = 0.1f;
     private Tower OwnerTower;
     public stackobject IdleStack;
     public stackobject FireStack;
-    public bool TargetsGround=true;
-    public bool TargetsAir=true;
+    public bool TargetsGround = true;
+    public bool TargetsAir = true;
+    public GameObject slimeBall;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,7 +34,7 @@ public class Targeting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        muzzleTime=Mathf.Min(muzzleTime,waitTime/2);
+        muzzleTime = Mathf.Min(muzzleTime, waitTime / 2);
         if (!Owner)
         {
             Destroy(this);
@@ -75,6 +77,7 @@ public class Targeting : MonoBehaviour
                 //Get the direction to the target
                 Vector2 Direction = new Vector2(Target.transform.position.x, Target.transform.position.y) -
                 new Vector2(transform.position.x, transform.position.y);
+
                 Direction = Direction.normalized;
 
                 if (AttackTimer > 0)
@@ -93,13 +96,28 @@ public class Targeting : MonoBehaviour
                             float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
                             Display.rotation.z = angle;
                             Display.stackObject = FireStack;
-                            Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
 
                             //If Sniper shooting and active ability active increase base damage
                             if (gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
                             {
                                 gameObject.GetComponent<Tower>().damage += .1f;
+                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                             }
+
+                            if (gameObject.name == "Chemical(Clone)")
+                            {
+                                GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
+                                Projectile prj = Projectile.GetComponent<Projectile>();
+                                prj.StartPosition = gameObject.transform.position;
+                                prj.Target = Target;
+
+                            }
+                            else
+                            {
+                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                            }
+
+
 
                             AttackTimer += waitTime;
                         }
