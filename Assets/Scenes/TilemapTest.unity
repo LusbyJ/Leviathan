@@ -5432,9 +5432,9 @@ MonoBehaviour:
   - {fileID: 1999824437}
   enemyUI:
   - {fileID: 21300000, guid: 30d06d9579d192b489a384711e3e44e3, type: 3}
-  - {fileID: 21300000, guid: 40222b692bf99f442bf5b01d29670098, type: 3}
+  - {fileID: 21300000, guid: 7399910f9a2e2684b89320aaac8ba949, type: 3}
   - {fileID: 21300000, guid: 3e0172e3ac1533d40be020b8c0254beb, type: 3}
-  - {fileID: 21300000, guid: c4950d82c09302543b2af32a69326e00, type: 3}
+  - {fileID: 21300000, guid: 9e9554da4c22f4f45ac738d5bc84b7c0, type: 3}
   - {fileID: 21300000, guid: 4020676629f8bd04ebf26ae34b7e78b2, type: 3}
   - {fileID: 21300000, guid: 4020676629f8bd04ebf26ae34b7e78b2, type: 3}
   - {fileID: 21300000, guid: 3209ff71c6413d54fbf3cc172c194396, type: 3}

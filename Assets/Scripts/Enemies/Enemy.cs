@@ -45,7 +45,10 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned)
 		{
 			poisonTimer -= Time.deltaTime;
-			if (poisonTimer <= 0) { poisoned = false; }
+			if(poisonTimer <= 0){ 
+				poisoned = false; 
+				GetComponent<Renderer>().material.color = Color.white;
+			}
 		}
 		move();
 	}
@@ -64,6 +67,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		poisoned = true;
 		poisonTimer = poisonDuration;
+		GetComponent<Renderer>().material.color = new Color(251, 255, 0);
 	}
 
 	public bool isDead() { return dead; }
@@ -80,7 +84,8 @@ public abstract class Enemy : MonoBehaviour
 	public void takeDamage(float damage)
 	{
 		StartCoroutine(blink());
-		health -= damage;
+		if(poisoned){ health -= (2*damage); }
+		else{ health -= damage; }
 		if (health <= 0 && !dying)
 		{
 			dying = true;
@@ -94,7 +99,7 @@ public abstract class Enemy : MonoBehaviour
 	public void move()
 	{
 		float move;
-		if (poisoned) { move = speed / 2; }
+		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
 		if (moving) { 
 			direction = centralTower.position - transform.position;
@@ -115,7 +120,8 @@ public abstract class Enemy : MonoBehaviour
 	{
 		GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
-		GetComponent<Renderer>().material.color = Color.white;
+		if(poisoned){ GetComponent<Renderer>().material.color = new Color(251, 255, 0); }
+		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
@@ -128,22 +134,17 @@ public abstract class Enemy : MonoBehaviour
 		{
 			moving = false;
 		}
+		if (collision.gameObject.tag == "Slime")
+		{
+			poison();
+		}
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)
 	{
-		float attack;
-		if (collision.gameObject.tag == "Slime")
-		{
-			poisoned = true;
-		}
-
-		if (poisoned) { attack = power / 2; }
-		else { attack = power; }
-
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
-			collision.gameObject.GetComponent<Health>().takeDamage(attack);
+			collision.gameObject.GetComponent<Health>().takeDamage(power);
 			resetTimer();
 		}
 
@@ -153,12 +154,12 @@ public abstract class Enemy : MonoBehaviour
 			//If tower has active ability set deal 50% damage
 			if (collision.gameObject.GetComponent<Tower>().used)
 			{
-				collision.gameObject.GetComponent<Health>().takeDamage(attack / 2);
+				collision.gameObject.GetComponent<Health>().takeDamage(power / 2);
 			}
 			//deal normal damage;
 			else
 			{
-				collision.gameObject.GetComponent<Health>().takeDamage(attack);
+				collision.gameObject.GetComponent<Health>().takeDamage(power);
 			}
 
 			resetTimer();

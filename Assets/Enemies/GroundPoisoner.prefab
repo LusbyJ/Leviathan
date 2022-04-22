@@ -49,8 +49,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.7
-  power: 2
-  health: 30
+  power: 0.5
+  health: 40
   bounty: 50
   death: {fileID: 7076810475481959755, guid: 20109ff52ee274c46b60f691eb3f0150, type: 3}
   centralTower: {fileID: 0}
