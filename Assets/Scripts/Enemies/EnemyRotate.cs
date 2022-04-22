@@ -20,8 +20,11 @@ public class EnemyRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      float percentage=Mathf.Clamp01(Vector3.Angle(Vector3.down,escript.getDirection())/360f);
-      int value=Mathf.FloorToInt(percentage*(length-1));
+      float percentage=(Vector3.Angle(Vector3.down,escript.getDirection())+360f)/ 360f;
+        percentage = percentage % 1;
+        percentage = Mathf.Clamp01(percentage);
+      Debug.Log(Vector3.Angle(Vector3.down, escript.getDirection()));
+      int value=Mathf.FloorToInt(percentage*(length));
       spriterenderer.sprite=sprites.stack[value];
     }
 }

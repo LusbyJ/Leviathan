@@ -25,6 +25,7 @@ public abstract class Enemy : MonoBehaviour
 	private float timer;
 	private float poisonTimer;
 	private Vector3 direction;
+	private Vector3 realDirection;
 
 	// Start is called before the first frame update
 	void Start()
@@ -35,6 +36,7 @@ public abstract class Enemy : MonoBehaviour
 		dead = false;
 		timer = timerInterval;
 		poisonTimer = 0;
+		realDirection = new Vector3(0, 0, 0);
 	}
 
 	void FixedUpdate()
@@ -94,7 +96,10 @@ public abstract class Enemy : MonoBehaviour
 		float move;
 		if (poisoned) { move = speed / 2; }
 		else { move = speed; }
-		if (moving) { direction = centralTower.position - transform.position; }
+		if (moving) { 
+			direction = centralTower.position - transform.position;
+			realDirection = direction;
+		}
 		else { direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
 		rb.MovePosition(transform.position + (direction * move * Time.deltaTime));
@@ -103,7 +108,7 @@ public abstract class Enemy : MonoBehaviour
 
 	public Vector3 getDirection()
 	{
-		return direction;
+		return realDirection;
 	}
 
 	private IEnumerator blink()

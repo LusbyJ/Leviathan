@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 7148099674406350590}
   - component: {fileID: 7475810136560953746}
   - component: {fileID: 1658898629150273283}
-  - component: {fileID: 579925226243002369}
   - component: {fileID: 3240809792827388376}
   m_Layer: 3
   m_Name: FlyingBruiser
@@ -59,7 +58,7 @@ MonoBehaviour:
   rb: {fileID: 1658898629150273283}
   timerInterval: 1
   poisonDuration: 2
-  animator: {fileID: 579925226243002369}
+  animator: {fileID: 0}
 --- !u!212 &2480259770109905667
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -192,25 +191,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!95 &579925226243002369
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4379390908771519267}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 6a02d282689e72b4481fd2e6d4acfcc1, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &3240809792827388376
 MonoBehaviour:
   m_ObjectHideFlags: 0
