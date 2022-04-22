@@ -134,10 +134,6 @@ public abstract class Enemy : MonoBehaviour
 		{
 			moving = false;
 		}
-		if (collision.gameObject.tag == "Slime")
-		{
-			poison();
-		}
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)

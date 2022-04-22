@@ -109,12 +109,9 @@ public class Targeting : MonoBehaviour
                                 GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                prj.Target = Target;
-
-                            }
-                            else
-                            {
+                                prj.Target = Target;                          
                                 Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                                Target.GetComponent<Enemy>().poison();
                             }
 
 
