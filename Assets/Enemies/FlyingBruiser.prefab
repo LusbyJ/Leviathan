@@ -58,6 +58,7 @@ MonoBehaviour:
   moving: 1
   rb: {fileID: 1658898629150273283}
   timerInterval: 1
+  poisonDuration: 2
   animator: {fileID: 579925226243002369}
 --- !u!212 &2480259770109905667
 SpriteRenderer:

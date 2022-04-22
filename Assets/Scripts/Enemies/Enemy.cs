@@ -13,6 +13,7 @@ public abstract class Enemy : MonoBehaviour
 	public bool moving;
 	public Rigidbody2D rb;
 	public float timerInterval;
+	public float poisonDuration;
 	public Animator animator;
 
 	private	Vector3 movement;
@@ -22,6 +23,7 @@ public abstract class Enemy : MonoBehaviour
 	private bool dying;
 	private bool dead;
 	private float timer;
+	private float poisonTimer;
 	private Vector3 direction;
 
 	// Start is called before the first frame update
@@ -31,11 +33,16 @@ public abstract class Enemy : MonoBehaviour
 		poisoned = false;
 		dying = false;
 		dead = false;
-		timer = 1;
+		timer = timerInterval;
+		poisonTimer = 0;
     }
 
 	void FixedUpdate(){
 		timer -= Time.deltaTime;
+		if(poisoned){
+			poisonTimer -= Time.deltaTime;
+			if(poisonTimer <= 0){ poisoned = false; }
+		}
 		move();
 	}
 
@@ -49,7 +56,10 @@ public abstract class Enemy : MonoBehaviour
 
 	public void resetTimer(){ timer = timerInterval; }
 	
-	public void poison(){ poisoned = true; }
+	public void poison(){ 
+		poisoned = true;
+		poisonTimer = poisonDuration;
+	}
 
 	public bool isDead(){ return dead; }
 

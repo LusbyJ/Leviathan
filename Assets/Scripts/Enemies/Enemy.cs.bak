@@ -15,10 +15,10 @@ public abstract class Enemy : MonoBehaviour
 	public float timerInterval;
 	public Animator animator;
 
-
 	private	Vector3 movement;
 	private bool ground;
 	private bool flying;
+	private bool poisoned;
 	private bool dying;
 	private bool dead;
 	private float timer;
@@ -28,6 +28,7 @@ public abstract class Enemy : MonoBehaviour
     void Start()
     {
 		moving = true;
+		poisoned = false;
 		dying = false;
 		dead = false;
 		timer = 1;
@@ -47,6 +48,8 @@ public abstract class Enemy : MonoBehaviour
 	public bool isFlying(){ return flying; }
 
 	public void resetTimer(){ timer = timerInterval; }
+	
+	public void poison(){ poisoned = true; }
 
 	public bool isDead(){ return dead; }
 
@@ -70,15 +73,19 @@ public abstract class Enemy : MonoBehaviour
 	public void kill(){ Destroy(gameObject); }
 
 	public void move(){
+		float move;
+		if(poisoned){ move = speed / 2; }
+		else{ move = speed; }
 		if(moving){ direction = centralTower.position - transform.position; }
 		else{ direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
-		rb.MovePosition(transform.position + (direction * speed * Time.deltaTime));
+		rb.MovePosition(transform.position + (direction * move * Time.deltaTime));
 		animator.SetBool("moving", moving);
 	}
-public Vector3 getDirection(){
-  return direction;
-}
+	
+	public Vector3 getDirection(){
+		return direction;
+	}
 
 	private IEnumerator blink(){
 		GetComponent<Renderer>().material.color = Color.red;
@@ -96,8 +103,12 @@ public Vector3 getDirection(){
     }
 
 	private void OnCollisionStay2D(Collision2D collision){
+		float attack;
+		if(poisoned){ attack = power / 2; }
+		else{ attack = power; }
+		
 		if(collision.gameObject.tag == "Tower" && timer <= 0){
-			collision.gameObject.GetComponent<Health>().takeDamage(power);
+			collision.gameObject.GetComponent<Health>().takeDamage(attack);
 			resetTimer();
 		}
 		
@@ -107,12 +118,12 @@ public Vector3 getDirection(){
 			//If tower has active ability set deal 50% damage
 			if(collision.gameObject.GetComponent<Tower>().used)
             {
-				collision.gameObject.GetComponent<Health>().takeDamage(power/2);
+				collision.gameObject.GetComponent<Health>().takeDamage(attack/2);
 			}
 			//deal normal damage;
             else
             {
-				collision.gameObject.GetComponent<Health>().takeDamage(power);
+				collision.gameObject.GetComponent<Health>().takeDamage(attack);
 			}
 		
 			resetTimer();
