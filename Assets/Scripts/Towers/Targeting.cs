@@ -65,7 +65,7 @@ public class Targeting : MonoBehaviour
                             float FoeDist = FoeVector.magnitude;
                             if (FoeDist < TargetDist)
                             {
-                                Target = foe;
+                                Target = foe;      
                             }
                         }
                     }
@@ -109,9 +109,8 @@ public class Targeting : MonoBehaviour
                                 GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                prj.Target = Target;                          
+                                prj.Target = Target;
                                 Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
-                                Target.GetComponent<Enemy>().poison();
                             }
                             else
                             {
@@ -129,6 +128,27 @@ public class Targeting : MonoBehaviour
                         Display.stackObject = IdleStack;
                     }
                 }
+            }
+        }
+    }
+
+    //Shoot all enemies in range, used  by chemical active ability
+    public void shootEverybody()
+    {
+        Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
+        foreach (Enemy foeScr in PotentialFoes)
+        { 
+                GameObject foe = foeScr.gameObject;
+                Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
+                float FoeDist = FoeVector.magnitude;
+
+            if (FoeDist < TargetDist && foeScr.tag == "Enemy")
+            { 
+                GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
+                Projectile prj = Projectile.GetComponent<Projectile>();
+                prj.StartPosition = gameObject.transform.position;
+                prj.Target = foe;
+                foe.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
             }
         }
     }

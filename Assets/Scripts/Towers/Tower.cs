@@ -170,6 +170,18 @@ public class Tower : MonoBehaviour
             //upgrade heal per second
             gameObject.GetComponent<Medical>().healingTime -= 5;
         }
+
+        //Upgrade chemical
+        if(gameObject.name == "Chemical(Clone)")
+        {
+            //upgrade health, reset health to max
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
+            towerHealth.health = towerHealth.maxHealth;
+
+            //Increase range
+            gameObject.GetComponent<Targeting>().TargetDist += 0.5f;
+        }
         upgrading = false;
     }
 
@@ -195,6 +207,7 @@ public class Tower : MonoBehaviour
         {
             gameObject.GetComponent<DroneSummoner>().resetDrones();
         }
+
         used = false;
     }
 
@@ -220,6 +233,12 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "Medical(Clone)")
         {
             gameObject.GetComponent<Medical>().changeActive(true);
+        }
+
+        //Slimes all enemies in range
+        if(gameObject.name == "Chemical(Clone)")
+        {
+            gameObject.GetComponent<Targeting>().shootEverybody();
         }
     }
 }
