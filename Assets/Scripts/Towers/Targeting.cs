@@ -113,9 +113,10 @@ public class Targeting : MonoBehaviour
                                 Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                                 Target.GetComponent<Enemy>().poison();
                             }
-
-
-
+                            else
+                            {
+                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                            }
                             AttackTimer += waitTime;
                         }
                         if (AttackTimer < waitTime - muzzleTime)

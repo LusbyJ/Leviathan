@@ -16,6 +16,7 @@ public class Tower : MonoBehaviour
     private bool upgrading = false;
     private bool activeAbility = false;
     public bool used = false;
+    public bool leviathan = false;
 
     public Sprite level2Sprite;
     public Sprite level3Sprite;
@@ -52,23 +53,15 @@ public class Tower : MonoBehaviour
                 animator.SetBool("isActive", false);
             }
             gameObject.GetComponent<SpriteRenderer>().sprite = level3Sprite;
-            if (!used)
+            if (!used && !leviathan)
             {
                 animator.SetBool("isLevel3", true);
                 activeAbility = true;
                 animator.SetBool("isActive", true);
             }
-        }
-
-        //Check for used bool to be changed to false when game Controller hits round%10 = 1
-        if(used == false)
-        {
-            resetActive();
-
-            //remove extra drone summoned 
-            if(gameObject.name == "DroneTower(Clone)")
+            else
             {
-                gameObject.GetComponent<DroneSummoner>().resetDrones();
+                animator.SetBool("isActive", false);
             }
         }
     }
@@ -77,11 +70,13 @@ public class Tower : MonoBehaviour
     void OnMouseOver()
     {
         //If right click use active ability
-        if(Input.GetMouseButtonDown(1) && activeAbility && !used)
+        if(Input.GetMouseButtonDown(1) && activeAbility && !used && !leviathan)
         {
             applyActive();
             animator.SetBool("isActive", false);
             used = true;
+            leviathan = true;
+         
         }
 
         //If left click check if credits are sufficient and upgrade
@@ -181,11 +176,26 @@ public class Tower : MonoBehaviour
     //Resets the towers active abilities
     public void resetActive()
     {
+        //Slum resets in Enemy Script
+
         //reset attack rate (Gunner)
         attackTime = basicRate;
 
         //resets damage(used for sniper)
         damage = basicDamage;
+
+        //Change adjacent tower targetting
+        if(gameObject.name == "Medical(Clone)")
+        {
+            gameObject.GetComponent<Medical>().changeActive(false);
+        }
+
+        //remove extra drone summoned 
+        if (gameObject.name == "DroneTower(Clone)")
+        {
+            gameObject.GetComponent<DroneSummoner>().resetDrones();
+        }
+        used = false;
     }
 
     //Sets the active ability
@@ -204,6 +214,12 @@ public class Tower : MonoBehaviour
         {
             DroneSummoner summoner = gameObject.GetComponent<DroneSummoner>();
             summoner.extraDrone();
+        }
+
+        //Set adjacecent towers to medical
+        if (gameObject.name == "Medical(Clone)")
+        {
+            gameObject.GetComponent<Medical>().changeActive(true);
         }
     }
 }

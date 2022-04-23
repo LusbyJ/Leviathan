@@ -23,114 +23,115 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     //Descriptions in upgrade window
     private void updateTip()
     {
+        var a = gameObject.GetComponent<Tower>();
         if (gameObject.name == "Slum(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Slum District\n\tAbility in Use!";
+                tipToShow = " Slum District";
             }
-            else if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if (a.upgradeLevel == 3)
             {    
-                tipToShow = " Slum District\n  Active Ability Ready!";
+                tipToShow = " Slum District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Slum District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Slum District\n    " + a.upgradeCost;
             }
         }
         if (gameObject.name == "Sniper(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Sniper District\n\tAbility in Use!";
+                tipToShow = " Sniper District\n";
             }
-            else if(gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if(a.upgradeLevel == 3)
             {
-                tipToShow = " Sniper District\n    Active Ability Ready";
+                tipToShow = " Sniper District\n\tAbility Ready";
             }
             else
             {
-                tipToShow = " Sniper District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Sniper District\n    " + a.upgradeCost;
             }
         }
 
         if (gameObject.name == "Gunner(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Gunner District\n\tAbility in Use!";
+                tipToShow = " Gunner District\n";
             }
-            else if(gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if(a.upgradeLevel == 3)
             {
-                tipToShow = " Gunner District\n    Active Ability Ready!";
+                tipToShow = " Gunner District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Gunner District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Gunner District\n    " + a.upgradeCost;
             }
         }
 
         if (gameObject.name == "DroneTower(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Drone District\n\tAbility in Use!";
+                tipToShow = " Drone District\n";
             }
-            else if(gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if(a.upgradeLevel == 3)
             {
-                tipToShow = " Drone District\n    Active Ability Ready!";
+                tipToShow = " Drone District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Drone District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Drone District\n    " + a.upgradeCost;
             }
         }
 
         if (gameObject.name == "Chemical(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Chemical District\n\tAbility in Use!";
+                tipToShow = " Chemical District\n";
             }
-            else if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if (a.upgradeLevel == 3)
             {
-                tipToShow = " Chemical District\n    Active Ability Ready!";
+                tipToShow = " Chemical District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Chemical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Chemical District\n    " + a.upgradeCost;
             }
         }
 
         if (gameObject.name == "Medical(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Medical District\n\tAbility in Use!";
+                tipToShow = " Medical District\n";
             }
-            else if (gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if (a.upgradeLevel == 3)
             {
-                tipToShow = " Medical District\n    Active Ability Ready!";
+                tipToShow = " Medical District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Medical District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Medical District\n    " + a.upgradeCost;
             }
         }
 
         if (gameObject.name == "Missile(Clone)")
         {
-            if (gameObject.GetComponent<Tower>().used)
+            if (a.used)
             {
-                tipToShow = " Missile District\n\tAbility in Use!";
+                tipToShow = " Missile District\n";
             }
-            else if(gameObject.GetComponent<Tower>().upgradeLevel == 3)
+            else if(a.upgradeLevel == 3)
             {
-                tipToShow = " Missile District\n    Active Ability Ready!";
+                tipToShow = " Missile District\n\tAbility Ready!";
             }
             else
             {
-                tipToShow = " Missile District\n    " + gameObject.GetComponent<Tower>().upgradeCost;
+                tipToShow = " Missile District\n    " + a.upgradeCost;
             }
         }
     }

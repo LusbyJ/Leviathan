@@ -6,9 +6,9 @@ using System.Linq;
 public class Medical : MonoBehaviour
 {
     public float healingAmount;
-    public float healingTime;
+    public float healingTime;   //Amount of time between health distributions
+
     // Start is called before the first frame update
-    
     void Start()
     {
         InvokeRepeating("healthDistribution", 0f, healingTime);
@@ -20,75 +20,78 @@ public class Medical : MonoBehaviour
         GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
         GameObject[] slums = GameObject.FindGameObjectsWithTag("Slum");
         towers = towers.Concat(slums).ToArray();
+        Vector3Int medPosition = gameObject.GetComponent<Tower>().cell;
+
         foreach (GameObject tower in towers)
         {
+            var adjPosition = tower.GetComponent<Tower>().cell;        
+            var health = tower.GetComponent<Health>().health;
+            var maxHealth = tower.GetComponent<Health>().maxHealth;          
             if (tower != gameObject)
             {
-                if (tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x && tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y-1)
+                if (adjPosition.x == medPosition.x && ((adjPosition.y == medPosition.y-1) || (adjPosition.y == medPosition.y+1)))
                 {
-                    if(tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
+                    if(health + healingAmount < maxHealth)
                     {
-                        tower.GetComponent<Health>().health += healingAmount;
+                        tower.GetComponent<Health>().health += healingAmount; 
                     }
                     else
                     {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
+                        tower.GetComponent<Health>().health = maxHealth;
                     }
                 }
-                if (tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x && tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y+1)
+        
+                if (adjPosition.y == medPosition.y && (adjPosition.x == medPosition.x-1 || adjPosition.x == medPosition.x+1))
                 {
-                    if (tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
+                    if (health + healingAmount < maxHealth)
                     {
                         tower.GetComponent<Health>().health += healingAmount;
                     }
                     else
                     {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
+                        tower.GetComponent<Health>().health = maxHealth;
                     }
                 }
-                if (tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y && tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x-1)
+             
+                if (adjPosition.x == medPosition.x-1 && (adjPosition.y == medPosition.y-1 || adjPosition.y == medPosition.y + 1))
                 {
-                    if (tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
+                    if (health + healingAmount < maxHealth)
                     {
                         tower.GetComponent<Health>().health += healingAmount;
                     }
                     else
                     {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
+                        tower.GetComponent<Health>().health = maxHealth;
                     }
                 }
-                if (tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y && tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x+1)
+            }
+        }
+    }
+
+    public void changeActive(bool state)
+    {
+        GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+        GameObject[] slums = GameObject.FindGameObjectsWithTag("Slum");
+        towers = towers.Concat(slums).ToArray();       
+        Vector3Int medPosition = gameObject.GetComponent<Tower>().cell;
+        foreach (GameObject tower in towers)
+        {
+            var adjPosition = tower.GetComponent<Tower>().cell;
+            if (tower != gameObject)
+            {
+                if (adjPosition.x == medPosition.x && ((adjPosition.y == medPosition.y - 1) || (adjPosition.y == medPosition.y + 1)))
                 {
-                    if (tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
-                    {
-                        tower.GetComponent<Health>().health += healingAmount;
-                    }
-                    else
-                    {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
-                    }
+                    tower.GetComponent<Tower>().OverrideTargetting = state;
                 }
-                if (tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x-1 && tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y-1)
+
+                if (adjPosition.y == medPosition.y && (adjPosition.x == medPosition.x - 1 || adjPosition.x == medPosition.x + 1))
                 {
-                    if (tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
-                    {
-                        tower.GetComponent<Health>().health += healingAmount;
-                    }
-                    else
-                    {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
-                    }
+                    tower.GetComponent<Tower>().OverrideTargetting = state;
                 }
-                if (tower.GetComponent<Tower>().cell.x == gameObject.GetComponent<Tower>().cell.x-1 && tower.GetComponent<Tower>().cell.y == gameObject.GetComponent<Tower>().cell.y+1)
+
+                if (adjPosition.x == medPosition.x - 1 && (adjPosition.y == medPosition.y - 1 || adjPosition.y == medPosition.y + 1))
                 {
-                    if (tower.GetComponent<Health>().health + healingAmount < tower.GetComponent<Health>().maxHealth)
-                    {
-                        tower.GetComponent<Health>().health += healingAmount;
-                    }
-                    else
-                    {
-                        tower.GetComponent<Health>().health = tower.GetComponent<Health>().maxHealth;
-                    }
+                    tower.GetComponent<Tower>().OverrideTargetting = state;
                 }
             }
         }

@@ -126,6 +126,8 @@ public class GameController : Singleton<GameController>
 	private void updateRound(){
 		round++;
 		ScoreSO.Value=round;
+
+		resetTowers();
 	}
 
 	private void spawnEnemy(int spawn, int type){
@@ -232,6 +234,8 @@ public class GameController : Singleton<GameController>
 				//reset active ability
 				Tower a = tower.GetComponent<Tower>();
 				a.used = false;
+				a.leviathan = false;
+	
 
 			}
 			//Destory fires
@@ -241,6 +245,18 @@ public class GameController : Singleton<GameController>
 			}
 			GridController.fireList.Clear();
 		}
+	}
+
+	private void resetTowers()
+    {
+		GameObject[] towers = GameObject.FindGameObjectsWithTag("Tower");
+		GameObject[] slums = GameObject.FindGameObjectsWithTag("Slum");
+		towers = towers.Concat(slums).ToArray();
+		foreach (GameObject tower in towers)
+        {
+			tower.GetComponent<Tower>().resetActive();
+        }
+
 	}
 
 	//Reset tilemap tiles
