@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		poisoned = true;
 		poisonTimer = poisonDuration;
-		GetComponent<Renderer>().material.color = new Color(251, 255, 0, 100);
+		GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f);
 	}
 
 	public bool isDead() { return dead; }
@@ -121,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
-		if(poisoned){ GetComponent<Renderer>().material.color = new Color(251, 255, 0, 100); }
+		if(poisoned){ GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f); }
 		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 
@@ -137,11 +137,12 @@ public abstract class Enemy : MonoBehaviour
 		}
 		if(collision.gameObject.tag == "Slime")
         {
+			Destroy(collision.gameObject);
 			poison();
         }
 	}
 
-	private void OnCollisionStay2D(Collision2D collision)
+	public virtual void OnCollisionStay2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{

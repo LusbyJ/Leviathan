@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
 	public Transform centralTower;
 	public bool moving;
 	public Rigidbody2D rb;
+	public float timer;
 	public float timerInterval;
 	public float poisonDuration;
 	public Animator animator;
@@ -22,7 +23,6 @@ public abstract class Enemy : MonoBehaviour
 	private bool poisoned;
 	private bool dying;
 	private bool dead;
-	private float timer;
 	private float poisonTimer;
 	private Vector3 direction;
 	private Vector3 realDirection;
@@ -142,7 +142,7 @@ public abstract class Enemy : MonoBehaviour
         }
 	}
 
-	private void OnCollisionStay2D(Collision2D collision)
+	public virtual void OnCollisionStay2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
