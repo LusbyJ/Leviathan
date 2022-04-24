@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7475810136560953746}
   - component: {fileID: 1658898629150273283}
   - component: {fileID: 3240809792827388376}
+  - component: {fileID: 5431625123788038523}
   m_Layer: 3
   m_Name: FlyingBruiser
   m_TagString: Enemy
@@ -60,6 +61,7 @@ MonoBehaviour:
   timerInterval: 1
   poisonDuration: 2
   animator: {fileID: 0}
+  attackCollider: {fileID: 5431625123788038523}
 --- !u!212 &2480259770109905667
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -206,3 +208,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sprites: {fileID: 11400000, guid: a015bd4e68353fc4cb4ef1432301600a, type: 2}
   enemy: {fileID: 4379390908771519267}
+--- !u!58 &5431625123788038523
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4379390908771519267}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.024019241}
+  serializedVersion: 2
+  m_Radius: 0.8611109
