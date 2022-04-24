@@ -26,7 +26,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         var a = gameObject.GetComponent<Tower>();
         if (gameObject.name == "Slum(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Slum District";
             }
@@ -36,12 +36,12 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Slum District\n    " + a.upgradeCost;
+                tipToShow = " Slum District\n    " + a.upgradeCost + "  +H +Mitigation";
             }
         }
         if (gameObject.name == "Sniper(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Sniper District\n";
             }
@@ -51,13 +51,13 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Sniper District\n    " + a.upgradeCost;
+                tipToShow = " Sniper District\n    " + a.upgradeCost + "  +D +Speed";
             }
         }
 
         if (gameObject.name == "Gunner(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Gunner District\n";
             }
@@ -67,13 +67,13 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Gunner District\n    " + a.upgradeCost;
+                tipToShow = " Gunner District\n    " + a.upgradeCost + "  +H +Speed";
             }
         }
 
         if (gameObject.name == "DroneTower(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Drone District\n";
             }
@@ -83,13 +83,13 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Drone District\n    " + a.upgradeCost;
+                tipToShow = " Drone District\n    " + a.upgradeCost + "  +H +Drone";
             }
         }
 
         if (gameObject.name == "Chemical(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Chemical District\n";
             }
@@ -99,13 +99,13 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Chemical District\n    " + a.upgradeCost;
+                tipToShow = " Chemical District\n    " + a.upgradeCost + "  +H +Range";
             }
         }
 
         if (gameObject.name == "Medical(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Medical District\n";
             }
@@ -115,13 +115,13 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Medical District\n    " + a.upgradeCost;
+                tipToShow = " Medical District\n    " + a.upgradeCost + " +H +Speed";
             }
         }
 
         if (gameObject.name == "Missile(Clone)")
         {
-            if (a.used)
+            if (a.used || a.leviathan)
             {
                 tipToShow = " Missile District\n";
             }
@@ -131,7 +131,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Missile District\n    " + a.upgradeCost;
+                tipToShow = " Missile District\n    " + a.upgradeCost + " +Range +Speed";
             }
         }
         ShowUpgrade();

@@ -126,7 +126,6 @@ public class GameController : Singleton<GameController>
 	private void updateRound(){
 		round++;
 		ScoreSO.Value=round;
-
 		resetTowers();
 	}
 
