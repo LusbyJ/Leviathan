@@ -70,7 +70,7 @@ public class Tower : MonoBehaviour
     //Detects button clicks when mouse is over tower
     void OnMouseOver()
     {
-        //If right click use active ability
+ /*       //If right click use active ability
         if(Input.GetMouseButtonDown(1) && activeAbility && !used && !leviathan)
         {
             applyActive();
@@ -78,7 +78,7 @@ public class Tower : MonoBehaviour
             used = true;
             leviathan = true;
          
-        }
+        }*/
 
         //If left click check if credits are sufficient and upgrade
         if(Input.GetMouseButtonDown(0))
@@ -90,6 +90,15 @@ public class Tower : MonoBehaviour
 
                 upgrading = true;
                 applyUpgrades();
+            }
+            
+            if (activeAbility && !used && !leviathan)
+            {
+                applyActive();
+                animator.SetBool("isActive", false);
+                used = true;
+                leviathan = true;
+
             }
         }
     }
