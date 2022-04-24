@@ -56,6 +56,7 @@ MonoBehaviour:
   centralTower: {fileID: 0}
   moving: 1
   rb: {fileID: 2045602032308940279}
+  timer: 0
   timerInterval: 1
   poisonDuration: 2
   animator: {fileID: 4047146287733337816}
@@ -96,8 +97,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -296337585
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 2248964851593996856, guid: 0e218588ddfe8b643b46dd0ee6c70ac9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

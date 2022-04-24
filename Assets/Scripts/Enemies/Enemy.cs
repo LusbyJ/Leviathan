@@ -125,7 +125,7 @@ public abstract class Enemy : MonoBehaviour
 		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	public virtual void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Enemy")
 		{

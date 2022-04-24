@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47936833668514370}
-  - component: {fileID: 6913307184048727887}
+  - component: {fileID: -2682885307283914424}
   - component: {fileID: 2480259770109905667}
   - component: {fileID: 7148099674406350590}
   - component: {fileID: 7475810136560953746}
@@ -36,7 +36,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6913307184048727887
+--- !u!114 &-2682885307283914424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -45,17 +45,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 4379390908771519267}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a76e5ac11df67340bef38e071d3561d, type: 3}
+  m_Script: {fileID: 11500000, guid: 14dfae124abbb8b4fadd01db7c532934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.5
-  power: 5
+  power: 30
   health: 50
   bounty: 70
   death: {fileID: 7410781099066043000, guid: 6c15a510caa998f4bbf111acb45b1023, type: 3}
   centralTower: {fileID: 0}
   moving: 1
   rb: {fileID: 1658898629150273283}
+  timer: 0
   timerInterval: 1
   poisonDuration: 2
   animator: {fileID: 0}
@@ -96,8 +97,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -296337585
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7121307343094038998, guid: 0a25d68b5934fd54887c7da97a3d124a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
