@@ -17,6 +17,7 @@ public class Tower : MonoBehaviour
     private bool activeAbility = false;
     public bool used = false;
     public bool leviathan = false;
+    public bool poisoned;
 
     public Sprite level2Sprite;
     public Sprite level3Sprite;
@@ -33,7 +34,7 @@ public class Tower : MonoBehaviour
     {
         basicRate = attackTime;
         activeRate = basicRate * 2;
-
+        poisoned = false;
         basicDamage = damage;
     }
 

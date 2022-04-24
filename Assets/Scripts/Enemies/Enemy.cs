@@ -137,6 +137,7 @@ public abstract class Enemy : MonoBehaviour
 		}
 		if(collision.gameObject.tag == "Slime")
         {
+			Destroy(collision.gameObject);
 			poison();
         }
 	}
