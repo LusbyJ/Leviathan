@@ -99,7 +99,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             }
             else
             {
-                tipToShow = " Chemical District\n    " + a.upgradeCost + "  +H +Range";
+                tipToShow = " Chemical District\n    " + a.upgradeCost + "  +R +Speed";
             }
         }
 

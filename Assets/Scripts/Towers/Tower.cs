@@ -70,16 +70,6 @@ public class Tower : MonoBehaviour
     //Detects button clicks when mouse is over tower
     void OnMouseOver()
     {
- /*       //If right click use active ability
-        if(Input.GetMouseButtonDown(1) && activeAbility && !used && !leviathan)
-        {
-            applyActive();
-            animator.SetBool("isActive", false);
-            used = true;
-            leviathan = true;
-         
-        }*/
-
         //If left click check if credits are sufficient and upgrade
         if(Input.GetMouseButtonDown(0))
         {
@@ -98,7 +88,6 @@ public class Tower : MonoBehaviour
                 animator.SetBool("isActive", false);
                 used = true;
                 leviathan = true;
-
             }
         }
     }
@@ -184,10 +173,11 @@ public class Tower : MonoBehaviour
         //Upgrade chemical
         if(gameObject.name == "Chemical(Clone)")
         {
-            //upgrade health, reset health to max
-            Health towerHealth = gameObject.GetComponent<Health>();
-            towerHealth.maxHealth *= 2;
+            //reset health to max
             towerHealth.health = towerHealth.maxHealth;
+
+            //Increase fireRate
+            gameObject.GetComponent<Targeting>().waitTime -= 1f;
 
             //Increase range
             gameObject.GetComponent<Targeting>().TargetDist += 0.5f;
