@@ -32,7 +32,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             building = false;
         }
 
-        if (gameController.round < 2 && tower.name != "Slum"  && tower.name != "Gunner")
+        if (gameController.round < 2 && tower.name != "Sniper"  && tower.name != "Gunner")
         {
             available = false;
             var tempColor = image.color;
@@ -74,41 +74,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
                 Vector3 targetDistance = new Vector3(d, d, 0);
                 range.transform.localScale = targetDistance;
                 Instantiate(range);
-            //}
-       /*     if (tower.name == "DroneTower")
-            {
-                if (gameController.round <1)
-                {
-                    //Get the towers targetDistance, Instantiate target range indicator
-                    float d = tower.GetComponent<DroneSummoner>().LeashRange * 2;
-                    Vector3 targetDistance = new Vector3(d, d, 0);
-                    range.transform.localScale = targetDistance;
-                    Instantiate(range);
-                }
-                else
-                {
-                    var tempColor = image.color;
-                    tempColor.a = 0.2f;
-                    image.color = tempColor;
-                }
-            }
-            if (tower.name == "Slum" || tower.name == "Medical")
-            {
-                if (gameController.round < 1)
-                {
-                    //Get the towers targetDistance, Instantiate target range indicator
-                    float d = 0.4f;
-                    Vector3 targetDistance = new Vector3(d, d, 0);
-                    range.transform.localScale = targetDistance;
-                    Instantiate(range);
-                }
-                else
-                {
-                    var tempColor = image.color;
-                    tempColor.a = 0.2f;
-                    image.color = tempColor;
-                }
-            }*/
         }
         else
         {
