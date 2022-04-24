@@ -14,11 +14,11 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             gameObject.GetComponent<Tower>().cost;
     }
 
-    void Update()
+/*    void Update()
     {
         updateTip();
        
-    }
+    }*/
 
     //Descriptions in upgrade window
     private void updateTip()
@@ -134,6 +134,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 tipToShow = " Missile District\n    " + a.upgradeCost;
             }
         }
+        ShowUpgrade();
     }
 
     //Detect if the Cursor starts to pass over the GameObject
@@ -143,6 +144,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         {
             StopAllCoroutines();
             StartCoroutine(StartTimer());
+            InvokeRepeating("updateTip", 0.1f, 0.2f);
         }
     }
     //Detect when Cursor leaves the GameObject
@@ -150,6 +152,7 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         StopAllCoroutines();
         MouseTipManager.OnMouseLoseFocus();
+        CancelInvoke();
     }
 
     //Displays upgrade window
