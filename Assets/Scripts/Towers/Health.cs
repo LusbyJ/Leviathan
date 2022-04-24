@@ -82,12 +82,25 @@ public class Health : MonoBehaviour
     private IEnumerator Blink()
     {
         hit = true;
-        for (int i = 0; i < 2; i++)
+        if (gameObject.GetComponent<Tower>().poisoned)
         {
-            GetComponent<Renderer>().material.color = Color.red;
-            yield return new WaitForSeconds(0.1f);
-            GetComponent<Renderer>().material.color = Color.white;
-            yield return new WaitForSeconds(0.1f);
+            for (int i = 0; i < 2; i++)
+            {
+                GetComponent<Renderer>().material.color = Color.red;
+                yield return new WaitForSeconds(0.1f);
+                GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        else
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                GetComponent<Renderer>().material.color = Color.red;
+                yield return new WaitForSeconds(0.1f);
+                GetComponent<Renderer>().material.color = Color.white;
+                yield return new WaitForSeconds(0.1f);
+            }
         }
         hit = false;
         StopCoroutine("Blink");

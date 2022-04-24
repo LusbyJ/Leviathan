@@ -18,6 +18,7 @@ public class Tower : MonoBehaviour
     public bool used = false;
     public bool leviathan = false;
     public bool poisoned;
+    public bool current;
 
     public Sprite level2Sprite;
     public Sprite level3Sprite;
@@ -35,12 +36,20 @@ public class Tower : MonoBehaviour
         basicRate = attackTime;
         activeRate = basicRate * 2;
         poisoned = false;
+        current = false;
         basicDamage = damage;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //If poisoned, turn green and take damage every second
+        if(poisoned && !current)
+        {
+            GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f);
+            current = true;
+            StartCoroutine("applyPoison");
+        }
         if (upgradeLevel == 2 && gameObject.name != "Central")
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = level2Sprite;
@@ -65,6 +74,20 @@ public class Tower : MonoBehaviour
                 animator.SetBool("isActive", false);
             }
         }
+    }
+
+    //Take damage every second for 5 seconds
+    private IEnumerator applyPoison()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            gameObject.GetComponent<Health>().takeDamage(2);
+            yield return new WaitForSeconds(1f);
+        }
+        poisoned = false;
+        current = false;
+        GetComponent<Renderer>().material.color = Color.white;
+        StopCoroutine("applyPoison");
     }
 
     //Detects button clicks when mouse is over tower

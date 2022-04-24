@@ -25,7 +25,10 @@ public class Projectile : MonoBehaviour
                 catch
                 {}
                 Destroy(gameObject, 0.5f);
-                animator.SetBool("explosion", true);
+                if (gameObject.name != "DroneProjectile(Clone)")
+                {
+                    animator.SetBool("explosion", true);
+                }
             }
             else
             {

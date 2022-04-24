@@ -3314,7 +3314,7 @@ GameObject:
   - component: {fileID: 739565113}
   - component: {fileID: 739565116}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Drone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52748,7 +52748,7 @@ GameObject:
   - component: {fileID: 1979370776}
   - component: {fileID: 1979370779}
   m_Layer: 0
-  m_Name: Image
+  m_Name: Slum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
