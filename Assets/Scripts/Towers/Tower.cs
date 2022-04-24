@@ -174,6 +174,7 @@ public class Tower : MonoBehaviour
         if(gameObject.name == "Chemical(Clone)")
         {
             //reset health to max
+            Health towerHealth = gameObject.GetComponent<Health>();
             towerHealth.health = towerHealth.maxHealth;
 
             //Increase fireRate
