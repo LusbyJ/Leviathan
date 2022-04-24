@@ -22,6 +22,9 @@ public class GroundPoisoner : Enemy
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
 			collision.gameObject.GetComponent<Tower>().poisoned = true;
+		} else if (collision.gameObject.tag == "Slum" && timer <= 0)
+		{
+			collision.gameObject.GetComponent<Tower>().poisoned = true;
 		}
 		base.OnCollisionStay2D(collision);
 	}

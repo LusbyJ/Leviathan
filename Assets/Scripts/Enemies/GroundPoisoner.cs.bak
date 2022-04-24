@@ -17,7 +17,7 @@ public class GroundPoisoner : Enemy
         
     }
 	
-	override void OnCollisionStay2D(Collision2D collision)
+	public override void OnCollisionStay2D(Collision2D collision)
 	{
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
