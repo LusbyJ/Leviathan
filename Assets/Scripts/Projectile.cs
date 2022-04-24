@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     private float LerpVal = 0f;
     public float LerpSpd = 1;
     public float Damage = 1;
-
+    public Animator animator;
     void Update()
     {
       if(Target){

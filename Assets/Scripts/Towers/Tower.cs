@@ -182,6 +182,23 @@ public class Tower : MonoBehaviour
             //Increase range
             gameObject.GetComponent<Targeting>().TargetDist += 0.5f;
         }
+
+        //Upgrade Missile
+        if (gameObject.name == "Missile(Clone)")
+        {
+            //reset health to max
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.health = towerHealth.maxHealth;
+
+            //upgrade fireRate
+            gameObject.GetComponent<Targeting>().waitTime -= 2f;
+
+            //Increase range
+            gameObject.GetComponent<Targeting>().TargetDist += 0.5f;
+
+            //upgrade Cost
+            upgradeCost *= 3;
+        }
         upgrading = false;
     }
 
@@ -207,7 +224,7 @@ public class Tower : MonoBehaviour
         {
             gameObject.GetComponent<DroneSummoner>().resetDrones();
         }
-
+         
         used = false;
     }
 
@@ -237,6 +254,12 @@ public class Tower : MonoBehaviour
 
         //Slimes all enemies in range
         if(gameObject.name == "Chemical(Clone)")
+        {
+            gameObject.GetComponent<Targeting>().shootEverybody();
+        }
+
+        //Shoots rocket at all enemies in range
+        if (gameObject.name == "Missile(Clone)")
         {
             gameObject.GetComponent<Targeting>().shootEverybody();
         }

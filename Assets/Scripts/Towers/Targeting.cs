@@ -18,6 +18,7 @@ public class Targeting : MonoBehaviour
     public bool TargetsGround = true;
     public bool TargetsAir = true;
     public GameObject slimeBall;
+    public GameObject rocket;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +95,7 @@ public class Targeting : MonoBehaviour
                         {
 
                             float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
+                           
                             Display.rotation.z = angle;
                             Display.stackObject = FireStack;
 
@@ -107,6 +109,15 @@ public class Targeting : MonoBehaviour
                             if (gameObject.name == "Chemical(Clone)")
                             {
                                 GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
+                                Projectile prj = Projectile.GetComponent<Projectile>();
+                                prj.StartPosition = gameObject.transform.position;
+                                prj.Target = Target;
+                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                            }
+                            if (gameObject.name == "Missile(Clone)")
+                            {
+                                GameObject Projectile = Instantiate(rocket, gameObject.transform);
+                                Projectile.transform.rotation = Quaternion.Euler(0, 0, angle); 
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
                                 prj.Target = Target;
@@ -135,6 +146,7 @@ public class Targeting : MonoBehaviour
     //Shoot all enemies in range, used  by chemical active ability
     public void shootEverybody()
     {
+        gameObject.GetComponent<Tower>().leviathan = true;
         Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
         foreach (Enemy foeScr in PotentialFoes)
         { 
@@ -143,12 +155,24 @@ public class Targeting : MonoBehaviour
                 float FoeDist = FoeVector.magnitude;
 
             if (FoeDist < TargetDist && foeScr.tag == "Enemy")
-            { 
-                GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
-                Projectile prj = Projectile.GetComponent<Projectile>();
-                prj.StartPosition = gameObject.transform.position;
-                prj.Target = foe;
-                foe.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+            {
+                if (gameObject.name == "Missile(Clone)")
+                {
+                    GameObject Projectile = Instantiate(rocket, gameObject.transform);
+                    Projectile prj = Projectile.GetComponent<Projectile>();
+                    prj.StartPosition = gameObject.transform.position;
+                    prj.Target = foe;
+                    foe.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                }
+                else
+                {
+                    GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
+                    Projectile prj = Projectile.GetComponent<Projectile>();
+                    prj.StartPosition = gameObject.transform.position;
+                    prj.Target = foe;
+                    foe.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                }             
+             
             }
         }
     }
