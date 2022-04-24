@@ -9,6 +9,7 @@ public class EnemyRotate : MonoBehaviour
     public GameObject enemy;
     private  Enemy escript;
     private SpriteRenderer spriterenderer;
+    private float threshold=0.5f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,11 +21,25 @@ public class EnemyRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      float percentage=(Vector3.Angle(Vector3.down,escript.getDirection())+360f)/ 360f;
-        percentage = percentage % 1;
-        percentage = Mathf.Clamp01(percentage);
-      Debug.Log(Vector3.Angle(Vector3.down, escript.getDirection()));
-      int value=Mathf.FloorToInt(percentage*(length));
+      Vector3 dir=escript.getDirection();
+      int value=0;
+      if(dir.x>threshold){
+        value=2;
+      }else if(dir.y<-threshold){
+        value=0;
+      }else if(dir.x<-threshold){
+        value=6;
+      }else if(dir.y>threshold){
+        value=4;
+      }else if(dir.x>=0&&dir.y<=0){
+        value=1;
+      }else if (dir.x>=0&&dir.y>=0){
+        value=3;
+      }else if (dir.x<=0&&dir.y>=0){
+        value=5;
+      }else{
+        value=7;
+      }
       spriterenderer.sprite=sprites.stack[value];
     }
 }

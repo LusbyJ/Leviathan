@@ -45,8 +45,8 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned)
 		{
 			poisonTimer -= Time.deltaTime;
-			if(poisonTimer <= 0){ 
-				poisoned = false; 
+			if(poisonTimer <= 0){
+				poisoned = false;
 				GetComponent<Renderer>().material.color = Color.white;
 			}
 		}
@@ -101,9 +101,10 @@ public abstract class Enemy : MonoBehaviour
 		float move;
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
-		if (moving) { 
+		if (moving) {
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
+			realDirection.Normalize();
 		}
 		else { direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
