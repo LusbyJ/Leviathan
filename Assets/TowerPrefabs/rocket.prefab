@@ -119,3 +119,4 @@ MonoBehaviour:
   Target: {fileID: 0}
   LerpSpd: 1.5
   Damage: 5
+  animator: {fileID: 2181351833679139517}
