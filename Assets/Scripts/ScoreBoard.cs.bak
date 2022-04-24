@@ -92,7 +92,7 @@ public class ScoreBoard : MonoBehaviour
 	void SaveNewName(){
 		string newName = input.text;
 		Debug.Log("SaveGame: " + scoreInd);
-		if(newScore > -1){ 
+		if(scoreInd > -1){ 
 			scoreNames[scoreInd] = newName;
 			PlayerPrefs.SetString(((scoreInd+1) + "_Name"), newName);
 			PlayerPrefs.Save();

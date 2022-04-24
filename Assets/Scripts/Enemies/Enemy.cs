@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		poisoned = true;
 		poisonTimer = poisonDuration;
-		GetComponent<Renderer>().material.color = new Color(251, 255, 0);
+		GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f);
 	}
 
 	public bool isDead() { return dead; }
@@ -121,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
-		if(poisoned){ GetComponent<Renderer>().material.color = new Color(251, 255, 0); }
+		if(poisoned){ GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f); }
 		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 

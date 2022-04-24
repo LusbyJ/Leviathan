@@ -45,8 +45,8 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned)
 		{
 			poisonTimer -= Time.deltaTime;
-			if(poisonTimer <= 0){ 
-				poisoned = false; 
+			if(poisonTimer <= 0){
+				poisoned = false;
 				GetComponent<Renderer>().material.color = Color.white;
 			}
 		}
@@ -67,7 +67,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		poisoned = true;
 		poisonTimer = poisonDuration;
-		GetComponent<Renderer>().material.color = new Color(251, 255, 0);
+		GetComponent<Renderer>().material.color = new Color(251, 255, 0, 100);
 	}
 
 	public bool isDead() { return dead; }
@@ -101,9 +101,10 @@ public abstract class Enemy : MonoBehaviour
 		float move;
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
-		if (moving) { 
+		if (moving) {
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
+			realDirection.Normalize();
 		}
 		else { direction = new Vector3(0, 0, 0); }
 		direction.Normalize();
@@ -120,7 +121,7 @@ public abstract class Enemy : MonoBehaviour
 	{
 		GetComponent<Renderer>().material.color = Color.red;
 		yield return new WaitForSeconds(0.1f);
-		if(poisoned){ GetComponent<Renderer>().material.color = new Color(251, 255, 0); }
+		if(poisoned){ GetComponent<Renderer>().material.color = new Color(251, 255, 0, 100); }
 		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 
@@ -134,15 +135,14 @@ public abstract class Enemy : MonoBehaviour
 		{
 			moving = false;
 		}
+		if(collision.gameObject.tag == "Slime")
+        {
+			poison();
+        }
 	}
 
 	private void OnCollisionStay2D(Collision2D collision)
 	{
-		if (collision.gameObject.tag == "Slime")
-		{
-			poison();
-		}
-
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
 			collision.gameObject.GetComponent<Health>().takeDamage(power);

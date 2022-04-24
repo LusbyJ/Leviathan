@@ -86,12 +86,10 @@ public class ScoreBoard : MonoBehaviour
 			}
 		}
 		PlayerPrefs.Save();
-		Debug.Log("End: " + scoreInd);
 	}
 	
 	void SaveNewName(){
 		string newName = input.text;
-		Debug.Log("SaveGame: " + scoreInd);
 		if(scoreInd > -1){ 
 			scoreNames[scoreInd] = newName;
 			PlayerPrefs.SetString(((scoreInd+1) + "_Name"), newName);
