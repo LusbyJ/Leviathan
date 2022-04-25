@@ -32,14 +32,14 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             building = false;
         }
 
-        if (gameController.round < 2 && tower.name != "Sniper"  && tower.name != "Gunner")
+        if (gameController.round == 0 && tower.name != "Sniper"  && tower.name != "Gunner")
         {
             available = false;
             var tempColor = image.color;
             tempColor.a = 0.2f;
             image.color = tempColor;
         }
-        else if(gameController.round >= 2)
+        else if(gameController.round > 0)
         {
             available = true;
                  //Grey-out towers if there is not enough credits to build
