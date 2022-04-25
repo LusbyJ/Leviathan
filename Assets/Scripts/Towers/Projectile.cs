@@ -10,34 +10,37 @@ public class Projectile : MonoBehaviour
     public float LerpSpd = 1;
     public float Damage = 1;
     public Animator animator;
+    private bool activated=false;
     void Update()
     {
-        if(Target)
-        {
-            LerpVal+=Time.deltaTime*LerpSpd;
-            if(LerpVal>=1)
-            {
-                Target.GetComponent<Enemy>().takeDamage(Damage);
-                try
-                {
-                    Target.GetComponent<Enemy>().takeDamage(Damage);
-                }   
-                catch
-                {}
-                Destroy(gameObject, 0.5f);
-                if (gameObject.name != "DroneProjectile(Clone)")
-                {
-                    animator.SetBool("explosion", true);
-                }
-            }
-            else
-            {
-                transform.position=Vector3.Lerp(StartPosition,Target.transform.position,LerpVal);
-            }
+        if(!activated){
+          if(Target)
+          {
+              LerpVal+=Time.deltaTime*LerpSpd;
+              if(LerpVal>=1)
+              {
+                  try
+                  {
+                      Target.GetComponent<Enemy>().takeDamage(Damage);
+                  }
+                  catch
+                  {}
+                  Destroy(gameObject, 0.5f);
+                  if (gameObject.name != "DroneProjectile(Clone)")
+                  {
+                      animator.SetBool("explosion", true);
+                  }
+                  activated=true;
+              }
+              else
+              {
+                  transform.position=Vector3.Lerp(StartPosition,Target.transform.position,LerpVal);
+              }
+          }
+          else
+          {
+              Destroy(gameObject, 1);
+          }
         }
-        else
-        {
-            Destroy(gameObject, 1);
-        }
-    } 
+    }
 }
