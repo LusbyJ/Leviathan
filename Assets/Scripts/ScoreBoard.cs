@@ -19,7 +19,8 @@ public class ScoreBoard : MonoBehaviour
 	
     void Awake()
     {
-        highScores = new int[10]{   PlayerPrefs.GetInt("1_Score"),
+        scorePopup.SetActive(false);
+		highScores = new int[10]{   PlayerPrefs.GetInt("1_Score"),
 									PlayerPrefs.GetInt("2_Score"),
 									PlayerPrefs.GetInt("3_Score"),
 									PlayerPrefs.GetInt("4_Score"),
