@@ -118,7 +118,7 @@ public class Targeting : MonoBehaviour
                                 GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                //prj.Target = Target;
+                                prj.Target = Target;
                                 //Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                             }
                             else if (gameObject.name == "Missile(Clone)")
@@ -127,7 +127,7 @@ public class Targeting : MonoBehaviour
                                 Projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                //prj.Target = Target;
+                                prj.Target = Target;
                                 //Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                             }
 

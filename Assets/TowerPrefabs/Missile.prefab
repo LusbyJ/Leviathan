@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 1, y: -4, z: 0}
+  cell: {x: 0, y: -2, z: 0}
   attackTime: 25
   damage: 0
   cost: 300
@@ -179,6 +179,7 @@ MonoBehaviour:
   used: 0
   leviathan: 0
   poisoned: 0
+  current: 0
   level2Sprite: {fileID: 2578396395254683019, guid: 56e02fb5749e73a458986d8cb7a486da, type: 3}
   level3Sprite: {fileID: -332285879308990717, guid: 56e02fb5749e73a458986d8cb7a486da, type: 3}
   animator: {fileID: 4913684725956602764}
