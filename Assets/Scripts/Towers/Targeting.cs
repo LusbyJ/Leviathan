@@ -19,6 +19,7 @@ public class Targeting : MonoBehaviour
     public bool TargetsAir = true;
     public GameObject slimeBall;
     public GameObject rocket;
+    private float damage;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +31,7 @@ public class Targeting : MonoBehaviour
         }
         AttackTimer = 0;
         OwnerTower = Owner.GetComponent<Tower>();
+        damage = OwnerTower.damage;
     }
 
     // Update is called once per frame
@@ -66,7 +68,7 @@ public class Targeting : MonoBehaviour
                             float FoeDist = FoeVector.magnitude;
                             if (FoeDist < TargetDist)
                             {
-                                Target = foe;      
+                                Target = foe;
                             }
                         }
                     }
@@ -95,38 +97,40 @@ public class Targeting : MonoBehaviour
                         {
 
                             float angle = Vector2.SignedAngle(Vector2.right, Direction); // Returns a value between -180 and 180.
-                           
-                            Display.rotation.z = angle;
-                            Display.stackObject = FireStack;
 
+                            Display.rotation.z = angle;
                             //If Sniper shooting and active ability active increase base damage
                             if (gameObject.name == "Sniper(Clone)" && gameObject.GetComponent<Tower>().used)
                             {
-                                gameObject.GetComponent<Tower>().damage += .1f;
-                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                                damage += .1f;
+                                Target.GetComponent<Enemy>().takeDamage(damage);
+                                Display.stackObject = FireStack;
+                            }
+                            else if (gameObject.name != "Chemical(Clone)" && gameObject.name != "Missile(Clone)")
+                            {
+                                Display.stackObject = FireStack;
+                                Target.GetComponent<Enemy>().takeDamage(damage);
                             }
 
-                            if (gameObject.name == "Chemical(Clone)")
+
+                            else if (gameObject.name == "Chemical(Clone)")
                             {
                                 GameObject Projectile = Instantiate(slimeBall, gameObject.transform);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                prj.Target = Target;
-                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                                //prj.Target = Target;
+                                //Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                             }
-                            if (gameObject.name == "Missile(Clone)")
+                            else if (gameObject.name == "Missile(Clone)")
                             {
                                 GameObject Projectile = Instantiate(rocket, gameObject.transform);
-                                Projectile.transform.rotation = Quaternion.Euler(0, 0, angle); 
+                                Projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
                                 Projectile prj = Projectile.GetComponent<Projectile>();
                                 prj.StartPosition = gameObject.transform.position;
-                                prj.Target = Target;
-                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
+                                //prj.Target = Target;
+                                //Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
                             }
-                            else
-                            {
-                                Target.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
-                            }
+
                             AttackTimer += waitTime;
                         }
                         if (AttackTimer < waitTime - muzzleTime)
@@ -149,10 +153,10 @@ public class Targeting : MonoBehaviour
         gameObject.GetComponent<Tower>().leviathan = true;
         Enemy[] PotentialFoes = FindObjectsOfType(typeof(Enemy)) as Enemy[];
         foreach (Enemy foeScr in PotentialFoes)
-        { 
-                GameObject foe = foeScr.gameObject;
-                Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
-                float FoeDist = FoeVector.magnitude;
+        {
+            GameObject foe = foeScr.gameObject;
+            Vector2 FoeVector = new Vector2(Owner.transform.position.x, Owner.transform.position.y) - new Vector2(foe.transform.position.x, foe.transform.position.y);
+            float FoeDist = FoeVector.magnitude;
 
             if (FoeDist < TargetDist && foeScr.tag == "Enemy")
             {
@@ -171,8 +175,8 @@ public class Targeting : MonoBehaviour
                     prj.StartPosition = gameObject.transform.position;
                     prj.Target = foe;
                     foe.GetComponent<Enemy>().takeDamage(gameObject.GetComponent<Tower>().damage);
-                }             
-             
+                }
+
             }
         }
     }

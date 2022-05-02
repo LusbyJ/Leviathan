@@ -9,10 +9,10 @@ public class Tower : MonoBehaviour
     public float damage;
     public int cost;
     public int upgradeLevel = 1;
-    public bool abilityReady=false;
+    public bool abilityReady = false;
     public float upgradeCost;
     public GameObject projectile;
-    public bool OverrideTargetting=false; //Used for medical tower active
+    public bool OverrideTargetting = false; //Used for medical tower active
     private bool upgrading = false;
     private bool activeAbility = false;
     public bool used = false;
@@ -44,7 +44,7 @@ public class Tower : MonoBehaviour
     void Update()
     {
         //If poisoned, turn green and take damage every second
-        if(poisoned && !current)
+        if (poisoned && !current)
         {
             GetComponent<Renderer>().material.color = new Color(0.7841f, 1f, 0, 1f);
             current = true;
@@ -56,9 +56,9 @@ public class Tower : MonoBehaviour
             animator.SetBool("isLevel2", true);
         }
 
-        if(upgradeLevel == 3 && gameObject.name != "Central")
+        if (upgradeLevel == 3 && gameObject.name != "Central")
         {
-            if(used)
+            if (used)
             {
                 animator.SetBool("isActive", false);
             }
@@ -94,9 +94,9 @@ public class Tower : MonoBehaviour
     void OnMouseOver()
     {
         //If left click check if credits are sufficient and upgrade
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if(GameController.instance.credits >= upgradeCost && upgradeLevel < 3)
+            if (GameController.instance.credits >= upgradeCost && upgradeLevel < 3)
             {
                 GameController.instance.credits -= upgradeCost;
                 upgradeLevel++;
@@ -104,7 +104,7 @@ public class Tower : MonoBehaviour
                 upgrading = true;
                 applyUpgrades();
             }
-            
+
             if (activeAbility && !used && !leviathan)
             {
                 applyActive();
@@ -119,11 +119,11 @@ public class Tower : MonoBehaviour
     public void applyUpgrades()
     {
         //Upgrade Gunner
-        if(gameObject.name == "Gunner(Clone)")
+        if (gameObject.name == "Gunner(Clone)")
         {
             //upgrade maxHealth, reset health to max
-            Health towerHealth=gameObject.GetComponent<Health>();
-            towerHealth.maxHealth *=2;
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
             towerHealth.health = towerHealth.maxHealth;
 
             //upgrade fireRate
@@ -137,11 +137,11 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "Sniper(Clone)")
         {
             //Reset Health to max
-            Health towerHealth=gameObject.GetComponent<Health>();
+            Health towerHealth = gameObject.GetComponent<Health>();
             towerHealth.health = towerHealth.maxHealth;
 
             //upgrade damage, upgrade fireRate
-            damage *=2;
+            damage *= 2;
             gameObject.GetComponent<Targeting>().waitTime *= 0.7f;
 
             //Upgrade cost
@@ -152,8 +152,8 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "Slum(Clone)")
         {
             //Upgrade health, reset health to max
-            Health towerHealth=gameObject.GetComponent<Health>();
-            towerHealth.maxHealth *=2;
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
             towerHealth.health = towerHealth.maxHealth;
 
             //upgrade damage
@@ -167,13 +167,14 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "DroneTower(Clone)")
         {
             //upgrade health, reset health to max
-            Health towerHealth=gameObject.GetComponent<Health>();
-            towerHealth.maxHealth *=2;
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
             towerHealth.health = towerHealth.maxHealth;
-            
+
             //Upgrade/add drone
-            DroneSummoner summoner=gameObject.GetComponent<DroneSummoner>();
-            for(var i=0;i<upgradeLevel;i++){
+            DroneSummoner summoner = gameObject.GetComponent<DroneSummoner>();
+            for (var i = 0; i < upgradeLevel; i++)
+            {
                 summoner.SummonDrone();
             }
 
@@ -182,7 +183,7 @@ public class Tower : MonoBehaviour
         }
 
         //upgrade Medical
-        if(gameObject.name == "Medical(Clone)")
+        if (gameObject.name == "Medical(Clone)")
         {
             //upgrade health, reset health to max
             Health towerHealth = gameObject.GetComponent<Health>();
@@ -194,7 +195,7 @@ public class Tower : MonoBehaviour
         }
 
         //Upgrade chemical
-        if(gameObject.name == "Chemical(Clone)")
+        if (gameObject.name == "Chemical(Clone)")
         {
             //reset health to max
             Health towerHealth = gameObject.GetComponent<Health>();
@@ -238,7 +239,7 @@ public class Tower : MonoBehaviour
         damage = basicDamage;
 
         //Change adjacent tower targetting
-        if(gameObject.name == "Medical(Clone)")
+        if (gameObject.name == "Medical(Clone)")
         {
             gameObject.GetComponent<Medical>().changeActive(false);
         }
@@ -248,7 +249,7 @@ public class Tower : MonoBehaviour
         {
             gameObject.GetComponent<DroneSummoner>().resetDrones();
         }
-         
+
         used = false;
     }
 
@@ -277,7 +278,7 @@ public class Tower : MonoBehaviour
         }
 
         //Slimes all enemies in range
-        if(gameObject.name == "Chemical(Clone)")
+        if (gameObject.name == "Chemical(Clone)")
         {
             gameObject.GetComponent<Targeting>().shootEverybody();
         }
