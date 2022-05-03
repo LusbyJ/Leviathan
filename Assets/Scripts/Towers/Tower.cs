@@ -13,17 +13,16 @@ public class Tower : MonoBehaviour
     public float upgradeCost;
     public GameObject projectile;
     public bool OverrideTargetting = false; //Used for medical tower active
-    private bool upgrading = false;
-    private bool activeAbility = false;
     public bool used = false;
     public bool leviathan = false;
     public bool poisoned;
     public bool current;
-
     public Sprite level2Sprite;
     public Sprite level3Sprite;
-
     public Animator animator;
+
+    private bool upgrading = false;
+    private bool activeAbility = false;
 
     //Active abilities 
     private float basicRate; //Gunner
@@ -224,6 +223,21 @@ public class Tower : MonoBehaviour
             //upgrade Cost
             upgradeCost *= 3;
         }
+
+        //Upgrade Nuclear
+        if (gameObject.name == "Nuclear(Clone)")
+        {
+            //upgrade health, reset health to max
+            Health towerHealth = gameObject.GetComponent<Health>();
+            towerHealth.maxHealth *= 2;
+            towerHealth.health = towerHealth.maxHealth;
+
+            //Increase damage per second
+            gameObject.GetComponent<Nuclear>().radiationTime /= 2;
+
+            //upgrade Cost
+            upgradeCost *= 3;
+        }
         upgrading = false;
     }
 
@@ -287,6 +301,12 @@ public class Tower : MonoBehaviour
         if (gameObject.name == "Missile(Clone)")
         {
             gameObject.GetComponent<Targeting>().shootEverybody();
+        }
+
+        //Overload plant and deal high damage to all enemies in range
+        if (gameObject.name == "Nuclear(Clone)")
+        {
+            gameObject.GetComponent<Nuclear>().useActive();
         }
     }
 }

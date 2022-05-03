@@ -134,6 +134,22 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 tipToShow = " Missile District\n    " + a.upgradeCost + " +Range +Speed";
             }
         }
+
+        if(gameObject.name == "Nuclear(Clone)")
+        {
+            if (a.used || a.leviathan)
+            {
+                tipToShow = " Nuclear District\n";
+            }
+            else if (a.upgradeLevel == 3)
+            {
+                tipToShow = " Nuclear District\n\tAbility Ready!";
+            }
+            else
+            {
+                tipToShow = " Nuclear District\n    " + a.upgradeCost + " +Health +Speed";
+            }
+        }
         ShowUpgrade();
     }
 

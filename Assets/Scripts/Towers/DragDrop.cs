@@ -66,10 +66,17 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
                 Vector3 targetDistance = new Vector3(d, d, 0);
                 range.transform.localScale = targetDistance;
             }
+            else if (tower.name == "Nuclear")
+            {
+                //Set the towers targetDistance, Instantiate target range indicator
+                float d = 2f;
+                Vector3 targetDistance = new Vector3(d, d, 0);
+                range.transform.localScale = targetDistance;
+            }
             else if (tower.name == "Slum" || tower.name == "Medical")
             {
-                //Get the towers targetDistance, Instantiate target range indicator
-                float d = 0.4f;
+                //Set the towers targetDistance, Instantiate target range indicator
+                float d = 0.55f;
                 Vector3 targetDistance = new Vector3(d, d, 0);
                 range.transform.localScale = targetDistance;
 

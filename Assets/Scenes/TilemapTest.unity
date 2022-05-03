@@ -1399,7 +1399,7 @@ Transform:
   - {fileID: 184493009}
   - {fileID: 1445884384}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339744283
 GameObject:
@@ -2251,7 +2251,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 924748455924234249, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 924748455924234249, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2984,7 +2984,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511498528
 GameObject:
@@ -3037,10 +3037,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Does not attack- instead, slowly heals adjacently built towers. Upgrade
-    to increase health and heal per second. Max upgrade unlocks Good Stuff- Activate
-    to have adjacent towers deal double damage for one round.
-  nameTip: Medical District
+  tipToShow: Totally Nuclear Dude!
+  nameTip: Nuclear District
 --- !u!114 &511498531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3057,7 +3055,7 @@ MonoBehaviour:
   image: {fileID: 0}
   gameController: {fileID: 1299160854}
   gridLayout: {fileID: 1885287073}
-  tower: {fileID: 7902719616748981907, guid: c2059a2da99bed641a175214fc669648, type: 3}
+  tower: {fileID: 3759916098947298767, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
   range: {fileID: 6504553632675126900, guid: 186ffd625b1b13143aeaff9465331b28, type: 3}
 --- !u!114 &511498532
 MonoBehaviour:
@@ -5020,7 +5018,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1065134023
 PrefabInstance:
@@ -6356,7 +6354,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299959832
 GameObject:
@@ -52441,7 +52439,7 @@ Transform:
   m_Children:
   - {fileID: 1069748178}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1861902960 stripped
 Transform:
@@ -52553,7 +52551,7 @@ Transform:
   - {fileID: 1773400933}
   - {fileID: 77609800}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 8.77, y: 0, z: 0}
 --- !u!114 &1885287075
 MonoBehaviour:
@@ -54211,3 +54209,60 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 373077587187760631, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
   m_PrefabInstance: {fileID: 333662945}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5016464614249994748
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 380.28253
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 574.34894
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3759916098947298767, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
+      propertyPath: m_Name
+      value: Nuclear
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
