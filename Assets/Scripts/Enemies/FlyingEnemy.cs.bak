@@ -9,7 +9,6 @@ public class FlyingEnemy : Enemy
     {
         setGround(false);
 		setFlying(true);
-		speed = 1.5f*speed;
     }
 
     // Update is called once per frame

@@ -60,6 +60,8 @@ MonoBehaviour:
   timerInterval: 1
   poisonDuration: 2
   animator: {fileID: 3770269365339843997}
+  shadowOffset: {x: 0, y: -0.1}
+  shadowMaterial: {fileID: 2100000, guid: de8069585b237b14ea9afe9f525b7e13, type: 2}
 --- !u!212 &879977253395473193
 SpriteRenderer:
   m_ObjectHideFlags: 0

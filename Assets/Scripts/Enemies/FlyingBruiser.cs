@@ -5,6 +5,11 @@ using UnityEngine;
 public class FlyingBruiser : Enemy
 {
     public CircleCollider2D attackCollider;
+	public Vector2 shadowOffset;
+	public Material shadowMaterial;
+	
+	private GameObject shadowObject;
+	private SpriteRenderer shadowRenderer;
 	
 	// Start is called before the first frame update
     void Start()
@@ -12,12 +17,20 @@ public class FlyingBruiser : Enemy
         setGround(false);
 		setFlying(true);
 		attackCollider.enabled = false;
+		
+		SpriteRenderer renderer = GetComponent<SpriteRenderer>();
+		shadowObject = new GameObject("Shadow");
+		shadowRenderer = shadowObject.AddComponent<SpriteRenderer>();
+		shadowRenderer.sprite = renderer.sprite;
+		shadowRenderer.material = shadowMaterial;
+		shadowRenderer.sortingLayerName = renderer.sortingLayerName;
+		shadowRenderer.sortingOrder = renderer.sortingOrder - 1;
     }
 
-    // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        shadowObject.transform.position = transform.position + (Vector3)shadowOffset;
+		shadowRenderer.sprite = GetComponent<SpriteRenderer>().sprite;
     }
 	
 	public override void OnCollisionEnter2D(Collision2D collision)
@@ -49,5 +62,9 @@ public class FlyingBruiser : Enemy
 		yield return new WaitForSeconds(0.1f);
 		attackCollider.enabled = false;
 		takeDamage(health);
+	}
+	
+	void OnDestroy(){
+		Destroy(shadowObject);
 	}
 }

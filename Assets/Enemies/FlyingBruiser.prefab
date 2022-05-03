@@ -62,6 +62,8 @@ MonoBehaviour:
   poisonDuration: 2
   animator: {fileID: 0}
   attackCollider: {fileID: 5431625123788038523}
+  shadowOffset: {x: 0, y: -0.1}
+  shadowMaterial: {fileID: 2100000, guid: de8069585b237b14ea9afe9f525b7e13, type: 2}
 --- !u!212 &2480259770109905667
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -221,6 +223,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.024019241}
+  m_Offset: {x: 0.0044733286, y: -0.006126046}
   serializedVersion: 2
-  m_Radius: 0.8611109
+  m_Radius: 0.54797864
