@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 27.0831, y: -33.4}
-  m_SizeDelta: {x: 160.3341, y: 66.7486}
+  m_AnchoredPosition: {x: 13.7609, y: -13.5}
+  m_SizeDelta: {x: 83.0156, y: 46.76}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16335793
 MonoBehaviour:
@@ -735,9 +735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Does not attack- instead, slowly heals adjacently built towers. Upgrade
-    to increase health and heal per second. Max upgrade unlocks Good Stuff- Activate
-    to have adjacent towers deal double damage for one round.
+  tipToShow: Targets      Towers        Fire Rate   Low      Range        Adjacent   
+    Damage     -Damage
   nameTip: Medical District
 --- !u!4 &98246458 stripped
 Transform:
@@ -1167,10 +1166,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Slowly fires high damage bullets at very long range. Upgrade to increase
-    damage and attack speed. Max upgrade unlocks Radar Bullets- Activate to have
-    a foe hit by the sniper district this round targettable by any other tower.
-  nameTip: Sniper District [Targets Any]
+  tipToShow: Targets       All          Fire Rate   Slow  Range       Long    Damage   
+    High
+  nameTip: 'Sniper District '
 --- !u!114 &234126910 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 373077587187760624, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
@@ -1399,7 +1397,7 @@ Transform:
   - {fileID: 184493009}
   - {fileID: 1445884384}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339744283
 GameObject:
@@ -1635,8 +1633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 25.943, y: 13.7463}
-  m_SizeDelta: {x: 158.05, y: 14.2398}
+  m_AnchoredPosition: {x: 13.1121, y: 17}
+  m_SizeDelta: {x: 81.7144, y: 14.2398}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348712893
 MonoBehaviour:
@@ -2251,7 +2249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 924748455924234249, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 924748455924234249, guid: a6dc1405f46f86347b3c5892601231a5, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2984,7 +2982,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &511498528
 GameObject:
@@ -3037,7 +3035,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Totally Nuclear Dude!
+  tipToShow: Targets       All         Fire Rate   Constant   Range       Small   
+    Damage    Low
   nameTip: Nuclear District
 --- !u!114 &511498531
 MonoBehaviour:
@@ -3650,10 +3649,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Uses a swarm of drones to attack flying units. Upgrade to increase health
-    and number of drones. Max upgrade unlocks Drone Factory- Activate to summon additional
-    temporary drones that disappear at the end of the round.
-  nameTip: Drone District [Targets Flying]
+  tipToShow: Targets      Flying       Fire Rate   Medium  Range       Medium   Damage   
+    Low
+  nameTip: Drone District
 --- !u!4 &741609069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 373077587187760631, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
@@ -4552,10 +4550,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Quickly attacks grounded enemies Upgrade to increase health and attack
-    speed. Max upgrade unlocks Overdrive- Activate to double the Gunner District's
-    attack speed for one round.
-  nameTip: Gunner District [Target's Ground]
+  tipToShow: Targets      Ground  Fire Rate   Fast  Range       Medium    Damage   
+    Low
+  nameTip: Gunner District
 --- !u!1 &1001695891
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,11 +4660,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Deals low damage, and applies an acid effect to enemies it hits that
-    slows them and causes them to take increased damage. Upgrade to increase range
-    and acid effectiveness. Max upgrade unlocks Toxic Blast- Activate to apply acid
-    to all foes in range.
-  nameTip: Chemical District [Targets Any]
+  tipToShow: Targets       All          Fire Rate   Medium  Range       Medium  
+    Damage    Low
+  nameTip: Chemical District
 --- !u!114 &1005813426 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 373077587187760624, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
@@ -4716,8 +4711,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 17.960281, y: 405.67624}
-  m_SizeDelta: {x: 116.5469, y: 36.3985}
+  m_AnchoredPosition: {x: -8.838394, y: 405.67624}
+  m_SizeDelta: {x: 62.9495, y: 36.3985}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1019999879
 MonoBehaviour:
@@ -5018,7 +5013,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1065134023
 PrefabInstance:
@@ -5607,8 +5602,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 26.049316, y: -21.238892}
-  m_SizeDelta: {x: 52.095, y: 55.3137}
+  m_AnchoredPosition: {x: 12.5687, y: -2.5609}
+  m_SizeDelta: {x: 25.1339, y: 17.9579}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170971464
 MonoBehaviour:
@@ -6354,7 +6349,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1299959832
 GameObject:
@@ -52439,7 +52434,7 @@ Transform:
   m_Children:
   - {fileID: 1069748178}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1861902960 stripped
 Transform:
@@ -52551,7 +52546,7 @@ Transform:
   - {fileID: 1773400933}
   - {fileID: 77609800}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 8.77, y: 0, z: 0}
 --- !u!114 &1885287075
 MonoBehaviour:
@@ -52861,10 +52856,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Fires missiles that do AOE damage to groups of flying foes. Upgrade
-    to increase range and attack speed. Max upgrade unlocks Missile Swarm- Activate
-    to fire a missile at every foe.
-  nameTip: Missile District [Targets Flying]
+  tipToShow: Targets      Flying    Fire Rate   Very Slow  Range       Medium   
+    Damage    High
+  nameTip: Missile District
 --- !u!114 &1930598799 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 373077587187760624, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
@@ -53253,9 +53247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Does not attack, but instead deals damage back to foes that attack it.
-    Upgrade to increase damage and health. Max upgrade unlocks Fortify- Activate
-    to have the slum district take 50% damage from all sources for one round.
+  tipToShow: Targets      None       Fire Rate   None  Range       None   Damage   
+    Relative
   nameTip: Slum District
 --- !u!1 &1999824435
 GameObject:
@@ -54209,60 +54202,3 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 373077587187760631, guid: bdd4c03744b281a4fa710580cb42bc8d, type: 3}
   m_PrefabInstance: {fileID: 333662945}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5016464614249994748
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 380.28253
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 574.34894
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 807239333817284312, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3759916098947298767, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
-      propertyPath: m_Name
-      value: Nuclear
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 78295610cbd6ace40a1f73bd8a8c6032, type: 3}
