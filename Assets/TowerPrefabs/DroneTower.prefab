@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: -1
+  m_SortingOrder: 1
   m_Sprite: {fileID: -3955766359968825062, guid: 3bb2f47372e898d41a25514bcb928bc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -112,6 +112,7 @@ MonoBehaviour:
   used: 0
   leviathan: 0
   poisoned: 0
+  current: 0
   level2Sprite: {fileID: -1830517576487168157, guid: 3bb2f47372e898d41a25514bcb928bc2, type: 3}
   level3Sprite: {fileID: 8372500786242460162, guid: 3bb2f47372e898d41a25514bcb928bc2, type: 3}
   animator: {fileID: 1188578318711289467}

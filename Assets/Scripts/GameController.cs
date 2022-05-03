@@ -119,6 +119,13 @@ public class GameController : Singleton<GameController>
 		GridController.towerList.Add(new Vector3Int(2, 0, 0));
 		GridController.towerList.Add(new Vector3Int(2, -1, 0));
 		GridController.towerList.Add(new Vector3Int(2, -2, 0));
+		foreach (var position in mainMap.cellBounds.allPositionsWithin)
+		{
+			if (position.x < -8 || position.x > 12 || position.y < -15 || position.y > 14)
+			{
+				GridController.towerList.Add(position);
+			}
+		}
 	}
 
 

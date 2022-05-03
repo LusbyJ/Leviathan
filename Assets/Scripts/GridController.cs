@@ -26,6 +26,7 @@ public class GridController : MonoBehaviour
     private void Awake()
     {
         current = this;
+
     }
 
     // Update is called once per frame

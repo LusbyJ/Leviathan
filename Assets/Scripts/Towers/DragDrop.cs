@@ -56,7 +56,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
         {
             building = true;
             GameController gcontrol = gameController.GetComponent<GameController>();
-            gcontrol.reduceCredits(tower.GetComponent<Tower>().cost);
             gcontrol.towerPlaced = true;
             //Get the towers targetDistance, Instantiate target range indicator
             if (tower.name == "DroneTower")
@@ -105,7 +104,8 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
         if (!GridController.occupied && building == true)
         {
-
+            GameController gcontrol = gameController.GetComponent<GameController>();
+            gcontrol.reduceCredits(tower.GetComponent<Tower>().cost);
             //Instantiate a new tower at end of drag location
             Vector3Int placePosition = cellPos;
             placePosition.x = cellPos.x + 1;
@@ -114,8 +114,6 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
 
             //Add tower location to towerList, reduce credits, occupy tile
             GridController.towerList.Add(cellPos);
-
-
             GridController.occupied = false;
         }
         else

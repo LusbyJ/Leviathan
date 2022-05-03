@@ -10,15 +10,16 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void Start()
     {
-        tipToShow = " " + gameObject.GetComponent<Tower>().name + " District\n    " +
-            gameObject.GetComponent<Tower>().cost;
+        if (gameObject.name == "Central")
+        {
+            tipToShow = " " + gameObject.GetComponent<Tower>().name + " Hub";
+        }
+        else
+        {
+            tipToShow = " " + gameObject.GetComponent<Tower>().name + " District\n    " +
+                gameObject.GetComponent<Tower>().cost;
+        }
     }
-
-/*    void Update()
-    {
-        updateTip();
-       
-    }*/
 
     //Descriptions in upgrade window
     private void updateTip()
@@ -150,7 +151,8 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
                 tipToShow = " Nuclear District\n    " + a.upgradeCost + " +Health +Speed";
             }
         }
-        ShowUpgrade();
+       
+            ShowUpgrade();
     }
 
     //Detect if the Cursor starts to pass over the GameObject

@@ -127,7 +127,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 131416539
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 2039045772450023717, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 1, y: 5, z: 0}
+  cell: {x: -5, y: -5, z: 0}
   attackTime: 4
   damage: 2
   cost: 100
@@ -179,6 +179,7 @@ MonoBehaviour:
   used: 0
   leviathan: 0
   poisoned: 0
+  current: 0
   level2Sprite: {fileID: 3547205501756355817, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   level3Sprite: {fileID: 2774931514640212788, guid: 5762a3e3311192246bfb4288d3bba834, type: 3}
   animator: {fileID: 6910872036094032500}
