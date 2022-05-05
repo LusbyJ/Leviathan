@@ -139,6 +139,7 @@ public class GameController : Singleton<GameController>
 
 	private void updateRound()
 	{
+		SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.roundStart);
 		round++;
 		ScoreSO.Value = round;
 		resetTowers();

@@ -57,6 +57,7 @@ public class Tower : MonoBehaviour
 
         if (upgradeLevel == 3 && gameObject.name != "Central")
         {
+
             if (used)
             {
                 animator.SetBool("isActive", false);
@@ -97,6 +98,7 @@ public class Tower : MonoBehaviour
         {
             if (GameController.instance.credits >= upgradeCost && upgradeLevel < 3)
             {
+                SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.upgradeTower);
                 GameController.instance.credits -= upgradeCost;
                 upgradeLevel++;
 
@@ -272,6 +274,7 @@ public class Tower : MonoBehaviour
     //Sniper active ability managed in Targeting script
     public void applyActive()
     {
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.activateAbility);
         //Update values for gunner
         if (gameObject.name == "Gunner(Clone)")
         {

@@ -30,6 +30,16 @@ public class Health : MonoBehaviour
             health -= damage;
         }
 
+        if(gameObject.name == "Central")
+        {
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.centralHit);
+        }
+       
+        if(gameObject.name != "Central")
+        {
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.towerHit);
+        }
+
         //If central tower being attacked and health is less than 10 blink forever
         if (gameObject.name == "Central" && health < 10 && !dying)
         {
@@ -57,6 +67,7 @@ public class Health : MonoBehaviour
         //If central hub destoryed end game
         if (gameObject.name == "Central")
         {
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.gameOver);
             SceneManager.LoadScene("GameOver");
         }
 
@@ -72,8 +83,9 @@ public class Health : MonoBehaviour
         //Instantiate fire at tower position
         var rubble = Instantiate(fire, firePosition, Quaternion.identity);
         GridController.fireList.Add(rubble);
-        
+
         //Destroy tower
+        SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.towerDie);
         Destroy(gameObject);
     }
 

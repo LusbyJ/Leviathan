@@ -110,6 +110,7 @@ public class DragDrop : MonoBehaviour, IPointerDownHandler, IBeginDragHandler,
             Vector3Int placePosition = cellPos;
             placePosition.x = cellPos.x + 1;
             tower.GetComponent<Tower>().cell = cellPos;
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.buildTower);
             Instantiate(tower, gridLayout.CellToLocal(placePosition), Quaternion.identity);
 
             //Add tower location to towerList, reduce credits, occupy tile
