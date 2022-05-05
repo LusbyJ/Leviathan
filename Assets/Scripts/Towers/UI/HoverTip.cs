@@ -6,10 +6,12 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public string tipToShow;
     private float waitTime = 0.2f;
-
+    public MouseTipManager window;
+    
 
     void Start()
     {
+        window = FindObjectOfType<MouseTipManager>();
         if (gameObject.name == "Central")
         {
             tipToShow = " " + gameObject.GetComponent<Tower>().name + " Hub";
@@ -27,32 +29,40 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         var a = gameObject.GetComponent<Tower>();
         if (gameObject.name == "Slum(Clone)")
         {
+            
             if (a.used || a.leviathan)
             {
                 tipToShow = " Slum District";
+                window.setIcon(0, 0);
             }
             else if (a.upgradeLevel == 3)
             {    
                 tipToShow = " Slum District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Slum District\n    " + a.upgradeCost + "  +H +Mitigation";
+                window.setIcon(4, 1);
+                tipToShow = " Slum District\n    " + a.upgradeCost;
             }
         }
         if (gameObject.name == "Sniper(Clone)")
         {
+            
             if (a.used || a.leviathan)
             {
                 tipToShow = " Sniper District\n";
+                window.setIcon(0, 0);
             }
             else if(a.upgradeLevel == 3)
             {
                 tipToShow = " Sniper District\n\tAbility Ready";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Sniper District\n    " + a.upgradeCost + "  +D +Speed";
+                window.setIcon(1, 3);
+                tipToShow = " Sniper District\n    " + a.upgradeCost;
             }
         }
 
@@ -61,14 +71,17 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Gunner District\n";
+                window.setIcon(0, 0);
             }
             else if(a.upgradeLevel == 3)
             {
                 tipToShow = " Gunner District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Gunner District\n    " + a.upgradeCost + "  +H +Speed";
+                window.setIcon(1, 1);
+                tipToShow = " Gunner District\n    " + a.upgradeCost;
             }
         }
 
@@ -77,14 +90,17 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Drone District\n";
+                window.setIcon(0, 0);
             }
             else if(a.upgradeLevel == 3)
             {
                 tipToShow = " Drone District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Drone District\n    " + a.upgradeCost + "  +H +Drone";
+                window.setIcon(2, 1);
+                tipToShow = " Drone District\n    " + a.upgradeCost;
             }
         }
 
@@ -93,14 +109,17 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Chemical District\n";
+                window.setIcon(0, 0);
             }
             else if (a.upgradeLevel == 3)
             {
                 tipToShow = " Chemical District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Chemical District\n    " + a.upgradeCost + "  +R +Speed";
+                window.setIcon(1, 2);
+                tipToShow = " Chemical District\n    " + a.upgradeCost;
             }
         }
 
@@ -109,14 +128,17 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Medical District\n";
+                window.setIcon(0, 0);
             }
             else if (a.upgradeLevel == 3)
             {
                 tipToShow = " Medical District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Medical District\n    " + a.upgradeCost + " +H +Speed";
+                window.setIcon(1, 1);
+                tipToShow = " Medical District\n    " + a.upgradeCost;
             }
         }
 
@@ -125,14 +147,17 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Missile District\n";
+                window.setIcon(0, 0);
             }
             else if(a.upgradeLevel == 3)
             {
                 tipToShow = " Missile District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Missile District\n    " + a.upgradeCost + " +Range +Speed";
+                window.setIcon(1, 2);
+                tipToShow = " Missile District\n    " + a.upgradeCost;
             }
         }
 
@@ -141,15 +166,22 @@ public class HoverTip : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
             if (a.used || a.leviathan)
             {
                 tipToShow = " Nuclear District\n";
+                window.setIcon(0, 0);
             }
             else if (a.upgradeLevel == 3)
             {
                 tipToShow = " Nuclear District\n\tAbility Ready!";
+                window.setIcon(0, 0);
             }
             else
             {
-                tipToShow = " Nuclear District\n    " + a.upgradeCost + " +Health +Speed";
+                window.setIcon(1, 1);
+                tipToShow = " Nuclear District\n    " + a.upgradeCost;
             }
+        }
+        if(gameObject.name == "Central")
+        {
+            window.setIcon(0, 0);
         }
        
             ShowUpgrade();

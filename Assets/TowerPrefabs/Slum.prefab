@@ -115,7 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b327a60169d7b2c4ca8371ce670e9fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cell: {x: 1, y: -3, z: 0}
+  cell: {x: 7, y: -6, z: 0}
   attackTime: 0
   damage: 2
   cost: 75
@@ -127,6 +127,7 @@ MonoBehaviour:
   used: 0
   leviathan: 0
   poisoned: 0
+  current: 0
   level2Sprite: {fileID: 4326913047935239668, guid: 6ac5d60cb7a77264c968ba38bbefee3d, type: 3}
   level3Sprite: {fileID: -389318867258187145, guid: 6ac5d60cb7a77264c968ba38bbefee3d, type: 3}
   animator: {fileID: 1127363737351325397}
@@ -176,6 +177,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tipToShow: 
+  damageMitigation: {fileID: 21300000, guid: 61ee19cf7b9f00342959f83b8678ce83, type: 3}
+  damageUpgrade: {fileID: 21300000, guid: d32d937091256e744ae200c2cf506683, type: 3}
+  healSpeed: {fileID: 21300000, guid: 850608198ae42fb46a0589f4e18d4d2a, type: 3}
+  healthUpgrade: {fileID: 21300000, guid: 1199b045205ef114795737741f279a8a, type: 3}
+  drone: {fileID: 21300000, guid: 664a8d80bf32f914ab62225dd97f70ce, type: 3}
+  rangeUpgrade: {fileID: 21300000, guid: d7840412c7252794b9eef2f361fc1810, type: 3}
+  fireSpeed: {fileID: 21300000, guid: b6f280b6acd7a6846ace063490573249, type: 3}
 --- !u!95 &1127363737351325397
 Animator:
   serializedVersion: 3
