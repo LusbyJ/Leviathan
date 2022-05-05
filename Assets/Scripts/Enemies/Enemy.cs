@@ -102,7 +102,24 @@ public abstract class Enemy : MonoBehaviour
 		}
 	}
 
-	public void kill() { Destroy(gameObject); }
+	public void kill()
+	{
+		if (gameObject.name == "GroundBruiser(Clone)" || gameObject.name == "FlyingBruiser(Clone)")
+		{
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.bruiserDie);
+		}
+		if(gameObject.name == "Leviathan(Clone)")
+        {
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.leviathanDie);
+
+		}
+        else
+        {
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.smallFoeDie);
+		}
+		Destroy(gameObject); 
+	}
+
 
 	public void move()
 	{
