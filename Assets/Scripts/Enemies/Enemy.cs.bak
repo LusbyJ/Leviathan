@@ -11,6 +11,7 @@ public abstract class Enemy : MonoBehaviour
 	public Explosion death;
 	public Transform centralTower;
 	public bool moving;
+	public bool attacking;
 	public Rigidbody2D rb;
 	public float timer;
 	public float timerInterval;
@@ -20,6 +21,7 @@ public abstract class Enemy : MonoBehaviour
 	private Vector3 movement;
 	private bool ground;
 	private bool flying;
+	private bool stopMoving;
 	private bool poisoned;
 	private bool dying;
 	private bool dead;
@@ -31,6 +33,8 @@ public abstract class Enemy : MonoBehaviour
 	void Start()
 	{
 		moving = true;
+		stopMoving = false;
+		attacking = false;
 		poisoned = false;
 		dying = false;
 		dead = false;
@@ -49,6 +53,10 @@ public abstract class Enemy : MonoBehaviour
 				poisoned = false;
 				GetComponent<Renderer>().material.color = Color.white;
 			}
+		}
+		if(stopMoving){ 
+			moving = false; 
+			stopMoving = false;
 		}
 		move();
 	}
@@ -102,14 +110,19 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
 		if (moving) {
+			Debug.Log("Moving");
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
 			realDirection.Normalize();
+			direction.Normalize();
+			rb.MovePosition(transform.position + (direction * move * Time.deltaTime));
+			if(timer <= -0.5f){ attacking = false; }
 		}
-		else { direction = new Vector3(0, 0, 0); }
-		direction.Normalize();
-		rb.MovePosition(transform.position + (direction * move * Time.deltaTime));
-		animator.SetBool("moving", moving);
+		else { 
+			direction = new Vector3(0, 0, 0); 
+			if(timer <= -3){ moving = true; }
+		}
+		animator.SetBool("moving", !attacking);
 	}
 
 	public Vector3 getDirection()
@@ -125,15 +138,17 @@ public abstract class Enemy : MonoBehaviour
 		else{ GetComponent<Renderer>().material.color = Color.white; }
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	public virtual void OnCollisionEnter2D(Collision2D collision)
 	{
+		Debug.Log("Entering");
 		if (collision.gameObject.tag == "Enemy")
 		{
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
 		}
 		if (collision.gameObject.tag == "Tower" && moving)
 		{
-			moving = false;
+			stopMoving = true;
+			attacking = true;
 		}
 		if(collision.gameObject.tag == "Slime")
         {
@@ -144,10 +159,12 @@ public abstract class Enemy : MonoBehaviour
 
 	public virtual void OnCollisionStay2D(Collision2D collision)
 	{
+		Debug.Log("Colliding");
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
 			resetTimer();
+			Debug.Log("Attacking");
 		}
 
 		//If attacking slum tower
@@ -173,9 +190,11 @@ public abstract class Enemy : MonoBehaviour
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
+		Debug.Log("Exiting");
 		if (collision.gameObject.tag == "Tower")
 		{
 			moving = true;
+			attacking = false;
 		}
 	}
 }
