@@ -55,7 +55,7 @@ public class GameController : Singleton<GameController>
 		nextRoundUI[2].enabled = false;
 		nextRoundUI[3].enabled = false;
 		round = 0;
-		credits = 500;
+		credits = 5000;
 		currEnemies = new List<Enemy>();
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();

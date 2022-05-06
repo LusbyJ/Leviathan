@@ -203,7 +203,7 @@ public class Tower : MonoBehaviour
             towerHealth.health = towerHealth.maxHealth;
 
             //Increase fireRate
-            gameObject.GetComponent<Targeting>().waitTime -= 1f;
+            gameObject.GetComponent<Targeting>().waitTime -= 0.8f;
 
             //Increase range
             gameObject.GetComponent<Targeting>().TargetDist += 0.5f;

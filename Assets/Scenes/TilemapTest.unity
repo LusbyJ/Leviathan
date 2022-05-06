@@ -162,8 +162,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.7609, y: -13.5}
-  m_SizeDelta: {x: 83.0156, y: 46.76}
+  m_AnchoredPosition: {x: 36.805, y: -37.8}
+  m_SizeDelta: {x: 129.1, y: 64.921}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &16335793
 MonoBehaviour:
@@ -212,8 +212,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -810,8 +810,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets      Towers        Fire Rate   Low      Range        Adjacent   
-    Damage     -Damage
+  tipToShow: 'Targets      Towers\nFire Rate   Low\nRange        Adjacent\nDamage    
+    -Damage\nAbility:  Adjacent towers do double damage.'
   nameTip: Medical District
 --- !u!4 &98246458 stripped
 Transform:
@@ -1393,8 +1393,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets       All          Fire Rate   Slow  Range       Long    Damage   
-    High
+  tipToShow: 'Targets      All\nFire Rate   Slow\nRange       Long\nDamage    High\nAbility:
+    Increase damage for each attack this round.'
   nameTip: 'Sniper District '
 --- !u!114 &234126910 stripped
 MonoBehaviour:
@@ -1860,8 +1860,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 13.1121, y: 17}
-  m_SizeDelta: {x: 81.7144, y: 14.2398}
+  m_AnchoredPosition: {x: 36.1658, y: 10.268}
+  m_SizeDelta: {x: 120.9531, y: 15.863}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &348712893
 MonoBehaviour:
@@ -1910,8 +1910,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3270,8 +3270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets       All         Fire Rate   Constant   Range       Small   
-    Damage    Low
+  tipToShow: 'Targets       All\nFire Rate   Constant\nRange       Small\nDamage   
+    Low\nAbility:  Damage to all foes in range.'
   nameTip: Nuclear District
 --- !u!114 &511498531
 MonoBehaviour:
@@ -3884,8 +3884,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets      Flying       Fire Rate   Medium  Range       Medium   Damage   
-    Low
+  tipToShow: 'Targets      Flying\nFire Rate   Medium\nRange       Medium\nDamage   
+    Low\n Ability:  Make temporary drones.'
   nameTip: Drone District
 --- !u!4 &741609069 stripped
 Transform:
@@ -4785,8 +4785,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets      Ground  Fire Rate   Fast  Range       Medium    Damage   
-    Low
+  tipToShow: 'Targets      Ground\nFire Rate   Fast\nRange       Medium\nDamage   
+    Low\nAbility:  Gain 2x attack speed this round.'
   nameTip: Gunner District
 --- !u!1 &1001695891
 GameObject:
@@ -4895,8 +4895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets       All          Fire Rate   Medium  Range       Medium  
-    Damage    Low
+  tipToShow: 'Targets       All\nFire Rate   Medium\nRange       Medium\nDamage   
+    Low\nAbility:  Applies acid to all foes in range.'
   nameTip: Chemical District
 --- !u!114 &1005813426 stripped
 MonoBehaviour:
@@ -5849,8 +5849,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 12.5687, y: -2.5609}
-  m_SizeDelta: {x: 25.1339, y: 17.9579}
+  m_AnchoredPosition: {x: 38.039494, y: -30.71809}
+  m_SizeDelta: {x: 76.0755, y: 74.2723}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1170971464
 MonoBehaviour:
@@ -53593,8 +53593,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets      Flying    Fire Rate   Very Slow  Range       Medium   
-    Damage    High
+  tipToShow: 'Targets      Flying\nFire Rate   Very Slow\nRange       Medium\nDamage   
+    High\nAbility:  Fires a rocket at all foes in range.'
   nameTip: Missile District
 --- !u!114 &1930598799 stripped
 MonoBehaviour:
@@ -53984,8 +53984,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: Targets      None       Fire Rate   None  Range       None   Damage   
-    Relative
+  tipToShow: 'Targets      None\nFire Rate   None\nRange       None\nDamage    Relative\nAbility: 
+    Take 50% damage this round.'
   nameTip: Slum District
 --- !u!1 &1999824435
 GameObject:
