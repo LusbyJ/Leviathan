@@ -126,7 +126,7 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
 		if (moving) {
-			Debug.Log("Attacking" + attacking);
+			//Debug.Log("Attacking" + attacking);
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
 			realDirection.Normalize();

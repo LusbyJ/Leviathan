@@ -20,7 +20,6 @@ public class ToolTipManager : MonoBehaviour
     void Start()
     {
         HideTip();
-		// enemyTip = false;
     }
 
     private void OnEnable()

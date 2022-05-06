@@ -39,7 +39,7 @@ public class ToolTipManager : MonoBehaviour
         tipText.text = tip;
         nameText.text = name;
 		
-		if(name.Contains("Ground") || name.Contains("Flying")){ enemyTip = true; }
+		if(!name.Contains("District")){ enemyTip = true; }
 		else{ enemyTip = false; }
 		
 		if(enemyTip){
