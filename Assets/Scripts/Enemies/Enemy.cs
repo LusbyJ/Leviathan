@@ -102,8 +102,7 @@ public abstract class Enemy : MonoBehaviour
 		}
 	}
 
-	public void kill()
-	{
+	public void kill() { 
 		if (gameObject.name == "GroundBruiser(Clone)" || gameObject.name == "FlyingBruiser(Clone)")
 		{
 			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.bruiserDie);
@@ -117,9 +116,8 @@ public abstract class Enemy : MonoBehaviour
         {
 			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.smallFoeDie);
 		}
-		Destroy(gameObject); 
-	}
-
+		Destroy(gameObject);
+ }
 
 	public void move()
 	{
@@ -127,17 +125,17 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
 		if (moving) {
-			//Debug.Log("Moving");
+			Debug.Log("Attacking" + attacking);
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
 			realDirection.Normalize();
 			direction.Normalize();
 			rb.MovePosition(transform.position + (direction * move * Time.deltaTime));
-			if(timer <= -0.5f){ attacking = false; }
+			if(timer <= -1){ attacking = false; }
 		}
 		else { 
 			direction = new Vector3(0, 0, 0); 
-			if(timer <= -3){ moving = true; }
+			if(timer <= -1){ moving = true; }
 		}
 		animator.SetBool("moving", !attacking);
 	}

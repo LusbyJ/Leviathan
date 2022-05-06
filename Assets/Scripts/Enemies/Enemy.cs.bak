@@ -102,7 +102,24 @@ public abstract class Enemy : MonoBehaviour
 		}
 	}
 
-	public void kill() { Destroy(gameObject); }
+	public void kill()
+	{
+		if (gameObject.name == "GroundBruiser(Clone)" || gameObject.name == "FlyingBruiser(Clone)")
+		{
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.bruiserDie);
+		}
+		if(gameObject.name == "Leviathan(Clone)")
+        {
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.leviathanDie);
+
+		}
+        else
+        {
+			SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.smallFoeDie);
+		}
+		Destroy(gameObject); 
+	}
+
 
 	public void move()
 	{
@@ -110,7 +127,7 @@ public abstract class Enemy : MonoBehaviour
 		if (poisoned) { move = speed / 4; }
 		else { move = speed; }
 		if (moving) {
-			Debug.Log("Moving");
+			//Debug.Log("Moving");
 			direction = centralTower.position - transform.position;
 			realDirection = direction;
 			realDirection.Normalize();
@@ -140,7 +157,7 @@ public abstract class Enemy : MonoBehaviour
 
 	public virtual void OnCollisionEnter2D(Collision2D collision)
 	{
-		Debug.Log("Entering");
+		//Debug.Log("Entering");
 		if (collision.gameObject.tag == "Enemy")
 		{
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
@@ -159,12 +176,12 @@ public abstract class Enemy : MonoBehaviour
 
 	public virtual void OnCollisionStay2D(Collision2D collision)
 	{
-		Debug.Log("Colliding");
+		//Debug.Log("Colliding");
 		if (collision.gameObject.tag == "Tower" && timer <= 0)
 		{
 			collision.gameObject.GetComponent<Health>().takeDamage(power);
 			resetTimer();
-			Debug.Log("Attacking");
+			//Debug.Log("Attacking");
 		}
 
 		//If attacking slum tower
@@ -190,7 +207,7 @@ public abstract class Enemy : MonoBehaviour
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		Debug.Log("Exiting");
+		//Debug.Log("Exiting");
 		if (collision.gameObject.tag == "Tower")
 		{
 			moving = true;

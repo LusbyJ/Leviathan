@@ -17,6 +17,7 @@ public class GameController : Singleton<GameController>
 	public Image levBottom;
 	public Image[] nextRoundUI;
 	public Sprite[] enemyUI;
+	public Button skipDelayButton;
 	public float round;
 	public FloatSO ScoreSO;
 	public float credits;
@@ -27,6 +28,8 @@ public class GameController : Singleton<GameController>
 	private List<Enemy> currEnemies;
 	private List<int[]> thisRound;
 	private List<int[]> nextRound;
+	private bool delayed;
+	private bool delayOver;
 	private int maxPoints;
 	private int level;
 	private int upgrade;
@@ -45,6 +48,8 @@ public class GameController : Singleton<GameController>
 		levRight.enabled = false;
 		levTop.enabled = false;
 		levBottom.enabled = false;
+		skipDelayButton.onClick.AddListener(delayButton);
+		skipDelayButton.interactable = false;
 		nextRoundUI[0].sprite = enemyUI[0];
 		nextRoundUI[1].enabled = false;
 		nextRoundUI[2].enabled = false;
@@ -54,6 +59,8 @@ public class GameController : Singleton<GameController>
 		currEnemies = new List<Enemy>();
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
+		delayed = false;
+		delayOver = false;
 		maxPoints = 5;
 		level = 2;
 		upgrade = 0;
@@ -78,32 +85,40 @@ public class GameController : Singleton<GameController>
 					break;
 				}
 			}
-			if (currEnemies.Count == 0 && thisRound.Count == 0)
+			if (currEnemies.Count == 0 && thisRound.Count == 0 && !delayed)
 			{
-				updateRound();
-				refreshTowers();
-				leviathanWarning();
-				if (round == 10) { leviathan(); }
-				if (round == 1) { StartCoroutine(round1()); }
-				else if (round == 2) { StartCoroutine(round2()); }
-				else if (round == 3) { StartCoroutine(round3()); }
-				else if (round == 4) { StartCoroutine(round4()); }
-				else if (round == 5) { StartCoroutine(round5()); }
-				else if (round == 6) { StartCoroutine(round6()); }
-				else if (round == 7) { StartCoroutine(round7()); }
-				else if (round == 8) { StartCoroutine(round8()); }
-				else if (round == 9) { StartCoroutine(round9()); }
-				else if (round % 10 == 0)
-				{
-					warningClear();
-					maxPoints += 5;
-					StartCoroutine(startRound());
-					upgrade++;
-					if (level == 2) { level++; }
-				}
-				else
-				{
-					StartCoroutine(startRound());
+				if(!delayOver && round != 0){ StartCoroutine(roundDelay()); }
+				else{
+					updateRound();
+					refreshTowers();
+					leviathanWarning();
+					if (round == 10) { 
+						leviathan();
+						delayOver = false;
+					}
+					if (round == 1) { StartCoroutine(round1()); }
+					else if (round == 2) { StartCoroutine(round2()); }
+					else if (round == 3) { StartCoroutine(round3()); }
+					else if (round == 4) { StartCoroutine(round4()); }
+					else if (round == 5) { StartCoroutine(round5()); }
+					else if (round == 6) { StartCoroutine(round6()); }
+					else if (round == 7) { StartCoroutine(round7()); }
+					else if (round == 8) { StartCoroutine(round8()); }
+					else if (round == 9) { StartCoroutine(round9()); }
+					else if (round % 10 == 0)
+					{
+						warningClear();
+						maxPoints += 5;
+						StartCoroutine(startRound());
+						delayOver = false;
+						upgrade++;
+						if (level == 2) { level++; }
+					}
+					else
+					{
+						StartCoroutine(startRound());
+						delayOver = false;
+					}
 				}
 			}
 		}
@@ -334,6 +349,23 @@ public class GameController : Singleton<GameController>
 		foreach (Enemy e in currEnemies) { e.levelUp(upgrade); }
 		thisRound.Clear();
 	}
+	
+	private IEnumerator roundDelay(){
+		delayed = true;
+		skipDelayButton.interactable = true;
+		if(round % 10 == 0){ yield return new WaitForSeconds(5); }
+		else{ yield return new WaitForSeconds(3); }
+		skipDelayButton.interactable = false;
+		delayOver = true;
+		delayed = false;
+	}
+	
+	void delayButton(){
+		StopCoroutine(roundDelay());
+		skipDelayButton.interactable = false;
+		delayOver = true;
+		delayed = false;
+	}
 
 	private IEnumerator round1()
 	{
@@ -350,6 +382,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 0));
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 0));
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 0));
+		delayOver = false;
 	}
 
 	private IEnumerator round2()
@@ -375,6 +408,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[13].spawnEnemyType(13, 0));
 		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 0));
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 0));
+		delayOver = false;
 	}
 
 	private IEnumerator round3()
@@ -383,6 +417,7 @@ public class GameController : Singleton<GameController>
 
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 2));
 		yield return new WaitForSeconds(2);
+		delayOver = false;
 	}
 
 	private IEnumerator round4()
@@ -400,6 +435,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 1));
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
+		delayOver = false;
 	}
 
 	private IEnumerator round5()
@@ -425,6 +461,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[13].spawnEnemyType(13, 1));
 		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 1));
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 1));
+		delayOver = false;
 	}
 
 	private IEnumerator round6()
@@ -435,6 +472,7 @@ public class GameController : Singleton<GameController>
 
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 3));
 		yield return new WaitForSeconds(2);
+		delayOver = false;
 	}
 
 	private IEnumerator round7()
@@ -451,6 +489,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[27].spawnEnemyType(27, 1));
 		currEnemies.Add(spawnPoints[28].spawnEnemyType(28, 1));
 		currEnemies.Add(spawnPoints[29].spawnEnemyType(29, 1));
+		delayOver = false;
 	}
 
 	private IEnumerator round8()
@@ -467,6 +506,7 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
 		currEnemies.Add(spawnPoints[8].spawnEnemyType(8, 0));
 		currEnemies.Add(spawnPoints[9].spawnEnemyType(9, 0));
+		delayOver = false;
 	}
 
 	private IEnumerator round9()
@@ -478,5 +518,6 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[39].spawnEnemyType(39, 2));
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[19].spawnEnemyType(19, 3));
+		delayOver = false;
 	}
 }
