@@ -59,6 +59,7 @@ public abstract class Enemy : MonoBehaviour
 			stopMoving = false;
 		}
 		move();
+		animator.SetBool("attack", attacking);
 	}
 
 	public void setGround(bool grounded) { ground = grounded; }
@@ -137,7 +138,7 @@ public abstract class Enemy : MonoBehaviour
 			direction = new Vector3(0, 0, 0); 
 			if(timer <= -1){ moving = true; }
 		}
-		animator.SetBool("moving", !attacking);
+		
 	}
 
 	public Vector3 getDirection()
