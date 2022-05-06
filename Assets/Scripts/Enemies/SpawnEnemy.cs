@@ -22,7 +22,7 @@ public class SpawnEnemy : MonoBehaviour
 		int order;
 		Enemy enemy = Instantiate(enemies[type], transform.position, Quaternion.identity);
 		if(spawn < 16 || spawn > 37){ order = -1; }
-		else{ order = 1; }
+		else{ order = 2; }
         enemy.transform.parent = transform;
 		enemy.centralTower = centralTower;
 		enemy.GetComponent<Renderer>().sortingOrder = order;

@@ -63,4 +63,8 @@ public class FlyingBruiser : Enemy
 		attackCollider.enabled = false;
 		takeDamage(health);
 	}
+	
+	void OnDestroy(){
+		Destroy(shadowObject);
+	}
 }

@@ -24,6 +24,11 @@ public class GameController : Singleton<GameController>
 	public bool towerPlaced;
 	public Tilemap mainMap;
 	public Tile emptyTile;
+	public bool doTutorial;
+	public TutorialTips TutorialUI;
+
+	public AudioSource musicMain;
+	public AudioSource musicLeviathan;
 
 	private List<Enemy> currEnemies;
 	private List<int[]> thisRound;
@@ -34,11 +39,6 @@ public class GameController : Singleton<GameController>
 	private int level;
 	private int upgrade;
 	private int leviathanSpawn;
-	public bool doTutorial=true;
-	public TutorialTips TutorialUI;
-
-	public AudioSource musicMain;
-	public AudioSource musicLeviathan;
 
 	// Start is called before the first frame update
 	void Start()

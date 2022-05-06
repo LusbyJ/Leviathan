@@ -12,6 +12,7 @@ public abstract class Enemy : MonoBehaviour
 	public Transform centralTower;
 	public bool moving;
 	public bool attacking;
+	public bool poisoned;
 	public Rigidbody2D rb;
 	public float timer;
 	public float timerInterval;
@@ -22,7 +23,6 @@ public abstract class Enemy : MonoBehaviour
 	private bool ground;
 	private bool flying;
 	private bool stopMoving;
-	private bool poisoned;
 	private bool dying;
 	private bool dead;
 	private float poisonTimer;
@@ -161,6 +161,11 @@ public abstract class Enemy : MonoBehaviour
 			Physics2D.IgnoreCollision(collision.collider, GetComponent<BoxCollider2D>());
 		}
 		if (collision.gameObject.tag == "Tower" && moving)
+		{
+			stopMoving = true;
+			attacking = true;
+		}
+		if (collision.gameObject.tag == "Slum" && moving)
 		{
 			stopMoving = true;
 			attacking = true;

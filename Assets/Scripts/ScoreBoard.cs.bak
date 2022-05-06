@@ -19,7 +19,8 @@ public class ScoreBoard : MonoBehaviour
 	
     void Awake()
     {
-        highScores = new int[10]{   PlayerPrefs.GetInt("1_Score"),
+        scorePopup.SetActive(false);
+		highScores = new int[10]{   PlayerPrefs.GetInt("1_Score"),
 									PlayerPrefs.GetInt("2_Score"),
 									PlayerPrefs.GetInt("3_Score"),
 									PlayerPrefs.GetInt("4_Score"),
@@ -48,6 +49,9 @@ public class ScoreBoard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+		if(scorePopup.activeSelf == true && Input.GetKeyDown(KeyCode.Return)){
+			saveNewName();
+		}
         for(int i = 0; i < 10; i++){
 			scoreTexts[i].text = "" + highScores[i];
 			nameTexts[i].text = scoreNames[i];
@@ -89,7 +93,7 @@ public class ScoreBoard : MonoBehaviour
 	}
 	
 	void SaveNewName(){
-		string newName = input.text;
+		string newName = input.text.ToUpper();
 		if(scoreInd > -1){ 
 			scoreNames[scoreInd] = newName;
 			PlayerPrefs.SetString(((scoreInd+1) + "_Name"), newName);

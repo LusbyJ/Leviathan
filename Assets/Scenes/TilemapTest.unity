@@ -1072,7 +1072,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &127591264 stripped
 MonoBehaviour:
@@ -1653,7 +1653,7 @@ Transform:
   - {fileID: 184493009}
   - {fileID: 1445884384}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &339744283
 GameObject:
@@ -6693,6 +6693,8 @@ MonoBehaviour:
   emptyTile: {fileID: 11400000, guid: 9fa41082edbb44444bf16a5622532042, type: 2}
   doTutorial: 1
   TutorialUI: {fileID: 4194664330210975612}
+  musicMain: {fileID: 504532582}
+  musicLeviathan: {fileID: 1728072440}
 --- !u!4 &1299160855
 Transform:
   m_ObjectHideFlags: 0
@@ -7276,7 +7278,7 @@ Transform:
   m_LocalScale: {x: 1.9631642, y: 2.3689291, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1376359903 stripped
 Transform:
@@ -8932,6 +8934,133 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707329852}
   m_CullTransparentMesh: 1
+--- !u!1 &1728072439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1728072441}
+  - component: {fileID: 1728072440}
+  m_Layer: 0
+  m_Name: LeviathanMusic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1728072440
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728072439}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: bf902877cb268114eaeac2e701582752, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1728072441
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728072439}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.0115484, y: -0.4273204, z: -2690.9536}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1773011254
 GameObject:
   m_ObjectHideFlags: 0
@@ -53315,7 +53444,7 @@ Transform:
   - {fileID: 1773400933}
   - {fileID: 77609800}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 8.77, y: 0, z: 0}
 --- !u!114 &1885287075
 MonoBehaviour:
@@ -55007,6 +55136,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1849686502}
     m_Modifications:
+    - target: {fileID: 306066920069907685, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_text
+      value: So you're the new defense strategist.  The first wave of enemies is
+        incoming, so get ready!  These lil bastards are ground enemies, so I'd recommend
+        a Gunner District.  Drag one from the menu on the left into the designated
+        colony zone.
+      objectReference: {fileID: 0}
+    - target: {fileID: 656704767022817155, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_text
+      value: Okay, so the assualt is going on longer than expected.  It seems like
+        some sort of breeding pattern in the Leviathans causes them to show up every
+        10 rounds.  I'm going to take the first ship off this planet, but I have
+        full faith that you can protect the colony.  Good luck soldier, and I'll
+        see you in hell!
+      objectReference: {fileID: 0}
+    - target: {fileID: 747906919499177309, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_text
+      value: A larger group of flying enemies is coming!  We know they're coming
+        because of the hard work of the Scout Team!  Their report comes to you at
+        the top right of the screen- pay attention to it!  The first step of warfare
+        is to know your enemy!
+      objectReference: {fileID: 0}
+    - target: {fileID: 2282158845881401904, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_text
+      value: If you're a less than stellar commander you may have noticed the rubble
+        left behind by your destroyed districts.  The district will remain burning
+        until the Supply Corps can show up to do something about it.  You won't be
+        able to build districts there until you defeat the Leviathan.  Speaking of
+        which...  Good luck!
+      objectReference: {fileID: 0}
     - target: {fileID: 2835767415075492096, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -55050,6 +55209,14 @@ PrefabInstance:
     - target: {fileID: 2835767415075492096, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5311085346442997508, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_text
+      value: You've probably also noticed, but the Scout Team has reported a large
+        creature on the horizon.  We're calling it the Leviathan, and there's an
+        indicator on your monitor to show the direction it's coming from.  It's a
+        real nasty bugger, so be prepared!  Scout Team predicts it will arrive sometime
+        around round 10.
       objectReference: {fileID: 0}
     - target: {fileID: 7793922429664231316, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_Name

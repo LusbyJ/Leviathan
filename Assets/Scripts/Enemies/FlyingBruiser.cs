@@ -44,6 +44,11 @@ public class FlyingBruiser : Enemy
 			moving = false;
 			StartCoroutine(attack());
 		}
+		if (collision.gameObject.tag == "Slum" && moving)
+		{
+			moving = false;
+			StartCoroutine(attack());
+		}
 		if(collision.gameObject.tag == "Slime")
         {
 			Destroy(collision.gameObject);
