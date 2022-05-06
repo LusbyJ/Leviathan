@@ -34,6 +34,11 @@ public class GameController : Singleton<GameController>
 	private int level;
 	private int upgrade;
 	private int leviathanSpawn;
+	public bool doTutorial=true;
+	public TutorialTips TutorialUI;
+
+	public AudioSource musicMain;
+	public AudioSource musicLeviathan;
 
 	// Start is called before the first frame update
 	void Start()
@@ -66,6 +71,7 @@ public class GameController : Singleton<GameController>
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
 		ScoreSO.Value = 1;
+		TutorialUI.performRound(0);
 	}
 
 	// Update is called once per frame
@@ -92,10 +98,13 @@ public class GameController : Singleton<GameController>
 					updateRound();
 					refreshTowers();
 					leviathanWarning();
-					if (round == 10) { 
+					if (round == 10) {
+						TutorialUI.performRound(9);
 						leviathan();
 						delayOver = false;
 					}
+					if(round == 11) { TutorialUI.performRound(10); }
+					if(round == 21) { TutorialUI.performRound(11); }
 					if (round == 1) { StartCoroutine(round1()); }
 					else if (round == 2) { StartCoroutine(round2()); }
 					else if (round == 3) { StartCoroutine(round3()); }
@@ -113,9 +122,16 @@ public class GameController : Singleton<GameController>
 						delayOver = false;
 						upgrade++;
 						if (level == 2) { level++; }
+						musicMain.Stop();
+						musicLeviathan.Play();
 					}
 					else
 					{
+                        if (round % 10 == 1)
+                        {
+							musicMain.Play();
+							musicLeviathan.Stop();
+						}
 						StartCoroutine(startRound());
 						delayOver = false;
 					}
@@ -387,6 +403,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round2()
 	{
+		TutorialUI.performRound(1);
 		nextRoundUI[0].sprite = enemyUI[2];
 
 		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 0));
@@ -413,6 +430,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round3()
 	{
+		TutorialUI.performRound(2);
 		nextRoundUI[0].sprite = enemyUI[1];
 
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 2));
@@ -422,6 +440,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round4()
 	{
+		TutorialUI.performRound(3);
 		nextRoundUI[0].sprite = enemyUI[1];
 
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
@@ -440,6 +459,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round5()
 	{
+		TutorialUI.performRound(4);
 		nextRoundUI[0].sprite = enemyUI[3];
 
 		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 1));
@@ -466,6 +486,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round6()
 	{
+		TutorialUI.performRound(5);
 		nextRoundUI[0].sprite = enemyUI[1];
 		nextRoundUI[1].sprite = enemyUI[2];
 		nextRoundUI[1].enabled = true;
@@ -477,6 +498,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round7()
 	{
+		TutorialUI.performRound(6);
 		nextRoundUI[0].sprite = enemyUI[0];
 		nextRoundUI[1].sprite = enemyUI[3];
 
@@ -494,6 +516,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round8()
 	{
+		TutorialUI.performRound(7);
 		nextRoundUI[0].sprite = enemyUI[2];
 		nextRoundUI[1].sprite = enemyUI[3];
 
@@ -511,6 +534,7 @@ public class GameController : Singleton<GameController>
 
 	private IEnumerator round9()
 	{
+		TutorialUI.performRound(8);
 		nextRoundUI[0].sprite = enemyUI[6];
 		nextRoundUI[1].enabled = false;
 
