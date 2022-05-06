@@ -33,7 +33,7 @@ public class ToolTipHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     { 
         if(enemyTip){ findEnemyTip(); }
 		tipToShow = tipToShow.Replace("\\n", "\n");
-		ToolTipManager.OnMouseHover(tipToShow, nameTip, Input.mousePosition);
+		ToolTipManager.OnMouseHover(tipToShow, nameTip, Input.mousePosition, enemyTip);
     }
 
     //Timer to wait so pup up doesn't immediately show up
