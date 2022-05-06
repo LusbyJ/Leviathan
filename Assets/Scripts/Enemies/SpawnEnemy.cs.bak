@@ -19,9 +19,13 @@ public class SpawnEnemy : MonoBehaviour
     }
 	
 	public Enemy spawnEnemyType(int spawn, int type){
+		int order;
 		Enemy enemy = Instantiate(enemies[type], transform.position, Quaternion.identity);
+		if(spawn < 14 || spawn > 36){ order = -1; }
+		else{ order = 1; }
         enemy.transform.parent = transform;
 		enemy.centralTower = centralTower;
+		enemy.GetComponent<Renderer>().sortingOrder = order;
 		return (Enemy)enemy;
 	}
 }
