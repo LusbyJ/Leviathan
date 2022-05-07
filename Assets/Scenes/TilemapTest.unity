@@ -1399,8 +1399,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d91af672a93dc8e498daf9764415f66b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tipToShow: 
-  nameTip: 
+  tipToShow: Default
+  nameTip: Default
   enemyTip: 1
 --- !u!4 &184493009 stripped
 Transform:
@@ -5757,6 +5757,8 @@ MonoBehaviour:
   tipText: {fileID: 16335793}
   nameText: {fileID: 348712893}
   tipWindow: {fileID: 1019999878}
+  enemyTipText: {fileID: 2129559657}
+  enemyNameText: {fileID: 939195761}
   enemyTipWindow: {fileID: 72759102}
 --- !u!4 &1075028324 stripped
 Transform:

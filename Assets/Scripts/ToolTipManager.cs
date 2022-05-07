@@ -9,6 +9,8 @@ public class ToolTipManager : MonoBehaviour
     public TextMeshProUGUI tipText;
     public TextMeshProUGUI nameText;
     public RectTransform tipWindow;
+	public TextMeshProUGUI enemyTipText;
+    public TextMeshProUGUI enemyNameText;
 	public RectTransform enemyTipWindow;
     public static Action<string, string, Vector2> OnMouseHover;
     public static Action OnMouseLoseFocus;
@@ -36,17 +38,17 @@ public class ToolTipManager : MonoBehaviour
 
     private void ShowTip(string tip, string name, Vector2 mousePos)
     {
-        tipText.text = tip;
-        nameText.text = name;
-		
-		if(!name.Contains("District")){ enemyTip = true; }
-		else{ enemyTip = false; }
+        if(!name.Contains("District")){ enemyTip = true; }
 		
 		if(enemyTip){
+			enemyTipText.text = tip;
+			enemyNameText.text = name;
 			enemyTipWindow.gameObject.SetActive(true);
 			enemyTipWindow.transform.position = new Vector2(mousePos.x - enemyTipWindow.sizeDelta.x * 2, mousePos.y);
 		}
 		else{
+			tipText.text = tip;
+			nameText.text = name;
 			tipWindow.gameObject.SetActive(true);
 			tipWindow.transform.position = new Vector2(mousePos.x + tipWindow.sizeDelta.x * 2, mousePos.y);
 		}
@@ -54,7 +56,9 @@ public class ToolTipManager : MonoBehaviour
 
     private void HideTip()
     {
-        if(enemyTip){ enemyTipWindow.gameObject.SetActive(false); }
+        Debug.Log("Exit");
+		if(enemyTip){ enemyTipWindow.gameObject.SetActive(false); }
 		else{ tipWindow.gameObject.SetActive(false); }
+		enemyTip = false;
     }
 }

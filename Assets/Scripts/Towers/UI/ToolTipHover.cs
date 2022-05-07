@@ -45,6 +45,7 @@ public class ToolTipHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	
 	private void findEnemyTip(){
 		string name = GetComponent<Image>().sprite.name;
+		//Debug.Log(name);
 		if(name.Equals("smol_ground_UI_symbol1")){
 			tipToShow = "Ground\nFast, but low health";
 			nameTip = "Ground Grunt";

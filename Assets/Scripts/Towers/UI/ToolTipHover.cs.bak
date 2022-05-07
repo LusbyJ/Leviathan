@@ -45,11 +45,26 @@ public class ToolTipHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 	
 	private void findEnemyTip(){
 		string name = GetComponent<Image>().sprite.name;
+		Debug.Log(name);
 		if(name.Equals("smol_ground_UI_symbol1")){
 			tipToShow = "Ground\nFast, but low health";
 			nameTip = "Ground Grunt";
-		}
-		else{
+		} else if(name.Equals("smol_flying_UI_symbol1")){
+			tipToShow = "Flying\nFast, but low health";
+			nameTip = "Flying Grunt";
+		} else if(name.Equals("bruiser_UI_symbol")){
+			tipToShow = "Ground\nSlow heavy hitter";
+			nameTip = "Ground Bruiser";
+		} else if(name.Equals("flying_bruiser_UI_symbol1")){
+			tipToShow = "Flying\nSlow, but explodes on impact";
+			nameTip = "Flying Bruiser";
+		} else if(name.Equals("poisonUISymbol")){
+			tipToShow = "Ground\nSlows down district attacks";
+			nameTip = "Ground Poisoner";
+		} else if(name.Equals("leviathan_UI_symbol1")){
+			tipToShow = "Ground and Flying\nSlow moving, devastatingly strong";
+			nameTip = "Leviathan";
+		} else{
 			tipToShow = "Default";
 			nameTip = "Default Name";
 		}
