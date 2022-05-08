@@ -72,6 +72,7 @@ public class GameController : Singleton<GameController>
 		leviathanSpawn = Random.Range(0, 4);
 		ScoreSO.Value = 1;
 		TutorialUI.performRound(0);
+		StartCoroutine(tutorialDelay());
 	}
 
 	// Update is called once per frame
@@ -98,13 +99,17 @@ public class GameController : Singleton<GameController>
 					updateRound();
 					refreshTowers();
 					leviathanWarning();
-					if (round == 10) {
+					if(round == 10) {
 						TutorialUI.performRound(9);
 						leviathan();
 						delayOver = false;
 					}
-					if(round == 11) { TutorialUI.performRound(10); }
-					if(round == 21) { TutorialUI.performRound(11); }
+					if(round == 11) {
+						TutorialUI.performRound(10); 
+					}
+					if(round == 21) {
+						TutorialUI.performRound(11); 
+					}
 					if (round == 1) { StartCoroutine(round1()); }
 					else if (round == 2) { StartCoroutine(round2()); }
 					else if (round == 3) { StartCoroutine(round3()); }
@@ -343,6 +348,14 @@ public class GameController : Singleton<GameController>
 	private IEnumerator startRound()
 	{
 		int temp;
+		if(round == 10 || round == 11 || round == 21){
+			if(doTutorial){
+				delayed = true;
+				yield return new WaitForSeconds(15); 
+				delayOver = true;
+				delayed = false;
+			}
+		}
 		thisRound = new List<int[]>(nextRound);
 		nextRound.Clear();
 		if (round % 10 == 9) { leviathan(); }
@@ -366,12 +379,23 @@ public class GameController : Singleton<GameController>
 		thisRound.Clear();
 	}
 	
+	private IEnumerator tutorialDelay(){ 
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
+	}
+	
 	private IEnumerator roundDelay(){
-		delayed = true;
-		skipDelayButton.interactable = true;
-		if(round % 10 == 0){ yield return new WaitForSeconds(5); }
-		else{ yield return new WaitForSeconds(3); }
-		skipDelayButton.interactable = false;
+		if(!doTutorial || (round > 10 && round != 20)){
+			delayed = true;
+			skipDelayButton.interactable = true;
+			if(round % 10 == 0){ yield return new WaitForSeconds(5); }
+			else{ yield return new WaitForSeconds(3); }
+			skipDelayButton.interactable = false;
+		}
 		delayOver = true;
 		delayed = false;
 	}
@@ -404,7 +428,14 @@ public class GameController : Singleton<GameController>
 	private IEnumerator round2()
 	{
 		TutorialUI.performRound(1);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[2];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 0));
 		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
@@ -425,23 +456,39 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[13].spawnEnemyType(13, 0));
 		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 0));
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 0));
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round3()
 	{
 		TutorialUI.performRound(2);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[1];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 2));
 		yield return new WaitForSeconds(2);
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round4()
 	{
 		TutorialUI.performRound(3);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[1];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
@@ -454,13 +501,21 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[35].spawnEnemyType(35, 1));
 		currEnemies.Add(spawnPoints[36].spawnEnemyType(36, 1));
 		currEnemies.Add(spawnPoints[37].spawnEnemyType(37, 1));
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round5()
 	{
 		TutorialUI.performRound(4);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[3];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 1));
 		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 1));
@@ -481,26 +536,42 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[13].spawnEnemyType(13, 1));
 		currEnemies.Add(spawnPoints[14].spawnEnemyType(14, 1));
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 1));
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round6()
 	{
 		TutorialUI.performRound(5);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[1];
 		nextRoundUI[1].sprite = enemyUI[2];
 		nextRoundUI[1].enabled = true;
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[15].spawnEnemyType(15, 3));
 		yield return new WaitForSeconds(2);
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round7()
 	{
 		TutorialUI.performRound(6);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[0];
 		nextRoundUI[1].sprite = enemyUI[3];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[26].spawnEnemyType(26, 2));
 		yield return new WaitForSeconds(2);
@@ -511,14 +582,22 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[27].spawnEnemyType(27, 1));
 		currEnemies.Add(spawnPoints[28].spawnEnemyType(28, 1));
 		currEnemies.Add(spawnPoints[29].spawnEnemyType(29, 1));
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round8()
 	{
 		TutorialUI.performRound(7);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[2];
 		nextRoundUI[1].sprite = enemyUI[3];
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[6].spawnEnemyType(6, 3));
 		yield return new WaitForSeconds(2);
@@ -529,19 +608,27 @@ public class GameController : Singleton<GameController>
 		currEnemies.Add(spawnPoints[7].spawnEnemyType(7, 0));
 		currEnemies.Add(spawnPoints[8].spawnEnemyType(8, 0));
 		currEnemies.Add(spawnPoints[9].spawnEnemyType(9, 0));
+		thisRound.Clear();
 		delayOver = false;
 	}
 
 	private IEnumerator round9()
 	{
 		TutorialUI.performRound(8);
+		if(doTutorial){
+			delayed = true;
+			yield return new WaitForSeconds(15); 
+			delayOver = true;
+			delayed = false;
+		}
 		nextRoundUI[0].sprite = enemyUI[6];
 		nextRoundUI[1].enabled = false;
-
+		thisRound.Add(new int[]{0,0});
 
 		currEnemies.Add(spawnPoints[39].spawnEnemyType(39, 2));
 		yield return new WaitForSeconds(2);
 		currEnemies.Add(spawnPoints[19].spawnEnemyType(19, 3));
+		thisRound.Clear();
 		delayOver = false;
 	}
 }
