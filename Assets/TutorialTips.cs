@@ -7,6 +7,7 @@ public class TutorialTips : MonoBehaviour
 {
     public GameController Controller;
     public GameObject[] text;
+    public AudioClip[] voiceLines;
     public Image character;
     public Image textbox;
 
