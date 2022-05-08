@@ -10,11 +10,10 @@ public class TutorialTips : MonoBehaviour
     public AudioClip[] voiceLines;
     public Image character;
     public Image textbox;
+    public AudioSource audioSource;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-
     }
     public void performRound(int RoundVal)
     {
@@ -23,6 +22,8 @@ public class TutorialTips : MonoBehaviour
             closeTextbox();
             gameObject.SetActive(true);
             text[RoundVal].SetActive(true);
+            audioSource.clip=voiceLines[RoundVal];
+            audioSource.Play(0);
         }
     }
     public void closeTextbox()
