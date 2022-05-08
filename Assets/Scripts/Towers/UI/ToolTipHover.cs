@@ -31,7 +31,7 @@ public class ToolTipHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     //Displays upgrade window
     public void ShowToolTip()
     { 
-        if(enemyTip){ findEnemyTip(); }
+        // if(enemyTip){ findEnemyTip(); }
 		tipToShow = tipToShow.Replace("\\n", "\n");
 		ToolTipManager.OnMouseHover(tipToShow, nameTip, Input.mousePosition);
     }
