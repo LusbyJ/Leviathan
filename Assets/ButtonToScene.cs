@@ -9,4 +9,10 @@ public class ButtonToScene : MonoBehaviour
     public void Click(){
       SceneManager.LoadScene(scene);
     }
+    
+    public void QuitGame() 
+   {
+       Debug.Log ("QUIT");
+       Application.Quit();
+   }
 }
