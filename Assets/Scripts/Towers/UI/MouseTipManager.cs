@@ -35,7 +35,6 @@ public class MouseTipManager : MonoBehaviour
     //Changes upgrade icons
     public void setIcon(int icon1, int icon2)
     {
-        Debug.Log("Hello");
         if (icon1 == 1)
         {
             Icon1.sprite = fireSpeed;
