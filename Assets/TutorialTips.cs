@@ -32,5 +32,6 @@ public class TutorialTips : MonoBehaviour
             text[i].SetActive(false);
         }
         gameObject.SetActive(false);
+        audioSource.Stop();
     }
 }
