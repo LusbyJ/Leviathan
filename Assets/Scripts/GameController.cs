@@ -60,7 +60,7 @@ public class GameController : Singleton<GameController>
 		nextRoundUI[2].enabled = false;
 		nextRoundUI[3].enabled = false;
 		round = 0;
-		credits = 5000;
+		credits = 1000;
 		currEnemies = new List<Enemy>();
 		thisRound = new List<int[]>();
 		nextRound = new List<int[]>();
@@ -105,10 +105,10 @@ public class GameController : Singleton<GameController>
 						delayOver = false;
 					}
 					if(round == 11) {
-						TutorialUI.performRound(10); 
+						TutorialUI.performRound(10);
 					}
 					if(round == 21) {
-						TutorialUI.performRound(11); 
+						TutorialUI.performRound(11);
 					}
 					if (round == 1) { StartCoroutine(round1()); }
 					else if (round == 2) { StartCoroutine(round2()); }
@@ -351,7 +351,7 @@ public class GameController : Singleton<GameController>
 		if(round == 10 || round == 11 || round == 21){
 			if(doTutorial){
 				delayed = true;
-				yield return new WaitForSeconds(15); 
+				yield return new WaitForSeconds(15);
 				delayOver = true;
 				delayed = false;
 			}
@@ -378,16 +378,16 @@ public class GameController : Singleton<GameController>
 		foreach (Enemy e in currEnemies) { e.levelUp(upgrade); }
 		thisRound.Clear();
 	}
-	
-	private IEnumerator tutorialDelay(){ 
+
+	private IEnumerator tutorialDelay(){
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
 	}
-	
+
 	private IEnumerator roundDelay(){
 		if(!doTutorial || (round > 10 && round != 20)){
 			delayed = true;
@@ -399,7 +399,7 @@ public class GameController : Singleton<GameController>
 		delayOver = true;
 		delayed = false;
 	}
-	
+
 	void delayButton(){
 		StopCoroutine(roundDelay());
 		skipDelayButton.interactable = false;
@@ -430,7 +430,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(1);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -465,7 +465,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(2);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -483,7 +483,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(3);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -510,7 +510,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(4);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -545,7 +545,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(5);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -565,7 +565,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(6);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -591,7 +591,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(7);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}
@@ -617,7 +617,7 @@ public class GameController : Singleton<GameController>
 		TutorialUI.performRound(8);
 		if(doTutorial){
 			delayed = true;
-			yield return new WaitForSeconds(15); 
+			yield return new WaitForSeconds(15);
 			delayOver = true;
 			delayed = false;
 		}

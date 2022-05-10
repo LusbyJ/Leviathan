@@ -52,7 +52,7 @@ public class DroneTarget : MonoBehaviour
                 GameObject foe=foeScr.gameObject;
                 Vector2 FoeVector=new Vector2(Owner.transform.position.x,Owner.transform.position.y)-new Vector2(foe.transform.position.x,foe.transform.position.y);
                 float FoeDist=FoeVector.magnitude;
-                if(FoeDist<TargetDist){
+                if(FoeDist<Summoner.LeashRange&&(Target==Owner||Random.value<0.2)){
                   Target=foe;
                   TargetDist=FoeDist;
                 }

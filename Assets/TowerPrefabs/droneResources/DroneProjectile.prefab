@@ -98,4 +98,5 @@ MonoBehaviour:
   StartPosition: {x: 0, y: 0, z: 0}
   Target: {fileID: 0}
   LerpSpd: 3
-  Damage: 2
+  Damage: 4
+  animator: {fileID: 0}
