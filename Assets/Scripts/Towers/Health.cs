@@ -33,6 +33,7 @@ public class Health : MonoBehaviour
         if(gameObject.name == "Central")
         {
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.centralHit);
+            GameObject.FindWithTag("VoiceController").GetComponent<VoiceController>().PlayCentralClip();
         }
        
         if(gameObject.name != "Central")
@@ -69,6 +70,10 @@ public class Health : MonoBehaviour
         {
             SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.gameOver);
             SceneManager.LoadScene("GameOver");
+        }
+        else
+        {
+            GameObject.FindWithTag("VoiceController").GetComponent<VoiceController>().PlayDestroyedClip();
         }
 
         //Remove tower position from tower list and destroy tower

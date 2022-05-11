@@ -3249,6 +3249,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 487075889}
   m_CullTransparentMesh: 1
+--- !u!1 &491928915
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491928917}
+  - component: {fileID: 491928916}
+  m_Layer: 0
+  m_Name: VoiceController
+  m_TagString: VoiceController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &491928916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491928915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9c141bd05afac744aad345884093386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoVoiceTime: 300
+  VoiceSource: {fileID: 1371763567}
+  CentralDamage:
+  - {fileID: 8300000, guid: 04c1f1b9e730cbe49a6562c454669158, type: 3}
+  - {fileID: 8300000, guid: eb6c4103d6718c740b5c73b30437c415, type: 3}
+  - {fileID: 8300000, guid: c2ad95258e87acc47a1a24ea543c8879, type: 3}
+  - {fileID: 8300000, guid: 4d85665a565114b4b8865434184f38dc, type: 3}
+  TowerDestroyed:
+  - {fileID: 8300000, guid: 969d6829be13fab4285a55d41f7c9731, type: 3}
+  - {fileID: 8300000, guid: 50a4fc4fb932dac4dadb964d3c430d17, type: 3}
+  - {fileID: 8300000, guid: 3f9f2d79aaa96f74298dfe6a78c4d4ce, type: 3}
+  - {fileID: 8300000, guid: 81b1077ecaba1b241a4973f7a5bea319, type: 3}
+  - {fileID: 8300000, guid: 8f0751bfd7840e54d86dadc9c803eed9, type: 3}
+  - {fileID: 8300000, guid: 5f13fe2be5dfd714f957311ee6e2ca09, type: 3}
+  - {fileID: 8300000, guid: 96e1674859af2604fad79248ef49552b, type: 3}
+  Levialthan:
+  - {fileID: 8300000, guid: dccab2ba4397da14cb7a8eea5f42e158, type: 3}
+  - {fileID: 8300000, guid: 73b9281e8e2e7e748b10d373e7ce2064, type: 3}
+  - {fileID: 8300000, guid: 4a16f3934c241ff4fb0ec26f643af790, type: 3}
+  - {fileID: 8300000, guid: b2095dbca2b12884eaf8f6d70a41d071, type: 3}
+  - {fileID: 8300000, guid: 47c597d588adb8045bab443a61882d52, type: 3}
+  Restock:
+  - {fileID: 8300000, guid: 097b4074b5285124190cec5c7df4b727, type: 3}
+  - {fileID: 8300000, guid: c9f6903d42e487149ad52b6dff3285e6, type: 3}
+  - {fileID: 8300000, guid: 9250b960631aaca4caeb9c43d18a7f74, type: 3}
+  - {fileID: 8300000, guid: 84ae30d64af83cd4d9a8f7be526735b4, type: 3}
+--- !u!4 &491928917
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491928915}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1181.1241, y: 904.0417, z: -296.3389}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &504532581
 GameObject:
   m_ObjectHideFlags: 0
