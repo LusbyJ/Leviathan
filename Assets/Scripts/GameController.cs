@@ -129,11 +129,13 @@ public class GameController : Singleton<GameController>
 						if (level == 2) { level++; }
 						musicMain.Stop();
 						musicLeviathan.Play();
+						GameObject.FindWithTag("VoiceController").GetComponent<VoiceController>().PlayLeviathanClip();
 					}
 					else
 					{
                         if (round % 10 == 1)
                         {
+							GameObject.FindWithTag("VoiceController").GetComponent<VoiceController>().PlayRepairClip();
 							musicMain.Play();
 							musicLeviathan.Stop();
 						}
