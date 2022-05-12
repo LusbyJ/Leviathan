@@ -7402,7 +7402,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 691.78815, y: -574.48535}
+  m_AnchoredPosition: {x: 714.5, y: -466.8}
   m_SizeDelta: {x: 115.1594, y: 51.741}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1262354917
@@ -56492,6 +56492,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2188836257130335373, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 2282158845881401904, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_text
       value: If you're a less than stellar commander you may have noticed the rubble
@@ -56510,7 +56514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2835767415075492096, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 904.13184
+      value: 952
       objectReference: {fileID: 0}
     - target: {fileID: 2835767415075492096, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_LocalPosition.z
@@ -56566,6 +56570,14 @@ PrefabInstance:
         you can upgrade a district by left-clicking on it.  Each district gets a
         unique benefit from upgrading, and once a district is upgraded to level three
         you get a spiffy active ability!  Plus, my house'll get a second story!
+      objectReference: {fileID: 0}
+    - target: {fileID: 5838935930542406614, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -376
+      objectReference: {fileID: 0}
+    - target: {fileID: 6146028276891421871, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -378.71008
       objectReference: {fileID: 0}
     - target: {fileID: 6885620248043048283, guid: c3e35988af627b9468292b3bb36d2b56, type: 3}
       propertyPath: m_IsActive
