@@ -3293,7 +3293,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 8f0751bfd7840e54d86dadc9c803eed9, type: 3}
   - {fileID: 8300000, guid: 5f13fe2be5dfd714f957311ee6e2ca09, type: 3}
   - {fileID: 8300000, guid: 96e1674859af2604fad79248ef49552b, type: 3}
-  Levialthan:
+  Leviathan:
   - {fileID: 8300000, guid: dccab2ba4397da14cb7a8eea5f42e158, type: 3}
   - {fileID: 8300000, guid: 73b9281e8e2e7e748b10d373e7ce2064, type: 3}
   - {fileID: 8300000, guid: 4a16f3934c241ff4fb0ec26f643af790, type: 3}
@@ -7829,6 +7829,7 @@ MonoBehaviour:
   TutorialUI: {fileID: 4194664330210975612}
   musicMain: {fileID: 504532582}
   musicLeviathan: {fileID: 1728072440}
+  Tutorial: {fileID: 11400000, guid: 55ed7c0fa6d79b64eb52e9cd5d80cf6c, type: 2}
 --- !u!4 &1299160855
 Transform:
   m_ObjectHideFlags: 0
@@ -56663,7 +56664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d92b93777b91e84e80d1f400dcf9bd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Controller: {fileID: 1299160854}
+  Tutorial: {fileID: 11400000, guid: 55ed7c0fa6d79b64eb52e9cd5d80cf6c, type: 2}
   text:
   - {fileID: 4194664330210975610}
   - {fileID: 4194664330210975609}

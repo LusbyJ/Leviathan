@@ -40,6 +40,7 @@ public class GameController : Singleton<GameController>
 	private int upgrade;
 	private int leviathanSpawn;
 
+	public BoolSO Tutorial;
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -71,6 +72,7 @@ public class GameController : Singleton<GameController>
 		upgrade = 0;
 		leviathanSpawn = Random.Range(0, 4);
 		ScoreSO.Value = 1;
+		doTutorial=Tutorial.Value;
 		TutorialUI.performRound(0);
 		StartCoroutine(tutorialDelay());
 	}

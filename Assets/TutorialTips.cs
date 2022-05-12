@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class TutorialTips : MonoBehaviour
 {
-    public GameController Controller;
+    public BoolSO Tutorial;
     public GameObject[] text;
     public AudioClip[] voiceLines;
     public Image character;
@@ -14,10 +14,13 @@ public class TutorialTips : MonoBehaviour
 
     void Start()
     {
+      if(!Tutorial.Value){
+        gameObject.SetActive(false);
+      }
     }
     public void performRound(int RoundVal)
     {
-        if (Controller.doTutorial)
+        if (Tutorial.Value)
         {
             closeTextbox();
             gameObject.SetActive(true);
